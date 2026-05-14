@@ -3,64 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Base Ativa — Segurança · Seguros · Conteúdo · maio 2026</title>
+<title>EXA Analytics — Base Ativa · mai/2026</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#080c17;--surf:#0f1822;--surf2:#162030;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --bg:#080c17;--surf:#0f1822;--surf2:#162030;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
   --text:#eef2ff;--muted:#5e7a99;
-  --blue:#4f8ef7;--green:#0fd48a;--amber:#f6a734;--red:#f05252;--purple:#9b6ef3;--teal:#19c9b0;--pink:#f472b6;
+  --blue:#4f8ef7;--green:#0fd48a;--amber:#f6a734;--red:#f05252;
+  --purple:#9b6ef3;--teal:#19c9b0;--pink:#f472b6;
   --sans:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
-  /* verticais */
-  --seg-c:#4f8ef7;--seg-bg:rgba(79,142,247,.12);
-  --segu-c:#0fd48a;--segu-bg:rgba(15,212,138,.12);
-  --cont-c:#f6a734;--cont-bg:rgba(246,167,52,.12);
+  --seg-c:#4f8ef7;--seg-bg:rgba(79,142,247,.13);
+  --segu-c:#0fd48a;--segu-bg:rgba(15,212,138,.13);
+  --cont-c:#f6a734;--cont-bg:rgba(246,167,52,.13);
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;min-height:100vh;padding-top:56px}
-
-/* ── TOP NAV ── */
-.topnav{position:fixed;top:0;left:0;right:0;height:56px;background:var(--surf);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 24px;gap:0}
+/* TOP NAV */
+.topnav{position:fixed;top:0;left:0;right:0;height:56px;background:var(--surf);border-bottom:1px solid var(--border);z-index:1000;display:flex;align-items:center;padding:0 24px;gap:0}
 .brand{font-size:13px;font-weight:600;color:var(--text);font-family:var(--mono);margin-right:28px;white-space:nowrap}
 .brand span{color:var(--muted);font-weight:400}
 .vert-tabs{display:flex;gap:4px;flex:1}
-.vert-tab{display:flex;align-items:center;gap:8px;padding:8px 18px;border-radius:8px;border:1px solid transparent;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;color:var(--muted);background:none;white-space:nowrap}
+.vert-tab{display:flex;align-items:center;gap:8px;padding:8px 20px;border-radius:8px;border:1px solid transparent;font-size:13px;font-weight:500;cursor:pointer;transition:all .18s;color:var(--muted);background:none;white-space:nowrap}
 .vert-tab .vtdot{width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
 .vert-tab:hover{background:var(--surf2);color:var(--text)}
 .vert-tab.seg.active{background:var(--seg-bg);color:var(--seg-c);border-color:rgba(79,142,247,.3)}
 .vert-tab.segu.active{background:var(--segu-bg);color:var(--segu-c);border-color:rgba(15,212,138,.3)}
 .vert-tab.cont.active{background:var(--cont-bg);color:var(--cont-c);border-color:rgba(246,167,52,.3)}
-.topnav-right{font-size:11px;font-family:var(--mono);color:var(--muted);white-space:nowrap}
-
-/* ── LAYOUT ── */
+.nav-right{font-size:11px;font-family:var(--mono);color:var(--muted);white-space:nowrap}
+/* LAYOUT */
 .shell{display:flex;min-height:calc(100vh - 56px)}
-.sidebar{width:220px;min-width:220px;background:var(--surf);border-right:1px solid var(--border);padding:24px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;display:flex;flex-direction:column}
+.sidebar{width:220px;min-width:220px;background:var(--surf);border-right:1px solid var(--border);padding:22px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;display:flex;flex-direction:column}
 .main{flex:1;overflow-x:hidden}
-
-/* ── VERTICAL PANELS ── */
+/* VERT PANELS */
 .vert-panel{display:none}.vert-panel.active{display:block}
-
-/* ── SIDEBAR ── */
+/* SIDEBAR CONTENT */
 .sb-header{padding:0 18px 18px;border-bottom:1px solid var(--border);margin-bottom:12px}
-.sb-tag{font-size:10px;font-weight:500;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:3px}
-.sb-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.3}
+.sb-tag{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+.sb-title{font-size:15px;font-weight:600;color:var(--text);line-height:1.3}
 .sb-sub{font-size:11px;color:var(--muted);margin-top:3px;font-family:var(--mono)}
 .nav-sect{padding:0 10px;margin-bottom:4px}
-.nav-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 8px;margin-bottom:3px;display:block}
-.nav-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:7px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s;text-decoration:none;border:none;background:none;width:100%;text-align:left}
+.nav-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 8px;margin-bottom:4px;display:block}
+.nav-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:7px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s;text-decoration:none;border:none;background:none;width:100%;text-align:left}
 .nav-item:hover{background:var(--surf2);color:var(--text)}
-.nav-item.active{color:var(--blue)}
 .nav-item.active.seg{background:rgba(79,142,247,.12);color:var(--seg-c)}
 .nav-item.active.segu{background:rgba(15,212,138,.12);color:var(--segu-c)}
 .nav-item.active.cont{background:rgba(246,167,52,.12);color:var(--cont-c)}
 .nav-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
 .sb-foot{margin-top:auto;padding:14px 18px 0;border-top:1px solid var(--border)}
 .sb-badge{font-size:10px;font-family:var(--mono);color:var(--muted);line-height:1.6}
-
-/* ── SECTIONS ── */
-.section{padding:34px 34px;border-bottom:1px solid var(--border)}
-.hero{padding:34px 34px 26px;border-bottom:1px solid var(--border)}
+/* SECTIONS */
+.section{padding:32px 32px;border-bottom:1px solid var(--border)}
+.hero{padding:32px 32px 24px;border-bottom:1px solid var(--border)}
 .hero.seg{background:linear-gradient(135deg,rgba(79,142,247,.06) 0%,transparent 55%)}
 .hero.segu{background:linear-gradient(135deg,rgba(15,212,138,.06) 0%,transparent 55%)}
 .hero.cont{background:linear-gradient(135deg,rgba(246,167,52,.06) 0%,transparent 55%)}
@@ -68,10 +63,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .s-tag.seg{color:var(--seg-c)}.s-tag.segu{color:var(--segu-c)}.s-tag.cont{color:var(--cont-c)}
 .s-title{font-size:21px;font-weight:600;color:var(--text);line-height:1.2}
 .s-sub{font-size:13px;color:var(--muted);margin-top:5px}
-
-/* ── KPIS ── */
+/* KPIS */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.kpi{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:17px 18px;position:relative;overflow:hidden}
+.kpi{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .kpi.seg::before{background:var(--seg-c)}.kpi.segu::before{background:var(--segu-c)}.kpi.cont::before{background:var(--cont-c)}
 .kpi.am::before{background:var(--amber)}.kpi.te::before{background:var(--teal)}
@@ -79,100 +73,78 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .kpi-val{font-size:24px;font-weight:600;color:var(--text);font-family:var(--mono);line-height:1}
 .kpi-d{font-size:11px;margin-top:5px;font-family:var(--mono)}
 .pos{color:var(--green)}.neg{color:var(--red)}.neu{color:var(--muted)}
-
-/* ── TABS ── */
+/* TABS */
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:20px}
 .tab{padding:8px 16px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
 .tab.active.seg{color:var(--seg-c);border-bottom-color:var(--seg-c)}
 .tab.active.segu{color:var(--segu-c);border-bottom-color:var(--segu-c)}
 .tab.active.cont{color:var(--cont-c);border-bottom-color:var(--cont-c)}
 .tab-pane{display:none}.tab-pane.active{display:block}
-
-/* ── CARDS / CHARTS ── */
+/* CARDS */
 .cg{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:17px}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:16px}
 .card.full{grid-column:1/-1}
 .ct{font-size:12px;font-weight:500;color:var(--text);margin-bottom:3px}
 .cs{font-size:11px;color:var(--muted);margin-bottom:13px}
 .cw{position:relative;width:100%}
-
-/* ── BARS ── */
+/* BARS */
 .bl{display:flex;flex-direction:column;gap:9px}
 .bi{display:flex;align-items:center;gap:9px}
 .bn{font-size:11px;color:var(--text);width:210px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--mono)}
 .bt{flex:1;background:rgba(255,255,255,.05);border-radius:3px;height:8px;overflow:hidden}
 .bf{height:100%;border-radius:3px}
 .bv{font-size:11px;color:var(--muted);width:100px;text-align:right;flex-shrink:0;font-family:var(--mono)}
-
-/* ── TABLE ── */
+/* TABLE */
 .dt{width:100%;border-collapse:collapse;font-size:12px}
 .dt th{text-align:left;padding:7px 11px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
 .dt td{padding:7px 11px;border-bottom:1px solid var(--border);font-family:var(--mono);color:var(--text)}
 .dt tr:last-child td{border-bottom:none}
 .dt tr:hover td{background:var(--surf2)}
-
-/* ── ALERTS ── */
+/* ALERTS */
 .al{border-radius:8px;padding:13px 15px;margin-bottom:11px;font-size:12px;line-height:1.75}
 .al-gr{background:rgba(15,212,138,.07);border-left:3px solid var(--green);color:#a7f3d0}
 .al-am{background:rgba(246,167,52,.07);border-left:3px solid var(--amber);color:#fde68a}
 .al-rd{background:rgba(240,82,82,.07);border-left:3px solid var(--red);color:#fecaca}
 .al-bl{background:rgba(79,142,247,.07);border-left:3px solid var(--blue);color:#bfdbfe}
 .al strong{font-weight:600;color:var(--text)}
-
-/* ── MISC ── */
+/* MISC */
 .leg{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:11px}
 .li{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
 .ld{width:10px;height:10px;border-radius:2px;flex-shrink:0}
-.pg{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:17px}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:16px}
 .pb{padding:14px;border-right:1px solid var(--border)}
 .pb:last-child{border-right:none}
-.pb.hi{background:rgba(79,142,247,.08)}
-.pb.gr{background:rgba(15,212,138,.07)}
+.pb.hi{background:rgba(79,142,247,.08)}.pb.gr{background:rgba(15,212,138,.07)}
 .p-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
 .p-val{font-size:17px;font-weight:600;color:var(--text);font-family:var(--mono)}
 .p-sub{font-size:11px;color:var(--muted);margin-top:3px}
-.canal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:18px}
+.canal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:16px}
 .canal-pill{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
 .canal-name{font-size:11px;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:.08em}
 .canal-val{font-size:19px;font-weight:600;color:var(--text);font-family:var(--mono)}
 .canal-d{font-size:10px;margin-top:3px;font-family:var(--mono)}
-.divider{border:none;border-top:1px solid var(--border);margin:20px 0}
 .pn{font-size:10px;color:var(--muted);text-align:center;padding:14px}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 </style>
 </head>
 <body>
 
-<!-- ══ TOP NAV ════════════════════════════════════════════════════════════ -->
 <nav class="topnav">
   <div class="brand">EXA <span>Analytics</span></div>
   <div class="vert-tabs">
-    <button class="vert-tab seg active" onclick="switchVert('seg',this)">
-      <span class="vtdot"></span>Segurança
-    </button>
-    <button class="vert-tab segu" onclick="switchVert('segu',this)">
-      <span class="vtdot"></span>Seguros
-    </button>
-    <button class="vert-tab cont" onclick="switchVert('cont',this)">
-      <span class="vtdot"></span>Conteúdo
-    </button>
+    <button class="vert-tab seg active" onclick="switchVert('seg',this)"><span class="vtdot"></span>Segurança</button>
+    <button class="vert-tab segu"       onclick="switchVert('segu',this)"><span class="vtdot"></span>Seguros</button>
+    <button class="vert-tab cont"       onclick="switchVert('cont',this)"><span class="vtdot"></span>Conteúdo</button>
   </div>
-  <div class="topnav-right">Base Ativa · mai/2026</div>
+  <div class="nav-right">Base Ativa · mai/2026</div>
 </nav>
 
 <div class="shell">
-
-<!-- ══ SIDEBAR ════════════════════════════════════════════════════════════ -->
-<nav class="sidebar" id="sidebar">
-  <!-- preenchida via JS por vertical -->
-</nav>
-
-<!-- ══ MAIN ═══════════════════════════════════════════════════════════════ -->
+<nav class="sidebar" id="sidebar"><!-- preenchida via JS --></nav>
 <div class="main">
 
-<!-- ████████████ VERTICAL: SEGURANÇA ████████████ -->
+<!-- ████ SEGURANÇA ████ -->
 <div class="vert-panel active" id="panel-seg">
-
   <div class="hero seg" id="seg-overview">
     <div style="margin-bottom:20px">
       <div class="s-tag seg">// segurança · maio 2026</div>
@@ -180,21 +152,19 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="s-sub">21 parceiros · 8 ofertas · 4 canais pai · 53 meses de histórico</div>
     </div>
     <div class="kpi-grid">
-      <div class="kpi seg"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val" id="seg-kpi-total">27,76M</div><div class="kpi-d neg">▼ 140.660 vs abr/26 (−0,5%)</div></div>
+      <div class="kpi seg"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">27,76M</div><div class="kpi-d neg">▼ 140.660 vs abr/26 (−0,5%)</div></div>
       <div class="kpi segu"><div class="kpi-lbl">Crescimento YoY</div><div class="kpi-val">+26,8%</div><div class="kpi-d pos">mai/25: 21,89M → mai/26: 27,76M</div></div>
       <div class="kpi am"><div class="kpi-lbl">Pico histórico</div><div class="kpi-val">29,21M</div><div class="kpi-d neu">dez/2025 · −5% desde o pico</div></div>
       <div class="kpi te"><div class="kpi-lbl">Concentração TIM</div><div class="kpi-val">98,8%</div><div class="kpi-d neg">TIM + TIM Emp + TIM Live</div></div>
     </div>
   </div>
-
   <div class="section" id="seg-produto-pai">
-    <div class="s-tag seg">// produto pai · segurança</div>
-    <div class="s-title">Canais por Produto Pai</div>
-    <div class="s-sub">Somatório individual por canal · base somada onde produto aparece em múltiplos canais</div>
+    <div class="s-tag seg">// produto pai</div><div class="s-title">Canais por Produto Pai</div>
+    <div class="s-sub">Base somada individualmente por canal</div>
     <div style="margin-top:18px">
       <div class="tabs">
         <div class="tab active seg" onclick="swTab(this,'seg-tab-unif')">Visão Unificada</div>
-        <div class="tab" onclick="swTab(this,'seg-tab-exato')">Exato (como vem na base)</div>
+        <div class="tab" onclick="swTab(this,'seg-tab-exato')">Exato</div>
         <div class="tab" onclick="swTab(this,'seg-tab-evol')">Evolução 24 meses</div>
       </div>
       <div class="tab-pane active" id="seg-tab-unif">
@@ -202,53 +172,29 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
         <div id="seg-pai-unif-bars"></div>
         <div class="al al-am" style="margin-top:14px"><strong>Atenção:</strong> Help Desk aparece em 99,8% da base pois está presente em todas as combinações de plano. A métrica isolada de Exa Segurança (23,6M) é mais representativa do produto em si.</div>
       </div>
-      <div class="tab-pane" id="seg-tab-exato">
-        <div style="font-size:11px;color:var(--muted);margin-bottom:14px">Combinações exatas como constam na base</div>
-        <div id="seg-pai-exato-bars"></div>
-      </div>
+      <div class="tab-pane" id="seg-tab-exato"><div id="seg-pai-exato-bars"></div></div>
       <div class="tab-pane" id="seg-tab-evol">
         <div class="leg" id="seg-canal-leg"></div>
         <div class="cw" style="height:280px"><canvas id="seg-canalEvolChart"></canvas></div>
       </div>
     </div>
   </div>
-
   <div class="section" id="seg-oferta">
-    <div class="s-tag seg">// por oferta · segurança</div>
-    <div class="s-title">Distribuição por Oferta</div>
-    <div class="s-sub">Base mai/26 · variação MoM</div>
+    <div class="s-tag seg">// por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">Base mai/26 · variação MoM</div>
     <div style="margin-top:18px" class="cg">
-      <div class="card">
-        <div class="ct">Volume por oferta · mai/26</div><div class="cs">Com Δ% vs abr/26</div>
-        <div id="seg-oferta-bars"></div>
-      </div>
-      <div class="card">
-        <div class="ct">Share por oferta</div><div class="cs">Proporção da base mai/26</div>
-        <div class="cw" style="height:260px"><canvas id="seg-ofertaDonut"></canvas></div>
-      </div>
+      <div class="card"><div class="ct">Volume por oferta · mai/26</div><div class="cs">Δ% vs abr/26</div><div id="seg-oferta-bars"></div></div>
+      <div class="card"><div class="ct">Share por oferta</div><div class="cs">Proporção mai/26</div><div class="cw" style="height:260px"><canvas id="seg-ofertaDonut"></canvas></div></div>
     </div>
   </div>
-
   <div class="section" id="seg-parceiro">
-    <div class="s-tag seg">// por parceiro · segurança</div>
-    <div class="s-title">Distribuição por Parceiro</div>
-    <div class="s-sub">YoY e novos entrantes</div>
+    <div class="s-tag seg">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">Base mai/26 · YoY</div>
     <div style="margin-top:18px" class="cg">
-      <div class="card">
-        <div class="ct">Volume por parceiro · mai/26</div><div class="cs">Com Δ% MoM</div>
-        <div id="seg-parc-bars"></div>
-      </div>
-      <div class="card">
-        <div class="ct">YoY mai/25 → mai/26</div><div class="cs"></div>
-        <table class="dt" id="seg-yoy-table"></table>
-      </div>
+      <div class="card"><div class="ct">Volume por parceiro</div><div class="cs">Δ% MoM</div><div id="seg-parc-bars"></div></div>
+      <div class="card"><div class="ct">YoY mai/25 → mai/26</div><div class="cs"></div><table class="dt" id="seg-yoy-table"></table></div>
     </div>
   </div>
-
   <div class="section" id="seg-evolucao">
-    <div class="s-tag seg">// evolução histórica · segurança</div>
-    <div class="s-title">Crescimento da Base — jan/2022 a mai/2026</div>
-    <div class="s-sub">53 meses · 4 fases identificadas</div>
+    <div class="s-tag seg">// evolução histórica</div><div class="s-title">Crescimento — jan/2022 a mai/2026</div><div class="s-sub">53 meses · 4 fases</div>
     <div style="margin-top:18px">
       <div class="pg">
         <div class="pb"><div class="p-lbl">Fase 1 · jan/22–mar/24</div><div class="p-val">+68k/mês</div><div class="p-sub">1,8M ao final</div></div>
@@ -257,41 +203,31 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
         <div class="pb hi"><div class="p-lbl">Fase 4 · jan/26–mai/26</div><div class="p-val">+515k/mês</div><div class="p-sub">27,8M · desaceleração</div></div>
       </div>
       <div class="card full" style="margin-bottom:13px">
-        <div class="ct">Base ativa total · 53 meses</div><div class="cs">Quatro fases de crescimento identificadas · queda em jan/26 investigada nos alertas</div>
+        <div class="ct">Base ativa total · 53 meses</div><div class="cs">Quatro fases de crescimento · queda jan/26 nos alertas</div>
         <div class="cw" style="height:280px"><canvas id="seg-totalLine"></canvas></div>
       </div>
       <div class="cg">
-        <div class="card">
-          <div class="ct">Base não-TIM · últimos 12 meses</div><div class="cs">+189% YoY</div>
-          <div class="cw" style="height:200px"><canvas id="seg-nonTimBar"></canvas></div>
-        </div>
-        <div class="card">
-          <div class="ct">Escudo · produto em rampa</div><div class="cs">out/25 a mai/26 · +41× em 8 meses</div>
-          <div class="cw" style="height:200px"><canvas id="seg-escudoLine"></canvas></div>
-        </div>
+        <div class="card"><div class="ct">Base não-TIM · últimos 12 meses</div><div class="cs">+189% YoY</div><div class="cw" style="height:200px"><canvas id="seg-nonTimBar"></canvas></div></div>
+        <div class="card"><div class="ct">Escudo · produto em rampa</div><div class="cs">out/25 a mai/26 · +41× em 8 meses</div><div class="cw" style="height:200px"><canvas id="seg-escudoLine"></canvas></div></div>
       </div>
     </div>
   </div>
-
   <div class="section" id="seg-sinais">
-    <div class="s-tag seg">// sinais &amp; alertas · segurança</div>
-    <div class="s-title">Pontos de Atenção e Oportunidades</div>
-    <div class="s-sub">Para discussão com o time de produto</div>
+    <div class="s-tag seg">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção e Oportunidades</div><div class="s-sub">Para discussão com o time de produto</div>
     <div style="margin-top:18px">
-      <div class="al al-rd"><strong>🔴 Queda estrutural dez/25 → jan/26 (−3,5M em um mês)</strong><br>Base caiu 3,6M puxada por TIM + EXA SEGURANÇA (−3,4M). COMBO e EXA CLOUD cresceram no mesmo período. Padrão indica cancelamento em lote, não churn orgânico.</div>
-      <div class="al al-rd"><strong>🔴 Desaceleração na Fase 4 (jan–mai/26)</strong><br>+1,8M/mês em 2025 → +515k/mês em 2026. Sem novos grandes lotes TIM visíveis, recuperação virá da diversificação de parceiros.</div>
-      <div class="al al-am"><strong>🟡 Concentração TIM Group em 98,8%</strong><br>Qualquer renegociação com TIM impacta diretamente a base total. Diversificação acontece mas ainda é 1,2% da base.</div>
-      <div class="al al-gr"><strong>🟢 FASTSHOP entrou com 32k imediatos em mai/26</strong><br>Maior onboarding desde NIO (ago/25). Toda base em "Suporte Técnico Remoto". Se houver segunda leva, pode escalar rapidamente.</div>
-      <div class="al al-gr"><strong>🟢 Base não-TIM cresce +189% YoY</strong><br>De 117k (jun/25) para 339k (mai/26). Bradesco +780%, TIM Live +142%, ALGAR +77%. Velocidade de diversificação acelera.</div>
-      <div class="al al-gr"><strong>🟢 Escudo em rampa acelerada (+41× em 8 meses)</strong><br>18 → 746 assinaturas. Operado exclusivamente pela EXA. Próximo passo: qual parceiro leva o Escudo em escala?</div>
+      <div class="al al-rd"><strong>🔴 Queda estrutural dez/25 → jan/26 (−3,5M em um mês)</strong><br>Base caiu puxada por TIM + EXA SEGURANÇA (−3,4M nessa oferta). COMBO e EXA CLOUD cresceram no mesmo período — padrão de cancelamento em lote, não churn orgânico.</div>
+      <div class="al al-rd"><strong>🔴 Desaceleração na Fase 4</strong><br>+1,8M/mês em 2025 caiu para +515k/mês em 2026. Sem novos grandes lotes TIM, a recuperação virá da diversificação.</div>
+      <div class="al al-am"><strong>🟡 Concentração TIM Group em 98,8%</strong><br>Qualquer renegociação com TIM impacta a base total. Diversificação está crescendo (+189% YoY) mas ainda representa apenas 1,2%.</div>
+      <div class="al al-gr"><strong>🟢 FASTSHOP entrou com 32k imediatos em mai/26</strong><br>Maior onboarding desde NIO (ago/25). Toda base em Suporte Técnico Remoto. Segunda leva pode escalar rapidamente.</div>
+      <div class="al al-gr"><strong>🟢 Base não-TIM cresce +189% YoY</strong><br>De 117k (jun/25) para 339k (mai/26). Bradesco +780%, TIM Live +142%, ALGAR +77%.</div>
+      <div class="al al-gr"><strong>🟢 Escudo em rampa +41× em 8 meses</strong><br>18 → 746 assinaturas. Operado pela EXA. Próximo passo: qual parceiro leva o Escudo em escala?</div>
     </div>
   </div>
   <div class="pn">Segurança · 21 parceiros · 8 ofertas · mai/2026</div>
-</div><!-- /panel-seg -->
+</div>
 
-<!-- ████████████ VERTICAL: SEGUROS ████████████ -->
+<!-- ████ SEGUROS ████ -->
 <div class="vert-panel" id="panel-segu">
-
   <div class="hero segu" id="segu-overview">
     <div style="margin-bottom:20px">
       <div class="s-tag segu">// seguros · maio 2026</div>
@@ -305,85 +241,67 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="kpi te"><div class="kpi-lbl">Produto principal</div><div class="kpi-val">96,4%</div><div class="kpi-d neu">Seguro Celular · 48.546</div></div>
     </div>
   </div>
-
   <div class="section" id="segu-produto-pai">
-    <div class="s-tag segu">// produto pai · seguros</div>
-    <div class="s-title">Canal por Produto Pai</div>
-    <div class="s-sub">100% dos registros têm PRODUTO_PAI = "Seguros" — canal único, sem combinações</div>
+    <div class="s-tag segu">// produto pai</div><div class="s-title">Canal por Produto Pai</div>
+    <div class="s-sub">100% dos registros têm PRODUTO_PAI = "Seguros" — canal único</div>
     <div style="margin-top:18px">
       <div style="background:var(--surf);border:1px solid rgba(15,212,138,.35);border-radius:12px;padding:24px;text-align:center">
         <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Canal / App pai</div>
         <div style="font-size:38px;font-weight:700;color:var(--segu-c);font-family:var(--mono);margin:8px 0" id="segu-pai-val">—</div>
         <div style="font-size:11px;color:var(--muted)">PRODUTO_PAI = "Seguros" em 100% dos registros</div>
       </div>
-      <div class="al al-bl" style="margin-top:14px"><strong>Diferença vs. Segurança:</strong> na Segurança existem múltiplas combinações de canais pai que exigem somatório individual. Em Seguros, 100% dos registros têm PRODUTO_PAI = "Seguros" — sem combinações.</div>
+      <div class="al al-bl" style="margin-top:14px"><strong>Diferença vs. Segurança:</strong> em Segurança existem múltiplas combinações de canais pai que exigem somatório individual. Em Seguros, 100% dos registros têm PRODUTO_PAI = "Seguros".</div>
     </div>
   </div>
-
   <div class="section" id="segu-produto">
-    <div class="s-tag segu">// por produto · seguros</div>
-    <div class="s-title">Distribuição por Produto</div>
-    <div class="s-sub">Base mai/26 · variação MoM</div>
+    <div class="s-tag segu">// por produto</div><div class="s-title">Distribuição por Produto</div><div class="s-sub">Base mai/26 · variação MoM</div>
     <div style="margin-top:18px" class="cg">
-      <div class="card"><div class="ct">Volume por produto</div><div class="cs">Com Δ% vs abr/26</div><div id="segu-prod-bars"></div></div>
+      <div class="card"><div class="ct">Volume por produto</div><div class="cs">Δ% vs abr/26</div><div id="segu-prod-bars"></div></div>
       <div class="card"><div class="ct">Share por produto</div><div class="cs">mai/26</div><div class="cw" style="height:250px"><canvas id="segu-prodDonut"></canvas></div></div>
     </div>
   </div>
-
   <div class="section" id="segu-oferta">
-    <div class="s-tag segu">// por oferta · seguros</div>
-    <div class="s-title">Distribuição por Oferta</div>
-    <div class="s-sub">Base mai/26 · evolução histórica</div>
+    <div class="s-tag segu">// por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">Base mai/26 · evolução histórica</div>
     <div style="margin-top:18px" class="cg">
-      <div class="card"><div class="ct">Volume por oferta</div><div class="cs">Com Δ% MoM</div><div id="segu-oferta-bars"></div></div>
+      <div class="card"><div class="ct">Volume por oferta</div><div class="cs">Δ% MoM</div><div id="segu-oferta-bars"></div></div>
       <div class="card"><div class="ct">Evolução mensal por oferta</div><div class="cs">abr/25 a mai/26</div><div class="leg" id="segu-oferta-leg"></div><div class="cw" style="height:230px"><canvas id="segu-ofertaLine"></canvas></div></div>
     </div>
   </div>
-
   <div class="section" id="segu-parceiro">
-    <div class="s-tag segu">// por parceiro · seguros</div>
-    <div class="s-title">Distribuição por Parceiro</div>
-    <div class="s-sub">Base mai/26 · concentração e crescimento</div>
+    <div class="s-tag segu">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">Base mai/26 · concentração e crescimento</div>
     <div style="margin-top:18px" class="cg">
-      <div class="card"><div class="ct">Volume por parceiro</div><div class="cs">Com Δ% MoM</div><div id="segu-parc-bars"></div></div>
+      <div class="card"><div class="ct">Volume por parceiro</div><div class="cs">Δ% MoM</div><div id="segu-parc-bars"></div></div>
       <div class="card"><div class="ct">Evolução mensal por parceiro</div><div class="cs">abr/25 a mai/26</div><div class="leg" id="segu-parc-leg"></div><div class="cw" style="height:230px"><canvas id="segu-parcLine"></canvas></div></div>
     </div>
   </div>
-
   <div class="section" id="segu-evolucao">
-    <div class="s-tag segu">// evolução histórica · seguros</div>
-    <div class="s-title">Crescimento da Base — abr/2025 a mai/2026</div>
-    <div class="s-sub">14 meses consecutivos de crescimento · crescimento de 5.036×</div>
+    <div class="s-tag segu">// evolução histórica</div><div class="s-title">Crescimento — abr/2025 a mai/2026</div><div class="s-sub">14 meses consecutivos · 5.036×</div>
     <div style="margin-top:18px">
       <div class="card full" style="margin-bottom:13px">
-        <div class="ct">Base ativa total · 14 meses</div><div class="cs">Aceleração intensa em out/25 com entrada TIM em escala</div>
+        <div class="ct">Base ativa total · 14 meses</div><div class="cs">Aceleração intensa em out/25 com entrada TIM</div>
         <div class="cw" style="height:270px"><canvas id="segu-totalLine"></canvas></div>
       </div>
       <div class="cg">
-        <div class="card"><div class="ct">Crescimento absoluto MoM</div><div class="cs">Ganho líquido por mês</div><div class="cw" style="height:200px"><canvas id="segu-momBar"></canvas></div></div>
-        <div class="card"><div class="ct">EXA Escudo + EVA — produto em rampa</div><div class="cs">out/25 a mai/26 · +41× em 8 meses</div><div class="cw" style="height:200px"><canvas id="segu-escudoLine"></canvas></div></div>
+        <div class="card"><div class="ct">Crescimento absoluto MoM</div><div class="cs"></div><div class="cw" style="height:200px"><canvas id="segu-momBar"></canvas></div></div>
+        <div class="card"><div class="ct">EXA Escudo + EVA — produto em rampa</div><div class="cs">+41× em 8 meses</div><div class="cw" style="height:200px"><canvas id="segu-escudoLine"></canvas></div></div>
       </div>
     </div>
   </div>
-
   <div class="section" id="segu-sinais">
-    <div class="s-tag segu">// sinais &amp; alertas · seguros</div>
-    <div class="s-title">Pontos de Atenção e Oportunidades</div>
-    <div class="s-sub">Para discussão com o time de produto</div>
+    <div class="s-tag segu">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção e Oportunidades</div><div class="s-sub">Para discussão com o time de produto</div>
     <div style="margin-top:18px">
-      <div class="al al-gr"><strong>🟢 14 meses consecutivos de crescimento — 5.036×</strong><br>De 10 assinaturas (abr/25) a 50.365 (mai/26). Aceleração em out/25 (+2.590) e nov/25 (+6.991) com entrada TIM em escala.</div>
+      <div class="al al-gr"><strong>🟢 14 meses consecutivos — crescimento de 5.036×</strong><br>De 10 (abr/25) a 50.365 (mai/26). Aceleração em out/25 (+2.590) e nov/25 (+6.991) com entrada TIM em escala.</div>
       <div class="al al-gr"><strong>🟢 Seguro Celular motor principal (+10,3% MoM)</strong><br>96,4% da base. "Proteção Total" lidera com 37.497 assinaturas (74,5% do produto).</div>
-      <div class="al al-gr"><strong>🟢 EXA Escudo em rampa (+37,3% MoM)</strong><br>761 assinaturas combinadas. Maior % crescimento MoM da vertical.</div>
-      <div class="al al-am"><strong>🟡 ALGAR estagnado — 0% MoM</strong><br>144 assinaturas sem variação nos últimos dois meses. Oportunidade: Carteira Protegida e Escudo ainda ausentes no parceiro.</div>
-      <div class="al al-rd"><strong>🔴 Seguro Cyber estagnado — 2 assinaturas há 5 meses</strong><br>Somente via EXA. Necessita revisão de go-to-market ou avaliação de descontinuação.</div>
+      <div class="al al-gr"><strong>🟢 EXA Escudo em rampa (+37,3% MoM)</strong><br>761 assinaturas combinadas. Maior % de crescimento MoM da vertical.</div>
+      <div class="al al-am"><strong>🟡 ALGAR estagnado — 0% MoM</strong><br>144 assinaturas sem variação. Carteira Protegida e Escudo ainda ausentes no parceiro.</div>
+      <div class="al al-rd"><strong>🔴 Seguro Cyber — 2 assinaturas há 5 meses</strong><br>Somente via EXA. Necessita revisão de go-to-market ou avaliação de descontinuação.</div>
     </div>
   </div>
   <div class="pn">Seguros · 3 parceiros · 3 ofertas · mai/2026</div>
-</div><!-- /panel-segu -->
+</div>
 
-<!-- ████████████ VERTICAL: CONTEÚDO ████████████ -->
+<!-- ████ CONTEÚDO ████ -->
 <div class="vert-panel" id="panel-cont">
-
   <div class="hero cont" id="cont-overview">
     <div style="margin-bottom:20px">
       <div class="s-tag cont">// conteúdo · maio 2026</div>
@@ -397,11 +315,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="kpi te"><div class="kpi-lbl">Maior canal</div><div class="kpi-val">AYA Books</div><div class="kpi-d neu">116,9M · 78,6% da base</div></div>
     </div>
   </div>
-
   <div class="section" id="cont-produto-pai">
-    <div class="s-tag cont">// produto pai · conteúdo</div>
-    <div class="s-title">Canais por Produto Pai</div>
-    <div class="s-sub">Múltiplas combinações — base somada individualmente por canal</div>
+    <div class="s-tag cont">// produto pai</div><div class="s-title">Canais por Produto Pai</div><div class="s-sub">Múltiplas combinações — base somada individualmente por canal</div>
     <div style="margin-top:18px">
       <div class="tabs">
         <div class="tab active cont" onclick="swTab(this,'cont-tab-unif')">Visão Unificada</div>
@@ -414,7 +329,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       </div>
       <div class="tab-pane" id="cont-tab-exato">
         <div id="cont-pai-exato-bars"></div>
-        <div class="al al-bl" style="margin-top:14px"><strong>Como ler:</strong> "AYA Bancah, AYA Books" significa que o produto pertence aos dois canais — sua base (29,7M) conta em ambos na visão unificada.</div>
+        <div class="al al-bl" style="margin-top:14px"><strong>Como ler:</strong> "AYA Bancah, AYA Books" significa que o produto pertence a dois canais — sua base (29,7M) conta em ambos na visão unificada.</div>
       </div>
       <div class="tab-pane" id="cont-tab-evol">
         <div class="leg" id="cont-canal-leg"></div>
@@ -422,21 +337,15 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       </div>
     </div>
   </div>
-
   <div class="section" id="cont-oferta">
-    <div class="s-tag cont">// por oferta · conteúdo</div>
-    <div class="s-title">Distribuição por Oferta</div>
-    <div class="s-sub">Base mai/26 · variação MoM</div>
+    <div class="s-tag cont">// por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">Base mai/26 · variação MoM</div>
     <div style="margin-top:18px" class="cg">
-      <div class="card"><div class="ct">Volume por oferta</div><div class="cs">Com Δ% MoM</div><div id="cont-oferta-bars"></div></div>
+      <div class="card"><div class="ct">Volume por oferta</div><div class="cs">Δ% MoM</div><div id="cont-oferta-bars"></div></div>
       <div class="card"><div class="ct">Evolução últimos 12 meses</div><div class="cs"></div><div class="leg" id="cont-oferta-leg"></div><div class="cw" style="height:230px"><canvas id="cont-ofertaLine"></canvas></div></div>
     </div>
   </div>
-
   <div class="section" id="cont-parceiro">
-    <div class="s-tag cont">// por parceiro · conteúdo</div>
-    <div class="s-title">Distribuição por Parceiro</div>
-    <div class="s-sub">16 parceiros · YoY e novos entrantes</div>
+    <div class="s-tag cont">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">16 parceiros · YoY e novos entrantes</div>
     <div style="margin-top:18px">
       <div class="tabs">
         <div class="tab active cont" onclick="swTab(this,'cont-tab-parc-base')">Base mai/26</div>
@@ -448,11 +357,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="tab-pane" id="cont-tab-parc-new"><table class="dt" id="cont-new-parc-table"></table></div>
     </div>
   </div>
-
   <div class="section" id="cont-evolucao">
-    <div class="s-tag cont">// evolução histórica · conteúdo</div>
-    <div class="s-title">Crescimento da Base — mai/2022 a mai/2026</div>
-    <div class="s-sub">49 meses · 4 fases identificadas</div>
+    <div class="s-tag cont">// evolução histórica</div><div class="s-title">Crescimento — mai/2022 a mai/2026</div><div class="s-sub">49 meses · 4 fases</div>
     <div style="margin-top:18px">
       <div class="pg">
         <div class="pb"><div class="p-lbl">Fase 1 · mai/22–dez/23</div><div class="p-val">+586k/mês</div><div class="p-sub">4,7M → 25,5M</div></div>
@@ -461,7 +367,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
         <div class="pb hi"><div class="p-lbl">Fase 4 · set/25–mai/26</div><div class="p-val">+4,7M/mês</div><div class="p-sub">106,3M → 148,7M</div></div>
       </div>
       <div class="card full" style="margin-bottom:13px">
-        <div class="ct">Base ativa total · 49 meses</div><div class="cs">Quatro fases de crescimento</div>
+        <div class="ct">Base ativa total · 49 meses</div><div class="cs">Quatro fases identificadas</div>
         <div class="cw" style="height:280px"><canvas id="cont-totalLine"></canvas></div>
       </div>
       <div class="cg">
@@ -470,25 +376,21 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       </div>
     </div>
   </div>
-
   <div class="section" id="cont-sinais">
-    <div class="s-tag cont">// sinais &amp; alertas · conteúdo</div>
-    <div class="s-title">Pontos de Atenção e Oportunidades</div>
-    <div class="s-sub">Para discussão com o time de produto</div>
+    <div class="s-tag cont">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção e Oportunidades</div><div class="s-sub">Para discussão com o time de produto</div>
     <div style="margin-top:18px">
-      <div class="al al-gr"><strong>🟢 148M+ — crescimento de 31× em 4 anos</strong><br>Fase 3 foi a mais intensa (+8M/mês). Base estabilizou em ritmo mais saudável na Fase 4 (+4,7M/mês).</div>
+      <div class="al al-gr"><strong>🟢 148M+ — crescimento de 31× em 4 anos</strong><br>Fase 3 foi a mais intensa (+8M/mês). Fase 4 estabilizou em ritmo mais saudável (+4,7M/mês).</div>
       <div class="al al-gr"><strong>🟢 AYA Books domina com 116,9M (+1,6% MoM)</strong><br>78,6% da base. Minibooks Standard B Bundle lidera com 11,8M sozinho.</div>
       <div class="al al-gr"><strong>🟢 UNIFIQUE estreou em abr/26 com 248,9k (+4.634% MoM)</strong><br>Maior onboarding relativo da série histórica. Toda base em Aya Books.</div>
-      <div class="al al-gr"><strong>🟢 CARIAP cresce +8.058% YoY — de 18,5k para 1,5M</strong><br>Passou de irrelevante para o 4° maior parceiro em 12 meses.</div>
-      <div class="al al-am"><strong>🟡 AYA Bancah, Ensinah, Idiomas/Equilibrah levemente negativos no mês</strong><br>Todos crescem no longo prazo mas perderam impulso em mai/26. Padrão a observar.</div>
-      <div class="al al-rd"><strong>🔴 AYA Play estagnado — 565k com crescimento mínimo</strong><br>Apenas 0,4% da base. Crescimento lento desde mai/22. Vale revisar estratégia de bundling.</div>
+      <div class="al al-gr"><strong>🟢 CARIAP cresce +8.058% YoY — de 18,5k para 1,5M</strong><br>Passou de irrelevante para 4° maior parceiro em 12 meses.</div>
+      <div class="al al-am"><strong>🟡 AYA Bancah, Ensinah, Idiomas/Equilibrah levemente negativos no mês</strong><br>Todos crescem no longo prazo mas perderam impulso em mai/26.</div>
+      <div class="al al-rd"><strong>🔴 AYA Play estagnado — 565k com crescimento mínimo</strong><br>Apenas 0,4% da base. Vale revisar estratégia de bundling.</div>
     </div>
   </div>
   <div class="pn">Conteúdo · 16 parceiros · 6 ofertas · mai/2026</div>
-</div><!-- /panel-cont -->
+</div>
 
-</div><!-- /main -->
-</div><!-- /shell -->
+</div></div>
 
 <script>/*!
  * Chart.js v4.5.1
@@ -506,398 +408,493 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 //# sourceMappingURL=chart.umd.min.js.map
 </script>
 <script>
-// ══════════════════════════════════════════════════════════════════════
-// DADOS
-// ══════════════════════════════════════════════════════════════════════
-const SEG  = {"labels": ["jan/22", "fev/22", "mar/22", "abr/22", "mai/22", "jun/22", "jul/22", "ago/22", "set/22", "out/22", "nov/22", "dez/22", "jan/23", "fev/23", "mar/23", "abr/23", "mai/23", "jun/23", "jul/23", "ago/23", "set/23", "out/23", "nov/23", "dez/23", "jan/24", "fev/24", "mar/24", "abr/24", "mai/24", "jun/24", "jul/24", "ago/24", "set/24", "out/24", "nov/24", "dez/24", "jan/25", "fev/25", "mar/25", "abr/25", "mai/25", "jun/25", "jul/25", "ago/25", "set/25", "out/25", "nov/25", "dez/25", "jan/26", "fev/26", "mar/26", "abr/26", "mai/26"], "total": [30928, 66549, 119634, 157410, 261599, 309102, 356096, 408436, 463660, 522907, 586489, 648926, 725969, 770162, 941809, 1048224, 1100913, 1144215, 1189268, 1241089, 1285646, 1331229, 1386846, 1440459, 1500041, 1570517, 1801172, 4456181, 4611464, 4764539, 5303418, 5506613, 5690028, 5956902, 6282906, 6806826, 9447603, 10561511, 12430828, 14941578, 21890058, 23214470, 25182726, 28892789, 28817677, 28850491, 29058036, 29207290, 25702535, 26390878, 26723032, 27903380, 27762720], "helpdesk": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4456181, 4611464, 4764539, 5303418, 5506613, 5690028, 5956902, 6282906, 6806826, 9424396, 10538386, 12407896, 14918701, 21867258, 23191586, 25159833, 28869835, 28794683, 28827518, 29035012, 29184278, 25679476, 26367739, 26699410, 27879039, 27738364], "exaseg": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3127616, 3737260, 3874886, 4089407, 4361189, 4807294, 7065593, 8037416, 9732794, 12121069, 18843206, 20031395, 21802847, 25209635, 25113580, 25118058, 25253149, 25334240, 22052241, 22635751, 22787137, 23788957, 23645863, 0, 0, 0], "cloud": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2978515, 3248234, 3358370, 3480417, 3621026, 3762006, 4452792, 4692135, 4982033, 5323486, 5717006, 5987957, 6335226, 6832890, 6888349, 6962906, 7089053, 7196268, 7242784, 7439819, 7704716, 7956043, 7918218, 0, 0, 0], "nontim": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117166, 126536, 141898, 167323, 185340, 204424, 217306, 229579, 269299, 283606, 301619, 338655], "escudo": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 37, 42, 76, 132, 334, 551, 746], "total_mai": 27762720, "total_abr": 27903380, "total_mai25": 21890058, "pai_unif": {"Help Desk": 27738364, "Exa Seguran\u00e7a": 23645863, "Cloud": 7918218, "Escudo": 746}, "pai_exato": {"Exa Seguran\u00e7a, Help Desk": 19780573, "Cloud, Help Desk": 4077284, "Cloud, Exa Seg., Help Desk": 3840934, "Help Desk": 39573, "Exa Seguran\u00e7a": 23610, "Exa Seguran\u00e7a, Escudo": 746}, "oferta": {"EXA SEGURAN\u00c7A": 17101016, "COMBO": 6520491, "EXA CLOUD": 4077284, "Suporte T\u00e9cnico Remoto": 32353, "EXA GESTAO": 23610, "HELPDESK": 7220, "EXA Escudo": 710, "EXA Escudo EVA": 36}, "parceiro": {"TIM": 25417939, "TIM EMPRESAS": 1288487, "TIM LIVE": 717639, "ALGAR": 179628, "BRADESCO": 48549, "NIO": 35844, "FASTSHOP": 32631, "GIGA+": 23559}, "oferta_abr": {"EXA SEGURAN\u00c7A": 17206591, "COMBO": 6558025, "EXA CLOUD": 4107138, "EXA GESTAO": 23790, "HELPDESK": 7285, "EXA Escudo": 528, "EXA Escudo EVA": 23}, "parceiro_abr": {"TIM": 25786706, "TIM EMPRESAS": 1288487, "TIM LIVE": 719039, "ALGAR": 179637, "BRADESCO": 48549, "NIO": 35844, "GIGA+": 23583}};
+const SEG  = {"labels": ["jan/22", "fev/22", "mar/22", "abr/22", "mai/22", "jun/22", "jul/22", "ago/22", "set/22", "out/22", "nov/22", "dez/22", "jan/23", "fev/23", "mar/23", "abr/23", "mai/23", "jun/23", "jul/23", "ago/23", "set/23", "out/23", "nov/23", "dez/23", "jan/24", "fev/24", "mar/24", "abr/24", "mai/24", "jun/24", "jul/24", "ago/24", "set/24", "out/24", "nov/24", "dez/24", "jan/25", "fev/25", "mar/25", "abr/25", "mai/25", "jun/25", "jul/25", "ago/25", "set/25", "out/25", "nov/25", "dez/25", "jan/26", "fev/26", "mar/26", "abr/26", "mai/26"], "total": [30928, 66549, 119634, 157410, 261599, 309102, 356096, 408436, 463660, 522907, 586489, 648926, 725969, 770162, 941809, 1048224, 1100913, 1144215, 1189268, 1241089, 1285646, 1331229, 1386846, 1440459, 1500041, 1570517, 1801172, 4456181, 4611464, 4764539, 5303418, 5506613, 5690028, 5956902, 6282906, 6806826, 9447603, 10561511, 12430828, 14941578, 21890058, 23214470, 25182726, 28892789, 28817677, 28850491, 29058036, 29207290, 25702535, 26390878, 26723032, 27903380, 27762720], "helpdesk": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4456181, 4611464, 4764539, 5303418, 5506613, 5690028, 5956902, 6282906, 6806826, 9424396, 10538386, 12407896, 14918701, 21867258, 23191586, 25159833, 28869835, 28794683, 28827518, 29035012, 29184278, 25679476, 26367739, 26699410, 27879039, 27738364], "exaseg": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3127616, 3737260, 3874886, 4089407, 4361189, 4807294, 7065593, 8037416, 9732794, 12121069, 18843206, 20031395, 21802847, 25209635, 25113580, 25118058, 25253149, 25334240, 22052241, 22635751, 22787137, 23788957, 23645863, 0, 0, 0], "cloud": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2978515, 3248234, 3358370, 3480417, 3621026, 3762006, 4452792, 4692135, 4982033, 5323486, 5717006, 5987957, 6335226, 6832890, 6888349, 6962906, 7089053, 7196268, 7242784, 7439819, 7704716, 7956043, 7918218, 0, 0, 0], "nontim": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 117166, 126536, 141898, 167323, 185340, 204424, 217306, 229579, 269299, 283606, 301619, 338655], "escudo": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 37, 42, 76, 132, 334, 551, 746], "pai_unif": {"Help Desk": 27738364, "Exa Seguran\u00e7a": 23645863, "Cloud": 7918218, "Escudo": 746}, "pai_exato": {"Exa Seguran\u00e7a, Help Desk": 19780573, "Cloud, Help Desk": 4077284, "Cloud, Exa Seguran\u00e7a, Help Desk": 3840934, "Help Desk": 39573, "Exa Seguran\u00e7a": 23610, "Exa Seguran\u00e7a, Escudo": 746}, "oferta": {"EXA SEGURAN\u00c7A": 17101016, "COMBO": 6520491, "EXA CLOUD": 4077284, "Suporte T\u00e9cnico Remoto": 32353, "EXA GESTAO": 23610, "HELPDESK": 7220, "EXA Escudo": 710, "EXA Escudo EVA": 36}, "oferta_abr": {"EXA SEGURAN\u00c7A": 17206591, "COMBO": 6558025, "EXA CLOUD": 4107138, "EXA GESTAO": 23790, "HELPDESK": 7285, "EXA Escudo": 528, "EXA Escudo EVA": 23}, "parceiro": {"TIM": 25417939, "TIM EMPRESAS": 1288487, "TIM LIVE": 717639, "ALGAR": 179628, "BRADESCO": 48549, "NIO": 35844, "FASTSHOP": 32631, "GIGA+": 23559}, "parceiro_abr": {"TIM": 25786706, "TIM EMPRESAS": 1288487, "TIM LIVE": 719039, "ALGAR": 179637, "BRADESCO": 48549, "NIO": 35844, "GIGA+": 23583}, "total_mai": 27762720, "total_abr": 27903380, "total_mai25": 21890058};
 const SEGU = {"labels": ["04/25", "05/25", "06/25", "07/25", "08/25", "09/25", "10/25", "11/25", "12/25", "01/26", "02/26", "03/26", "04/26", "05/26"], "total": [10, 133, 316, 577, 805, 1138, 3728, 10719, 16972, 22296, 28293, 34974, 45597, 50365], "prod_mai": {"Seguro Celular": 48546, "Seguro carteira protegida": 1753, "Seguro Celular LMI": 64, "Seguro Cyber": 2}, "prod_abr": {"Seguro Celular": 44017, "Seguro Celular LMI": 35, "Seguro Cyber": 2, "Seguro carteira protegida": 1543}, "oferta_mai": {"EXA Seguros": 49604, "EXA Escudo": 725, "EXA Escudo EVA": 36}, "oferta_abr": {"EXA Escudo": 528, "EXA Escudo EVA": 23, "EXA Seguros": 45046}, "parc_mai": {"TIM": 49442, "EXA": 779, "ALGAR": 144}, "parc_abr": {"ALGAR": 144, "EXA": 569, "TIM": 44884}, "config_mai": {"Seguro Celular Protecao Total": 37497, "Seguro Celular Quebra Dano": 8594, "Seguro Celular Roubo Furto": 2311, "Annually Plan": 610, "Seguro Carteira Protegida Plus": 507, "Seguro Carteira Protegida Premium": 485, "Monthly Plan": 115, "Seguro Celular Protecao Total Algar": 57, "Exa Seguro Celular Lmi Bbb Tim 1200": 50, "Seguro Celular Usado Algar Plano1": 32}, "plano_mai": {"EXA Seguro Celular": 48546, "Seguro Carteira Protegida": 992, "EXA Escudo | Plano Anual": 610, "EXA Escudo | Plano Mensal": 115, "Seguro Celular LMI BBB TIM": 50, "plano_107": 36, "Seguro Celular LMI BBB": 14, "Seguro Cyber": 2}, "oferta_evol": {"EXA Escudo": [0, 0, 0, 0, 0, 0, 18, 37, 42, 76, 111, 312, 528, 725], "EXA Escudo EVA": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 22, 23, 36], "EXA Seguros": [10, 133, 316, 577, 805, 1138, 3710, 10682, 16930, 22220, 28161, 34640, 45046, 49604]}, "parc_evol": {"ALGAR": [5, 28, 47, 63, 82, 94, 115, 121, 126, 128, 130, 135, 144, 144], "EXA": [0, 0, 0, 0, 0, 0, 18, 37, 45, 80, 136, 338, 569, 779], "TIM": [5, 105, 269, 514, 723, 1044, 3595, 10561, 16801, 22088, 28027, 34501, 44884, 49442]}, "total_mai": 50365, "total_abr": 45597};
 const CONT = {"labels": ["05/22", "06/22", "07/22", "08/22", "09/22", "10/22", "11/22", "12/22", "01/23", "02/23", "03/23", "04/23", "05/23", "06/23", "07/23", "08/23", "09/23", "10/23", "11/23", "12/23", "01/24", "02/24", "03/24", "04/24", "05/24", "06/24", "07/24", "08/24", "09/24", "10/24", "11/24", "12/24", "01/25", "02/25", "03/25", "04/25", "05/25", "06/25", "07/25", "08/25", "09/25", "10/25", "11/25", "12/25", "01/26", "02/26", "03/26", "04/26", "05/26"], "total": [4772258, 5009358, 5504191, 6285754, 9205482, 10094699, 11650257, 13278750, 15485325, 16276072, 18362845, 19598004, 20379751, 20665446, 22588583, 23107195, 23494499, 24551955, 24912576, 25514160, 25933057, 26366005, 26996291, 32397246, 33525033, 34131277, 35770303, 36888991, 37606709, 38619527, 40168958, 42375183, 46488551, 50495634, 55837555, 64468437, 78140085, 82933697, 89639088, 106267448, 106261247, 109500339, 111052685, 113209205, 123606479, 127798458, 137347581, 147045992, 148678461], "canal_evol": {"AYA Books": [4772258, 5009358, 5504191, 6285754, 9205482, 10094699, 11650257, 13278750, 15485325, 16273523, 18360215, 19595321, 20377038, 20662700, 20884083, 21228034, 21548853, 22536013, 22817366, 23333731, 23659695, 24003681, 24540638, 26613340, 27536678, 27916158, 29263233, 30116097, 30569302, 31236462, 32019976, 33044999, 35997361, 39080574, 43145403, 50770982, 60875190, 64692762, 70057003, 84145793, 84360799, 87769494, 89376921, 91630484, 96894916, 100292979, 107515566, 115067326, 116951141], "AYA Bancah": [0, 0, 0, 3, 2414418, 2729912, 3356355, 4037622, 4934965, 5173367, 5587807, 5806797, 5924213, 6034369, 6153873, 6289154, 6400290, 6515068, 6652164, 6785417, 6936870, 7122613, 7485502, 8154722, 8357575, 8483990, 9426416, 9620344, 9773505, 10010060, 10347462, 10850762, 12575065, 13955076, 15211064, 16387605, 20139922, 21119038, 22838467, 26133297, 26333241, 26740569, 27101111, 27241347, 27772216, 28257375, 29172540, 30424077, 30299775], "AYA Ensinah": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1701721, 1876314, 1942770, 2013029, 2092263, 2177453, 2270340, 2359265, 2451817, 5467458, 5664283, 5883616, 6157726, 6413451, 6669344, 7005146, 7756091, 8925586, 10078697, 10990638, 12251377, 13238178, 16783498, 17742796, 19067863, 21590130, 21371034, 21202592, 21135792, 21034499, 26167210, 26957488, 29271654, 31395676, 31146263], "AYA Idiomas": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2434553, 2524460, 2630877, 2763935, 2880480, 3125025, 5298362, 5611710, 6478987, 8329857, 8974892, 10030270, 10652636, 10633462], "AYA Equilibrah": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2434553, 2524460, 2630877, 2763935, 2880480, 3125025, 5298362, 5611710, 6478987, 8329857, 8974892, 10030270, 10652636, 10633462], "AYA Play": [0, 0, 0, 0, 0, 0, 0, 0, 0, 1583, 1623, 1650, 1664, 1680, 1698, 1732, 1747, 1766, 1784, 1799, 1823, 1842, 2231, 301385, 308854, 316279, 334080, 344179, 352799, 362655, 377627, 389334, 397229, 409219, 425719, 444265, 466441, 483149, 499218, 516484, 514340, 513201, 524911, 529193, 529321, 532963, 545197, 567506, 565656]}, "pai_mai_unif": {"AYA Bancah": 30299775, "AYA Books": 116951141, "AYA Ensinah": 31146263, "AYA Equilibrah": 10633462, "AYA Idiomas": 10633462, "AYA Play": 565656}, "pai_abr_unif": {"AYA Bancah": 30424077, "AYA Books": 115067326, "AYA Ensinah": 31395676, "AYA Equilibrah": 10652636, "AYA Idiomas": 10652636, "AYA Play": 567506}, "pai_exato_mai": {"AYA Books": 76583043, "AYA Ensinah": 31146263, "AYA Bancah, AYA Books": 29734636, "AYA Books, AYA Equilibrah, AYA Idiomas": 10633462, "AYA Bancah, AYA Play": 549738, "AYA Play": 15918, "AYA Bancah": 15401}, "oferta_mai": {"Aya Books": 76583043, "AYA Bancah": 29734636, "Aya Ensinah": 22282237, "Aya Idiomas": 10633462, "Aya Equilibrah": 8864026, "AYA Play": 581057}, "oferta_abr": {"AYA Bancah": 29857099, "AYA Play": 582990, "Aya Books": 74557591, "Aya Ensinah": 22374611, "Aya Equilibrah": 9021065, "Aya Idiomas": 10652636}, "oferta_evol": {"AYA Bancah": [0, 0, 0, 3, 2414418, 2729912, 3356355, 4037622, 4934965, 5172401, 5586800, 5805764, 5923164, 6033303, 6152792, 6288039, 6399161, 6513921, 6651001, 6784240, 6935671, 7121396, 7483897, 7853844, 8049228, 8168218, 9092843, 9276672, 9421213, 9647912, 9970342, 10461935, 12178343, 13546363, 14785849, 15943846, 19673988, 20636399, 22339760, 25617326, 25819412, 26227879, 26576704, 26712659, 27243401, 27724921, 28627852, 29857099, 29734636], "AYA Play": [0, 0, 0, 0, 0, 0, 0, 0, 0, 2549, 2630, 2683, 2713, 2746, 2779, 2847, 2876, 2913, 2947, 2976, 3022, 3059, 3836, 316448, 324072, 331503, 349344, 359443, 368063, 377919, 392891, 404598, 412493, 424422, 440775, 459277, 481397, 498139, 514222, 531525, 529414, 528253, 539972, 544222, 544353, 547991, 560361, 582990, 581057], "Aya Books": [4772258, 5009358, 5504191, 6285751, 6791064, 7364787, 8293902, 9241128, 10550360, 11101122, 12773415, 13789557, 14453874, 14629397, 14731291, 14939995, 15149692, 16022092, 16166365, 16549491, 16724024, 16882285, 17056741, 18759496, 19487450, 19747940, 20170390, 20839425, 21148089, 21588550, 22049634, 22583064, 23819018, 25534211, 28359554, 32392583, 38676742, 41425486, 44953308, 55647987, 55416362, 56243253, 57188507, 58438838, 61321658, 63593166, 68857444, 74557591, 76583043], "Aya Ensinah": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1659381, 1831747, 1895607, 1962824, 2039438, 2121737, 2211280, 2296909, 2385677, 5396203, 5586906, 5800321, 6069706, 6322037, 6576257, 6911965, 7660432, 8826422, 9976242, 10798365, 11884304, 12831840, 16363829, 17322435, 18645236, 21153396, 20912824, 20745375, 20679273, 20570064, 20150827, 20273681, 21179428, 22374611, 22282237], "Aya Equilibrah": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42340, 44567, 47163, 50205, 52825, 55716, 59060, 62356, 66140, 71255, 77377, 83295, 88020, 91414, 93087, 93181, 95659, 99164, 102455, 192273, 367073, 406338, 419669, 420361, 422627, 436734, 458210, 457217, 456519, 464435, 6016383, 6683807, 8092226, 9021065, 8864026], "Aya Idiomas": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2434553, 2524460, 2630877, 2763935, 2880480, 3125025, 5298362, 5611710, 6478987, 8329857, 8974892, 10030270, 10652636, 10633462]}, "parc_mai": {"TIM": 140161209, "TIM LIVE": 3438891, "BRISANET": 1608308, "CARIAP": 1514488, "BRASILTECPAR": 1314043, "AFAGU": 249845, "UNIFIQUE": 248946, "VERISURE": 114688, "GIGA+": 22128, "NETAKI": 4261, "LCS WIFI": 1090, "LIGGA": 530, "Adllink": 13, "VIRTUAL TELECOM": 9, "ROSA_MASTER": 8, "IEZ TELECOM": 4}, "parc_abr": {"AFAGU": 249854, "Adllink": 13, "BRASILTECPAR": 1314313, "BRISANET": 1568903, "CARIAP": 1513116, "GIGA+": 22152, "IEZ TELECOM": 4, "LCS WIFI": 1094, "LIGGA": 528, "NETAKI": 4276, "TIM": 138792442, "TIM LIVE": 3458306, "UNIFIQUE": 5259, "VERISURE": 115723, "VIRTUAL TELECOM": 9}, "parc_mai25": {"AFAGU": 238637, "BRASILTECPAR": 1160686, "BRISANET": 621080, "CARIAP": 18564, "LCS WIFI": 1001, "NETAKI": 1583, "TIM": 74223535, "TIM LIVE": 1757244, "VERISURE": 117753, "VIRTUAL TELECOM": 2}, "parc_evol": {"AFAGU": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 224874, 225443, 226764, 227916, 228955, 230088, 231158, 232314, 233658, 234765, 235739, 237177, 238637, 240204, 241878, 243823, 245478, 247334, 248749, 249861, 249861, 249861, 249861, 249854, 249845], "Adllink": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 13, 13, 13, 13, 13, 13, 13, 13], "BRASILTECPAR": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2360, 355497, 355497, 685297, 1024569, 1033494, 1049310, 1067458, 1081235, 1099343, 1114779, 1129318, 1145750, 1160686, 1174565, 1190774, 1210739, 1233601, 1258708, 1280835, 1296483, 1296483, 1296483, 1301978, 1314313, 1314043], "BRISANET": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 277, 868, 1766, 5186, 11118, 16265, 28009, 40057, 54605, 78202, 102557, 130173, 163338, 200909, 238328, 281294, 326952, 371920, 418428, 465817, 511218, 565564, 621080, 680797, 758133, 831681, 910213, 999628, 1083324, 1161651, 1237458, 1317326, 1425810, 1568903, 1608308], "CARIAP": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2888, 2888, 2890, 2893, 3667, 4970, 9341, 10275, 12233, 12625, 13017, 18564, 25175, 27596, 347531, 674512, 1176802, 1439323, 1456487, 1479055, 1493232, 1506876, 1513116, 1514488], "GIGA+": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2055, 5343, 9515, 12913, 17099, 19103, 20390, 21285, 22152, 22128], "IEZ TELECOM": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 3, 4, 4, 4, 4, 4, 4, 4], "LCS WIFI": [0, 49, 74, 74, 74, 126, 126, 286, 287, 287, 606, 607, 732, 732, 849, 930, 972, 972, 972, 972, 972, 972, 972, 972, 972, 972, 972, 973, 973, 973, 973, 973, 973, 982, 987, 993, 1001, 1007, 1020, 1032, 1041, 1052, 1055, 1057, 1071, 1080, 1089, 1094, 1090], "LIGGA": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72, 238, 490, 528, 530], "NETAKI": [0, 0, 2, 3, 3, 15, 28, 60, 84, 95, 120, 176, 229, 263, 300, 338, 370, 404, 452, 512, 570, 604, 631, 660, 695, 728, 759, 815, 859, 896, 928, 970, 1011, 1089, 1185, 1330, 1583, 1997, 2351, 2428, 2603, 2862, 3006, 3393, 3658, 3856, 4139, 4276, 4261], "ROSA_MASTER": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8], "TIM": [4772258, 5009309, 5504115, 6285677, 9205397, 10068499, 11621420, 13246690, 15449749, 16236704, 18257520, 19469333, 20247421, 20527693, 22443701, 22957286, 23339490, 24389862, 24740824, 25096859, 25493150, 25903025, 26506026, 31867192, 32378380, 32935068, 34187724, 34835030, 35460405, 36329505, 37457201, 39544143, 43507184, 47362618, 52238788, 60714896, 74223535, 78863231, 85378817, 101365093, 100807565, 103291718, 104351815, 105760579, 115905935, 119913306, 129270707, 138792442, 140161209], "TIM LIVE": [0, 0, 0, 0, 8, 26059, 28683, 31714, 35205, 38986, 104599, 127888, 131369, 136752, 143456, 147773, 151901, 155531, 159210, 399552, 410356, 421347, 434057, 447860, 462054, 477854, 496976, 566791, 593669, 623416, 978926, 1033871, 1117225, 1194685, 1590216, 1671992, 1757244, 1828895, 1920628, 2144849, 2262166, 2393421, 2511505, 3142196, 3293384, 3382287, 3444947, 3458306, 3438891], "UNIFIQUE": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5259, 248946], "VERISURE": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 2654, 5584, 29096, 47131, 100376, 100390, 100414, 100452, 108664, 117477, 117716, 117753, 117824, 117889, 118214, 118707, 119276, 120136, 120375, 120375, 120375, 120375, 115723, 114688], "VIRTUAL TELECOM": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 7, 7, 7, 7, 7, 9, 9]}, "prod_mai": {"Minilivro": 44504633, "Feed, Jornal, Revista": 29734636, "Livro": 24143862, "Apostila": 22282237, "Busuu, Exerc\u00edcio, Minilivro": 10633462, "V\u00eddeo-Aula": 8864026, "Audiolivro": 7932867, "Esporte, Not\u00edcias": 549738, "Esporte": 15918, "Not\u00edcias": 15401, "Audiolivro, Livro, Minilivro": 1679, "Audiolivro, Minilivro": 2}, "prod_abr": {"Apostila": 22374611, "Audiolivro": 7887119, "Audiolivro, Livro, Minilivro": 1161, "Audiolivro, Minilivro": 2, "Busuu, Exerc\u00edcio, Minilivro": 10652636, "Esporte": 16012, "Esporte, Not\u00edcias": 551494, "Feed, Jornal, Revista": 29857099, "Livro": 24013580, "Minilivro": 42655729, "Not\u00edcias": 15484, "V\u00eddeo-Aula": 9021065}, "config_mai": {"Aya Minibooks Standard B Bundle": 11792035, "Bancah Premium Jornais Bundle": 10417447, "Aya Books Bundle": 9057722, "Bancah Jornais Ii Bundle": 8774770, "Ensinah Premium Bundle": 8415115, "Aya Ensinah Premium Bundle": 8231924, "Aya Books Premium Bundle Corp": 6320440, "Aya Minibooks Light C Bundle": 6134694, "Aya Minibooks Standard A Bundle": 5173269, "Aya Minibooks 3 Promo Bundle": 5092664, "Aya Books Premium Bundle": 4591165, "Equilibrah Stand Bundle": 4198636}, "plano_mai": {"plano_96": 44504633, "plano_94": 29734636, "plano_97": 23885443, "plano_100": 22282004, "plano_102": 10633457, "plano_101": 8864026, "plano_99": 7932867, "plano_104": 549738, "plano_98": 258419, "plano_105": 15918, "plano_103": 15401, "Standard": 1727}, "parc_first": {"TIM": "2022-05", "LCS WIFI": "2022-06", "NETAKI": "2022-07", "TIM LIVE": "2022-09", "BRISANET": "2023-06", "BRASILTECPAR": "2024-04", "AFAGU": "2024-05", "VERISURE": "2024-05", "CARIAP": "2024-06", "VIRTUAL TELECOM": "2024-07", "GIGA+": "2025-08", "IEZ TELECOM": "2025-08", "Adllink": "2025-09", "LIGGA": "2026-01", "UNIFIQUE": "2026-04", "ROSA_MASTER": "2026-05"}, "total_mai": 148678461, "total_abr": 147045992, "total_mai25": 78140085};
-
-// ══════════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
 // UTILITÁRIOS
-// ══════════════════════════════════════════════════════════════════════
-const GRID='rgba(255,255,255,0.05)', TEXT='#eef2ff';
-const TICK = {color:'#5e7a99', font:{size:10}};
-function fmt(v){return v>=1e9?(v/1e9).toFixed(2)+'B':v>=1e6?(v/1e6).toFixed(1)+'M':v>=1000?(v/1000).toFixed(1)+'k':String(v);}
-function fmtN(v){return Number(v).toLocaleString('pt-BR');}
+// ══════════════════════════════════════════════════════
+const GRID = 'rgba(255,255,255,0.05)';
+const TICK = { color: '#5e7a99', font: { size: 10 } };
+const TEXT_C = '#eef2ff';
 
-function buildBars(id, items, maxVal){
-  const el=document.getElementById(id); if(!el) return;
-  el.className='bl'; let h='';
-  items.forEach(function(it){
-    const pct=maxVal>0?Math.max((it[1]/maxVal)*100,0.3):0;
-    h+='<div class="bi"><span class="bn" title="'+it[0]+'">'+it[0]+'</span>'+
-       '<div class="bt"><div class="bf" style="width:'+pct+'%;background:'+it[2]+'"></div></div>'+
-       '<span class="bv">'+fmtN(it[1])+(it[3]||'')+'</span></div>';
-  });
-  el.innerHTML=h;
+function fmt(v) {
+  return v >= 1e9 ? (v/1e9).toFixed(2)+'B'
+       : v >= 1e6 ? (v/1e6).toFixed(1)+'M'
+       : v >= 1e3 ? (v/1e3).toFixed(1)+'k'
+       : String(v);
+}
+function fmtN(v) { return Number(v).toLocaleString('pt-BR'); }
+
+function buildBars(id, items, maxVal) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.className = 'bl';
+  el.innerHTML = items.map(function(it) {
+    const pct = maxVal > 0 ? Math.max((it[1]/maxVal)*100, 0.3) : 0;
+    return '<div class="bi">'
+      + '<span class="bn" title="'+it[0]+'">'+it[0]+'</span>'
+      + '<div class="bt"><div class="bf" style="width:'+pct+'%;background:'+it[2]+'"></div></div>'
+      + '<span class="bv">'+fmtN(it[1])+(it[3]||'')+'</span>'
+      + '</div>';
+  }).join('');
 }
 
-function mkLine(canvasId, labels, datasets, opts){
-  const c=document.getElementById(canvasId); if(!c) return;
+function mkLine(id, labels, datasets) {
+  const c = document.getElementById(id);
+  if (!c) return;
   new Chart(c, {
-    type:'line', data:{labels:labels, datasets:datasets},
-    options:Object.assign({
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:function(ctx){return ctx.dataset.label+': '+fmt(ctx.raw);}}}},
-      scales:{x:{ticks:Object.assign({},TICK,{maxRotation:40,autoSkip:true,maxTicksLimit:12}),grid:{color:GRID}},
-               y:{ticks:Object.assign({},TICK,{callback:fmt}),grid:{color:GRID}}}
-    }, opts||{})
+    type: 'line',
+    data: { labels: labels, datasets: datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label+': '+fmt(ctx.raw); } } }
+      },
+      scales: {
+        x: { ticks: Object.assign({}, TICK, { maxRotation:40, autoSkip:true, maxTicksLimit:12 }), grid: { color: GRID } },
+        y: { ticks: Object.assign({}, TICK, { callback: fmt }), grid: { color: GRID } }
+      }
+    }
   });
 }
 
-function mkBar(canvasId, labels, data, colors, opts){
-  const c=document.getElementById(canvasId); if(!c) return;
-  new Chart(c,{
-    type:'bar',
-    data:{labels:labels, datasets:[{data:data, backgroundColor:colors, borderRadius:3}]},
-    options:Object.assign({
-      responsive:true, maintainAspectRatio:false,
-      plugins:{legend:{display:false}, tooltip:{callbacks:{label:function(ctx){return (ctx.raw>=0?'+':'')+fmtN(ctx.raw);}}}},
-      scales:{x:{ticks:Object.assign({},TICK,{maxRotation:45}),grid:{display:false}},
-               y:{ticks:Object.assign({},TICK,{callback:fmt}),grid:{color:GRID}}}
-    }, opts||{})
+function mkBar(id, labels, data, colors) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  new Chart(c, {
+    type: 'bar',
+    data: { labels: labels, datasets: [{ data: data, backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(ctx) { return (ctx.raw >= 0 ? '+' : '')+fmtN(ctx.raw); } } }
+      },
+      scales: {
+        x: { ticks: Object.assign({}, TICK, { maxRotation:45 }), grid: { display: false } },
+        y: { ticks: Object.assign({}, TICK, { callback: fmt }), grid: { color: GRID } }
+      }
+    }
   });
 }
 
-function mkDonut(canvasId, labels, data, colors){
-  const c=document.getElementById(canvasId); if(!c) return;
-  const tot=data.reduce(function(a,b){return a+b;},0);
-  new Chart(c,{
-    type:'doughnut',
-    data:{labels:labels, datasets:[{data:data,backgroundColor:colors,borderWidth:0,hoverOffset:4}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
-      plugins:{legend:{display:true,position:'right',labels:{color:TEXT,font:{size:10},boxWidth:11,padding:10}},
-        tooltip:{callbacks:{label:function(ctx){return ctx.label+': '+fmt(ctx.raw)+' ('+(ctx.raw/tot*100).toFixed(1)+'%)';}}}}} }
+function mkDonut(id, labels, data, colors) {
+  const c = document.getElementById(id);
+  if (!c) return;
+  const tot = data.reduce(function(a,b){ return a+b; }, 0);
+  new Chart(c, {
+    type: 'doughnut',
+    data: { labels: labels, datasets: [{ data: data, backgroundColor: colors, borderWidth: 0, hoverOffset: 4 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '60%',
+      plugins: {
+        legend: { display: true, position: 'right', labels: { color: TEXT_C, font: { size: 10 }, boxWidth: 11, padding: 10 } },
+        tooltip: { callbacks: { label: function(ctx) { return ctx.label+': '+fmt(ctx.raw)+' ('+(ctx.raw/tot*100).toFixed(1)+'%)'; } } }
+      }
+    }
   });
 }
 
-function addLeg(id, items){
-  const el=document.getElementById(id); if(!el) return;
-  items.forEach(function(it){
-    el.innerHTML+='<div class="li"><div class="ld" style="background:'+it[1]+'"></div>'+it[0]+'</div>';
-  });
+function addLeg(id, items) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = items.map(function(it) {
+    return '<div class="li"><div class="ld" style="background:'+it[1]+'"></div>'+it[0]+'</div>';
+  }).join('');
 }
 
-// ══════════════════════════════════════════════════════════════════════
-// NAVEGAÇÃO — VERTICAIS E SIDEBAR
-// ══════════════════════════════════════════════════════════════════════
+function deltaTag(val, ref, decimals) {
+  if (!ref) return '<span style="color:#0fd48a;font-size:10px"> novo</span>';
+  const d = val - ref, p = ((d/ref)*100).toFixed(decimals||1);
+  const col = d > 0 ? '#0fd48a' : d < 0 ? '#f05252' : '#5e7a99';
+  const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '→';
+  return ' <span style="color:'+col+';font-size:10px">'+arrow+Math.abs(p)+'%</span>';
+}
+
+// ══════════════════════════════════════════════════════
+// NAVEGAÇÃO
+// ══════════════════════════════════════════════════════
 const SB_DEFS = {
   seg: {
-    tag:'Segurança', sub:'mai/22→mai/26 · 53m',
-    items:[['#seg-overview','Visão Geral'],['#seg-produto-pai','Produto Pai'],['#seg-oferta','Por Oferta'],
-           ['#seg-parceiro','Por Parceiro'],['#seg-evolucao','Evolução Histórica'],['#seg-sinais','Sinais & Alertas']]
+    tag: 'Segurança', sub: 'jan/22→mai/26 · 53 meses',
+    color: 'var(--seg-c)',
+    items: [
+      ['#seg-overview',    'Visão Geral'],
+      ['#seg-produto-pai', 'Produto Pai'],
+      ['#seg-oferta',      'Por Oferta'],
+      ['#seg-parceiro',    'Por Parceiro'],
+      ['#seg-evolucao',    'Evolução Histórica'],
+      ['#seg-sinais',      'Sinais & Alertas']
+    ]
   },
   segu: {
-    tag:'Seguros', sub:'abr/25→mai/26 · 14m',
-    items:[['#segu-overview','Visão Geral'],['#segu-produto-pai','Produto Pai'],['#segu-produto','Por Produto'],
-           ['#segu-oferta','Por Oferta'],['#segu-parceiro','Por Parceiro'],
-           ['#segu-evolucao','Evolução Histórica'],['#segu-sinais','Sinais & Alertas']]
+    tag: 'Seguros', sub: 'abr/25→mai/26 · 14 meses',
+    color: 'var(--segu-c)',
+    items: [
+      ['#segu-overview',    'Visão Geral'],
+      ['#segu-produto-pai', 'Produto Pai'],
+      ['#segu-produto',     'Por Produto'],
+      ['#segu-oferta',      'Por Oferta'],
+      ['#segu-parceiro',    'Por Parceiro'],
+      ['#segu-evolucao',    'Evolução Histórica'],
+      ['#segu-sinais',      'Sinais & Alertas']
+    ]
   },
   cont: {
-    tag:'Conteúdo', sub:'mai/22→mai/26 · 49m',
-    items:[['#cont-overview','Visão Geral'],['#cont-produto-pai','Produto Pai'],['#cont-oferta','Por Oferta'],
-           ['#cont-parceiro','Por Parceiro'],['#cont-evolucao','Evolução Histórica'],['#cont-sinais','Sinais & Alertas']]
+    tag: 'Conteúdo', sub: 'mai/22→mai/26 · 49 meses',
+    color: 'var(--cont-c)',
+    items: [
+      ['#cont-overview',    'Visão Geral'],
+      ['#cont-produto-pai', 'Produto Pai'],
+      ['#cont-oferta',      'Por Oferta'],
+      ['#cont-parceiro',    'Por Parceiro'],
+      ['#cont-evolucao',    'Evolução Histórica'],
+      ['#cont-sinais',      'Sinais & Alertas']
+    ]
   }
 };
 
 var curVert = 'seg';
 var chartsInit = {};
 
-function buildSidebar(vert){
-  const d=SB_DEFS[vert];
-  let h='<div class="sb-header"><div class="sb-tag">Vertical</div><div class="sb-title">'+d.tag+'</div><div class="sb-sub">'+d.sub+'</div></div>';
-  h+='<div class="nav-sect"><span class="nav-lbl">Seções</span>';
-  d.items.forEach(function(it,i){
-    h+='<a class="nav-item'+(i===0?' active '+vert:'')+'" href="'+it[0]+'" onclick="setNavActive(this)"><span class="nav-dot"></span>'+it[1]+'</a>';
+function buildSidebar(vert) {
+  const d = SB_DEFS[vert];
+  let h = '<div class="sb-header">'
+    + '<div class="sb-tag" style="color:'+d.color+'">Vertical</div>'
+    + '<div class="sb-title">'+d.tag+'</div>'
+    + '<div class="sb-sub">'+d.sub+'</div></div>';
+  h += '<div class="nav-sect"><span class="nav-lbl">Seções</span>';
+  d.items.forEach(function(it, i) {
+    h += '<a class="nav-item'+(i===0?' active '+vert:'')+'" href="'+it[0]+'" onclick="setNavActive(this)">'
+       + '<span class="nav-dot"></span>'+it[1]+'</a>';
   });
-  h+='</div>';
-  h+='<div class="sb-foot"><div class="sb-badge" id="sb-foot-badge"></div></div>';
-  document.getElementById('sidebar').innerHTML=h;
+  h += '</div>';
+  h += '<div class="sb-foot"><div class="sb-badge" id="sb-badge"></div></div>';
+  document.getElementById('sidebar').innerHTML = h;
 }
 
-function setNavActive(el){
-  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active','seg','segu','cont');});
+function setNavActive(el) {
+  document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active','seg','segu','cont'); });
   el.classList.add('active', curVert);
 }
 
-function switchVert(vert, btn){
-  curVert=vert;
-  document.querySelectorAll('.vert-panel').forEach(function(p){p.classList.remove('active');});
+function switchVert(vert, btn) {
+  curVert = vert;
+  // Trocar painel
+  document.querySelectorAll('.vert-panel').forEach(function(p) { p.classList.remove('active'); });
   document.getElementById('panel-'+vert).classList.add('active');
-  document.querySelectorAll('.vert-tab').forEach(function(t){t.classList.remove('active');});
+  // Trocar botão ativo
+  document.querySelectorAll('.vert-tab').forEach(function(t) { t.classList.remove('active'); });
   btn.classList.add('active');
+  // Rebuild sidebar
   buildSidebar(vert);
-  if(!chartsInit[vert]){ initCharts(vert); chartsInit[vert]=true; }
-  window.scrollTo(0,0);
+  // Init charts lazy
+  if (!chartsInit[vert]) { initCharts(vert); chartsInit[vert] = true; }
+  window.scrollTo(0, 0);
 }
 
-function swTab(btn, paneId){
-  const sect=btn.closest('.section')||btn.closest('.hero');
-  if(!sect)return;
-  sect.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active','seg','segu','cont');});
-  btn.classList.add('active',curVert);
-  sect.querySelectorAll('.tab-pane').forEach(function(p){p.classList.remove('active');});
-  const pane=document.getElementById(paneId);
-  if(pane) pane.classList.add('active');
+function swTab(btn, paneId) {
+  const sect = btn.closest('.section') || btn.closest('.hero');
+  if (!sect) return;
+  sect.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active','seg','segu','cont'); });
+  btn.classList.add('active', curVert);
+  sect.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
+  const pane = document.getElementById(paneId);
+  if (pane) pane.classList.add('active');
 }
 
-window.addEventListener('scroll',function(){
-  const defs=SB_DEFS[curVert];
-  let cur=defs.items[0][0].slice(1);
-  defs.items.forEach(function(it){
-    const id=it[0].slice(1);
-    const el=document.getElementById(id);
-    if(el&&el.getBoundingClientRect().top<120)cur=id;
+window.addEventListener('scroll', function() {
+  const items = SB_DEFS[curVert].items;
+  let cur = items[0][0].slice(1);
+  items.forEach(function(it) {
+    const el = document.getElementById(it[0].slice(1));
+    if (el && el.getBoundingClientRect().top < 120) cur = it[0].slice(1);
   });
-  document.querySelectorAll('.nav-item').forEach(function(n){
-    const active=n.getAttribute('href')==='#'+cur;
-    n.classList.toggle('active',active);
-    n.classList.toggle(curVert,active);
+  document.querySelectorAll('.nav-item').forEach(function(n) {
+    const active = n.getAttribute('href') === '#'+cur;
+    n.classList.toggle('active', active);
+    if (active) n.classList.add(curVert); else n.classList.remove('seg','segu','cont');
   });
-},{passive:true});
+}, { passive: true });
 
-// ══════════════════════════════════════════════════════════════════════
-// INIT CHARTS POR VERTICAL
-// ══════════════════════════════════════════════════════════════════════
-function initCharts(vert){
-  if(vert==='seg') initSeg();
-  else if(vert==='segu') initSegu();
-  else if(vert==='cont') initCont();
-}
-
-// ── SEGURANÇA ────────────────────────────────────────────────────────
-function initSeg(){
-  const C={hd:'#4f8ef7',es:'#0fd48a',cl:'#f6a734',sc:'#9b6ef3',nt:'#5e7a99'};
+// ══════════════════════════════════════════════════════
+// SEGURANÇA
+// ══════════════════════════════════════════════════════
+function initSeg() {
+  const D = SEG;
+  const C = { hd:'#4f8ef7', es:'#0fd48a', cl:'#f6a734', sc:'#9b6ef3', nt:'#5e7a99' };
+  const MANY = ['#4f8ef7','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#7cb9f5','#fca5a5'];
 
   // PAI UNIFICADO
-  const unif=Object.entries(SEG.pai_unif).sort(function(a,b){return b[1]-a[1];});
-  const uColors=[C.hd,C.es,C.cl,C.sc];
-  buildBars('seg-pai-unif-bars', unif.map(function(kv,i){return [kv[0],kv[1],uColors[i]||'#5e7a99',''];}) , unif[0][1]);
+  const unif = [
+    ['Help Desk',    D.pai_unif['Help Desk']||0,    C.hd, ''],
+    ['Exa Segurança',D.pai_unif['Exa Segurança']||0,C.es, ''],
+    ['Cloud',        D.pai_unif['Cloud']||0,         C.cl, ''],
+    ['Escudo',       D.pai_unif['Escudo']||0,        C.sc, ''],
+  ];
+  buildBars('seg-pai-unif-bars', unif, unif[0][1]);
 
   // PAI EXATO
-  const exat=Object.entries(SEG.pai_exato).sort(function(a,b){return b[1]-a[1];});
-  buildBars('seg-pai-exato-bars', exat.map(function(kv,i){return [kv[0],kv[1],uColors[Math.min(i,3)]||'#5e7a99',''];}) , exat[0][1]);
+  const exat = Object.entries(D.pai_exato).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('seg-pai-exato-bars', exat.map(function(kv,i) {
+    return [kv[0], kv[1], MANY[i]||C.nt, ''];
+  }), exat[0][1]);
 
-  // CANAL EVOLUÇÃO
-  const cItems=[['Help Desk',C.hd],['Exa Segurança',C.es],['Cloud',C.cl],['Escudo',C.sc]];
-  addLeg('seg-canal-leg',cItems);
-  mkLine('seg-canalEvolChart', SEG.labels.slice(-24), cItems.map(function(ci){
-    const data={
-      'Help Desk':SEG.helpdesk,'Exa Segurança':SEG.exaseg,'Cloud':SEG.cloud,'Escudo':SEG.escudo
-    };
-    return {label:ci[0],data:(data[ci[0]]||[]).slice(-24),borderColor:ci[1],backgroundColor:'transparent',tension:0.3,pointRadius:0,borderWidth:2};
-  }));
+  // CANAL EVOLUÇÃO (24m)
+  const cLeg = [['Help Desk',C.hd],['Exa Segurança',C.es],['Cloud',C.cl],['Escudo',C.sc]];
+  addLeg('seg-canal-leg', cLeg);
+  mkLine('seg-canalEvolChart', D.labels.slice(-24), [
+    { label:'Help Desk',    data:D.helpdesk.slice(-24), borderColor:C.hd, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 },
+    { label:'Exa Segurança',data:D.exaseg.slice(-24),   borderColor:C.es, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 },
+    { label:'Cloud',        data:D.cloud.slice(-24),    borderColor:C.cl, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 },
+    { label:'Escudo',       data:D.escudo.slice(-24),   borderColor:C.sc, backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 },
+  ]);
 
-  // OFERTA BARS
-  const ofSorted=Object.entries(SEG.oferta).sort(function(a,b){return b[1]-a[1];});
-  const ofC=[C.hd,C.es,C.cl,'#19c9b0',C.sc,'#f472b6','#9b6ef3','#fca5a5'];
-  buildBars('seg-oferta-bars', ofSorted.map(function(kv,i){
-    const a=SEG.oferta_abr[kv[0]]||0, d=kv[1]-a;
-    const p=a>0?((d/a)*100).toFixed(1):null;
-    const tag=p?' <span style="color:'+(d>=0?'#0fd48a':'#f05252')+';font-size:10px">'+(d>=0?'▲':'▼')+Math.abs(p)+'%</span>':'';
-    return [kv[0],kv[1],ofC[i]||'#5e7a99',tag];
+  // OFERTA
+  const ofSorted = Object.entries(D.oferta).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('seg-oferta-bars', ofSorted.map(function(kv,i) {
+    return [kv[0], kv[1], MANY[i]||C.nt, deltaTag(kv[1], D.oferta_abr[kv[0]])];
   }), ofSorted[0][1]);
-  mkDonut('seg-ofertaDonut', ofSorted.map(function(a){return a[0];}), ofSorted.map(function(a){return a[1];}), ofSorted.map(function(_,i){return ofC[i]||'#5e7a99';}));
+  mkDonut('seg-ofertaDonut',
+    ofSorted.map(function(a){ return a[0]; }),
+    ofSorted.map(function(a){ return a[1]; }),
+    ofSorted.map(function(_,i){ return MANY[i]||C.nt; })
+  );
 
-  // PARCEIRO BARS
-  const paSorted=Object.entries(SEG.parceiro).sort(function(a,b){return b[1]-a[1];});
-  buildBars('seg-parc-bars', paSorted.map(function(kv,i){
-    const a=SEG.parceiro_abr[kv[0]]||0, d=kv[1]-a;
-    const p=a>0?((d/a)*100).toFixed(1):null;
-    const tag=p?' <span style="color:'+(d>0?'#0fd48a':d<0?'#f05252':'#5e7a99')+';font-size:10px">'+(d>0?'▲':d<0?'▼':'→')+Math.abs(p)+'%</span>':'<span style="color:#0fd48a;font-size:10px"> novo</span>';
-    return [kv[0],kv[1],ofC[i]||'#5e7a99',tag];
+  // PARCEIRO
+  const paSorted = Object.entries(D.parceiro).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('seg-parc-bars', paSorted.map(function(kv,i) {
+    return [kv[0], kv[1], MANY[i]||C.nt, deltaTag(kv[1], D.parceiro_abr[kv[0]])];
   }), paSorted[0][1]);
 
   // YOY TABLE
-  const paYoY={TIM:[20695468,25417939],BRASILTECPAR:[0,0],'TIM EMPRESAS':[790528,1288487],'TIM LIVE':[296143,717639],ALGAR:[101586,179628],BRADESCO:[5520,48549],NIO:[0,35844],FASTSHOP:[0,32631]};
-  let yH='<thead><tr><th>Parceiro</th><th>mai/25</th><th>mai/26</th><th>Δ%</th></tr></thead><tbody>';
-  paSorted.forEach(function(kv){
-    const p=kv[0],v26=kv[1]; const v25=(paYoY[p]||[0,0])[0];
-    const pct=v25>0?((v26-v25)/v25*100).toFixed(1):null;
-    yH+='<tr><td><strong>'+p+'</strong></td><td>'+fmtN(v25)+'</td><td>'+fmtN(v26)+'</td><td style="color:'+(pct&&parseFloat(pct)>=0?'#0fd48a':'#f05252')+'">'+(pct?(parseFloat(pct)>=0?'+':'')+pct+'%':'novo')+'</td></tr>';
+  const yoy = {TIM:[20695468,25417939],'TIM EMPRESAS':[790528,1288487],'TIM LIVE':[296143,717639],ALGAR:[101586,179628],BRADESCO:[5520,48549],NIO:[0,35844],FASTSHOP:[0,32631],'GIGA+':[49,23559]};
+  let yH = '<thead><tr><th>Parceiro</th><th>mai/25</th><th>mai/26</th><th>Δ%</th></tr></thead><tbody>';
+  paSorted.forEach(function(kv) {
+    const p=kv[0], v26=kv[1], v25=(yoy[p]||[0])[0];
+    const pct = v25>0 ? ((v26-v25)/v25*100).toFixed(1) : null;
+    const col = pct && parseFloat(pct)>=0 ? '#0fd48a' : '#f05252';
+    yH += '<tr><td><strong>'+p+'</strong></td><td>'+fmtN(v25)+'</td><td>'+fmtN(v26)+'</td>'
+        + '<td style="color:'+col+'">'+(pct?(parseFloat(pct)>=0?'+':'')+pct+'%':'novo')+'</td></tr>';
   });
-  document.getElementById('seg-yoy-table').innerHTML=yH+'</tbody>';
+  document.getElementById('seg-yoy-table').innerHTML = yH + '</tbody>';
 
-  // TOTAL LINE
-  mkLine('seg-totalLine', SEG.labels, [{label:'Base total',data:SEG.total,borderColor:'#4f8ef7',backgroundColor:'rgba(79,142,247,0.07)',fill:true,tension:0.3,pointRadius:0,borderWidth:2}]);
+  // TOTAL
+  mkLine('seg-totalLine', D.labels, [{
+    label:'Base total', data:D.total, borderColor:'#4f8ef7',
+    backgroundColor:'rgba(79,142,247,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
+  }]);
 
-  // NON-TIM BAR
-  mkBar('seg-nonTimBar', SEG.labels.slice(-12), SEG.nontim.slice(-12), 'rgba(79,142,247,0.75)');
+  // NON-TIM
+  mkBar('seg-nonTimBar', D.labels.slice(-12), D.nontim.slice(-12),
+    D.nontim.slice(-12).map(function(){ return 'rgba(79,142,247,0.75)'; }));
 
-  // ESCUDO LINE
-  const escStart=SEG.escudo.findIndex(function(v){return v>0;});
-  mkLine('seg-escudoLine', SEG.labels.slice(escStart), [{label:'Escudo',data:SEG.escudo.slice(escStart),borderColor:'#9b6ef3',backgroundColor:'rgba(155,110,243,0.1)',fill:true,tension:0.4,pointRadius:4,borderWidth:2.5}]);
+  // ESCUDO
+  const escStart = D.escudo.findIndex(function(v){ return v > 0; });
+  mkLine('seg-escudoLine', D.labels.slice(escStart), [{
+    label:'Escudo', data:D.escudo.slice(escStart), borderColor:'#9b6ef3',
+    backgroundColor:'rgba(155,110,243,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2.5
+  }]);
 }
 
-// ── SEGUROS ───────────────────────────────────────────────────────────
-function initSegu(){
-  const tm=SEGU.total_mai, ta=SEGU.total_abr;
-  document.getElementById('segu-kpi-total').textContent=fmtN(tm);
-  const d=tm-ta, p=ta>0?((d/ta)*100).toFixed(1):null;
-  document.getElementById('segu-kpi-mom').textContent='▲ '+fmtN(d)+' vs abr/26 ('+(p?'+'+p+'%':'—')+')';
-  document.getElementById('segu-kpi-mom-pct').textContent='+'+(p||'—')+'%';
-  document.getElementById('segu-kpi-mom-abs').textContent='abr: '+fmtN(ta)+' → mai: '+fmtN(tm);
-  document.getElementById('segu-pai-val').textContent='Seguros · '+fmtN(tm)+' assinaturas';
+// ══════════════════════════════════════════════════════
+// SEGUROS
+// ══════════════════════════════════════════════════════
+function initSegu() {
+  const D = SEGU;
+  const tm = D.total_mai, ta = D.total_abr;
 
-  const PC=[['#4f8ef7'],['#0fd48a'],['#f6a734'],['#f05252']];
-  const prS=Object.entries(SEGU.prod_mai).sort(function(a,b){return b[1]-a[1];});
-  buildBars('segu-prod-bars', prS.map(function(kv,i){
-    const a=SEGU.prod_abr[kv[0]]||0,dv=kv[1]-a;
-    const pp=a>0?((dv/a)*100).toFixed(1):null;
-    const tag=pp?' <span style="color:'+(dv>=0?'#0fd48a':'#f05252')+';font-size:10px">'+(dv>=0?'▲':'▼')+Math.abs(pp)+'%</span>':'';
-    return [kv[0],kv[1],(PC[i]||['#5e7a99'])[0],tag];
+  document.getElementById('segu-kpi-total').textContent = fmtN(tm);
+  const d = tm-ta, p = ta>0 ? ((d/ta)*100).toFixed(1) : null;
+  document.getElementById('segu-kpi-mom').textContent = '▲ '+fmtN(d)+' vs abr/26 ('+(p?'+'+p+'%':'—')+')';
+  document.getElementById('segu-kpi-mom-pct').textContent = '+'+(p||'—')+'%';
+  document.getElementById('segu-kpi-mom-abs').textContent = 'abr: '+fmtN(ta)+' → mai: '+fmtN(tm);
+  document.getElementById('segu-pai-val').textContent = 'Seguros · '+fmtN(tm)+' assinaturas';
+
+  const PC = ['#4f8ef7','#0fd48a','#f6a734','#f05252'];
+  const prS = Object.entries(D.prod_mai).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('segu-prod-bars', prS.map(function(kv,i) {
+    return [kv[0], kv[1], PC[i]||'#5e7a99', deltaTag(kv[1], D.prod_abr[kv[0]])];
   }), prS[0][1]);
-  mkDonut('segu-prodDonut', prS.map(function(a){return a[0];}), prS.map(function(a){return a[1];}), prS.map(function(_,i){return (PC[i]||['#5e7a99'])[0];}) );
+  mkDonut('segu-prodDonut', prS.map(function(a){ return a[0]; }), prS.map(function(a){ return a[1]; }), prS.map(function(_,i){ return PC[i]||'#5e7a99'; }));
 
-  const OC={'EXA Seguros':'#4f8ef7','EXA Escudo':'#9b6ef3','EXA Escudo EVA':'#19c9b0'};
-  const ofS=Object.entries(SEGU.oferta_mai).sort(function(a,b){return b[1]-a[1];});
-  buildBars('segu-oferta-bars', ofS.map(function(kv){
-    const a=SEGU.oferta_abr[kv[0]]||0,dv=kv[1]-a;
-    const pp=a>0?((dv/a)*100).toFixed(1):null;
-    const tag=pp?' <span style="color:#0fd48a;font-size:10px">▲'+pp+'%</span>':'<span style="color:#0fd48a;font-size:10px"> novo</span>';
-    return [kv[0],kv[1],OC[kv[0]]||'#5e7a99',tag];
+  const OC = {'EXA Seguros':'#4f8ef7','EXA Escudo':'#9b6ef3','EXA Escudo EVA':'#19c9b0'};
+  const ofS = Object.entries(D.oferta_mai).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('segu-oferta-bars', ofS.map(function(kv) {
+    return [kv[0], kv[1], OC[kv[0]]||'#5e7a99', deltaTag(kv[1], D.oferta_abr[kv[0]])];
   }), ofS[0][1]);
-
-  addLeg('segu-oferta-leg', Object.keys(OC).map(function(k){return [k,OC[k]];}));
-  mkLine('segu-ofertaLine', SEGU.labels, Object.entries(SEGU.oferta_evol).map(function(kv){
-    return {label:kv[0],data:kv[1],borderColor:OC[kv[0]]||'#5e7a99',backgroundColor:'transparent',tension:0.3,pointRadius:2,borderWidth:2,
-      borderDash:kv[0]==='EXA Escudo'?[4,2]:kv[0]==='EXA Escudo EVA'?[2,2]:[]};
+  addLeg('segu-oferta-leg', Object.keys(OC).map(function(k){ return [k, OC[k]]; }));
+  mkLine('segu-ofertaLine', D.labels, Object.entries(D.oferta_evol).map(function(kv) {
+    return { label:kv[0], data:kv[1], borderColor:OC[kv[0]]||'#5e7a99', backgroundColor:'transparent',
+      tension:0.3, pointRadius:2, borderWidth:2,
+      borderDash: kv[0]==='EXA Escudo'?[4,2]:kv[0]==='EXA Escudo EVA'?[2,2]:[] };
   }));
 
-  const PAC={TIM:'#4f8ef7',EXA:'#0fd48a',ALGAR:'#f6a734'};
-  const paS=Object.entries(SEGU.parc_mai).sort(function(a,b){return b[1]-a[1];});
-  buildBars('segu-parc-bars', paS.map(function(kv){
-    const a=SEGU.parc_abr[kv[0]]||0,dv=kv[1]-a;
-    const pp=a>0?((dv/a)*100).toFixed(1):null;
-    const tag=pp?' <span style="color:'+(dv>0?'#0fd48a':'#5e7a99')+';font-size:10px">'+(dv>0?'▲':'→')+Math.abs(pp)+'%</span>':'';
-    return [kv[0],kv[1],PAC[kv[0]]||'#5e7a99',tag];
+  const PAC = { TIM:'#4f8ef7', EXA:'#0fd48a', ALGAR:'#f6a734' };
+  const paS = Object.entries(D.parc_mai).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('segu-parc-bars', paS.map(function(kv) {
+    return [kv[0], kv[1], PAC[kv[0]]||'#5e7a99', deltaTag(kv[1], D.parc_abr[kv[0]])];
   }), paS[0][1]);
-
-  addLeg('segu-parc-leg', Object.keys(PAC).map(function(k){return [k,PAC[k]];}));
-  mkLine('segu-parcLine', SEGU.labels, Object.entries(SEGU.parc_evol).map(function(kv){
-    return {label:kv[0],data:kv[1],borderColor:PAC[kv[0]]||'#5e7a99',backgroundColor:'transparent',tension:0.3,pointRadius:2,borderWidth:2};
+  addLeg('segu-parc-leg', Object.keys(PAC).map(function(k){ return [k, PAC[k]]; }));
+  mkLine('segu-parcLine', D.labels, Object.entries(D.parc_evol).map(function(kv) {
+    return { label:kv[0], data:kv[1], borderColor:PAC[kv[0]]||'#5e7a99', backgroundColor:'transparent', tension:0.3, pointRadius:2, borderWidth:2 };
   }));
 
-  mkLine('segu-totalLine', SEGU.labels, [{label:'Base',data:SEGU.total,borderColor:'#0fd48a',backgroundColor:'rgba(15,212,138,0.07)',fill:true,tension:0.3,pointRadius:0,borderWidth:2}]);
+  mkLine('segu-totalLine', D.labels, [{
+    label:'Base', data:D.total, borderColor:'#0fd48a',
+    backgroundColor:'rgba(15,212,138,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
+  }]);
 
-  const deltas=SEGU.total.slice(1).map(function(v,i){return v-SEGU.total[i];});
-  mkBar('segu-momBar', SEGU.labels.slice(1), deltas, deltas.map(function(d){return d>=0?'rgba(15,212,138,0.75)':'rgba(240,82,82,0.75)';}) );
+  const deltas = D.total.slice(1).map(function(v,i){ return v - D.total[i]; });
+  mkBar('segu-momBar', D.labels.slice(1), deltas,
+    deltas.map(function(dv){ return dv>=0?'rgba(15,212,138,0.75)':'rgba(240,82,82,0.75)'; }));
 
-  const escOfs=SEGU.oferta_evol['EXA Escudo']||[];
-  const escEva=SEGU.oferta_evol['EXA Escudo EVA']||[];
-  const escStart=escOfs.findIndex(function(v){return v>0;});
-  const escData=escOfs.slice(escStart).map(function(v,i){return v+(escEva[escStart+i]||0);});
-  mkLine('segu-escudoLine', SEGU.labels.slice(escStart), [{label:'Escudo+EVA',data:escData,borderColor:'#9b6ef3',backgroundColor:'rgba(155,110,243,0.1)',fill:true,tension:0.4,pointRadius:4,borderWidth:2.5}]);
+  const escOfs = D.oferta_evol['EXA Escudo']||[];
+  const escEva = D.oferta_evol['EXA Escudo EVA']||[];
+  const escStart = escOfs.findIndex(function(v){ return v > 0; });
+  if (escStart >= 0) {
+    const escData = escOfs.slice(escStart).map(function(v,i){ return v + (escEva[escStart+i]||0); });
+    mkLine('segu-escudoLine', D.labels.slice(escStart), [{
+      label:'Escudo+EVA', data:escData, borderColor:'#9b6ef3',
+      backgroundColor:'rgba(155,110,243,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2.5
+    }]);
+  }
 }
 
-// ── CONTEÚDO ──────────────────────────────────────────────────────────
-function initCont(){
-  const tm=CONT.total_mai, ta=CONT.total_abr, ty=CONT.total_mai25;
-  document.getElementById('cont-kpi-total').textContent=fmt(tm);
-  const dd=tm-ta, pp=ta>0?((dd/ta)*100).toFixed(1):null;
-  document.getElementById('cont-kpi-mom').className='kpi-d '+(dd>=0?'pos':'neg');
-  document.getElementById('cont-kpi-mom').textContent=(dd>=0?'▲':'▼')+' '+fmt(Math.abs(dd))+' vs abr/26 ('+(dd>=0?'+':'')+pp+'%)';
-  document.getElementById('cont-kpi-mom-pct').textContent=(dd>=0?'+':'')+pp+'%';
-  document.getElementById('cont-kpi-mom-abs').textContent='abr: '+fmt(ta)+' → mai: '+fmt(tm);
-  const yy=((tm-ty)/ty*100).toFixed(1);
-  document.getElementById('cont-kpi-yoy').textContent='+'+yy+'%';
-  document.getElementById('cont-kpi-yoy-sub').textContent='mai/25: '+fmt(ty)+' → mai/26: '+fmt(tm);
+// ══════════════════════════════════════════════════════
+// CONTEÚDO
+// ══════════════════════════════════════════════════════
+function initCont() {
+  const D = CONT;
+  const tm = D.total_mai, ta = D.total_abr, ty = D.total_mai25;
 
-  const CC={'AYA Books':'#4f8ef7','AYA Bancah':'#0fd48a','AYA Ensinah':'#f6a734','AYA Idiomas':'#9b6ef3','AYA Equilibrah':'#19c9b0','AYA Play':'#f472b6'};
-  const cOrder=['AYA Books','AYA Bancah','AYA Ensinah','AYA Idiomas','AYA Equilibrah','AYA Play'];
+  document.getElementById('cont-kpi-total').textContent = fmt(tm);
+  const dd = tm-ta, pp = ta>0 ? ((dd/ta)*100).toFixed(1) : null;
+  const momEl = document.getElementById('cont-kpi-mom');
+  momEl.className = 'kpi-d '+(dd>=0?'pos':'neg');
+  momEl.textContent = (dd>=0?'▲':'▼')+' '+fmt(Math.abs(dd))+' vs abr/26 ('+(dd>=0?'+':'')+pp+'%)';
+  document.getElementById('cont-kpi-mom-pct').textContent = (dd>=0?'+':'')+pp+'%';
+  document.getElementById('cont-kpi-mom-abs').textContent = 'abr: '+fmt(ta)+' → mai: '+fmt(tm);
+  const yy = ((tm-ty)/ty*100).toFixed(1);
+  document.getElementById('cont-kpi-yoy').textContent = '+'+yy+'%';
+  document.getElementById('cont-kpi-yoy-sub').textContent = 'mai/25: '+fmt(ty)+' → mai/26: '+fmt(tm);
 
-  // CANAL PILLS
-  const pillEl=document.getElementById('cont-canal-pills');
-  cOrder.forEach(function(c){
-    const v=CONT.pai_mai_unif[c]||0, va=CONT.pai_abr_unif[c]||0;
-    const dv=v-va, p=va>0?((dv/va)*100).toFixed(1):null;
-    const col=CC[c];
-    const dStr=p?('<span style="color:'+(dv>=0?'#0fd48a':'#f05252')+';font-size:10px">'+(dv>=0?'▲':'▼')+Math.abs(p)+'%</span>'):'';
-    pillEl.innerHTML+='<div class="canal-pill" style="border-color:'+col+'33"><div class="canal-name" style="color:'+col+'">'+c+'</div><div class="canal-val">'+fmt(v)+'</div><div class="canal-d">'+fmtN(v)+' '+dStr+'</div></div>';
-  });
+  const CC = {
+    'AYA Books':'#4f8ef7','AYA Bancah':'#0fd48a','AYA Ensinah':'#f6a734',
+    'AYA Idiomas':'#9b6ef3','AYA Equilibrah':'#19c9b0','AYA Play':'#f472b6'
+  };
+  const cOrder = ['AYA Books','AYA Bancah','AYA Ensinah','AYA Idiomas','AYA Equilibrah','AYA Play'];
+
+  // PILLS
+  const pillEl = document.getElementById('cont-canal-pills');
+  if (pillEl) {
+    pillEl.innerHTML = cOrder.map(function(c) {
+      const v = D.pai_mai_unif[c]||0, va = D.pai_abr_unif[c]||0;
+      const dv = v-va, p = va>0?((dv/va)*100).toFixed(1):null;
+      const col = CC[c];
+      const dStr = p ? '<span style="color:'+(dv>=0?'#0fd48a':'#f05252')+';font-size:10px">'+(dv>=0?'▲':'▼')+Math.abs(p)+'%</span>' : '';
+      return '<div class="canal-pill" style="border-color:'+col+'44">'
+           + '<div class="canal-name" style="color:'+col+'">'+c+'</div>'
+           + '<div class="canal-val">'+fmt(v)+'</div>'
+           + '<div class="canal-d">'+fmtN(v)+' '+dStr+'</div></div>';
+    }).join('');
+  }
 
   // PAI UNIF BARS
-  const unif=cOrder.map(function(c){return [c,CONT.pai_mai_unif[c]||0,CC[c],''];}).sort(function(a,b){return b[1]-a[1];});
-  buildBars('cont-pai-unif-bars',unif,unif[0][1]);
+  const unif = cOrder.map(function(c){ return [c, D.pai_mai_unif[c]||0, CC[c], '']; })
+    .sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('cont-pai-unif-bars', unif, unif[0][1]);
 
-  // PAI EXATO BARS
-  const exat=Object.entries(CONT.pai_exato_mai).sort(function(a,b){return b[1]-a[1];});
-  buildBars('cont-pai-exato-bars',exat.map(function(kv){
-    const fc=kv[0].split(',')[0].trim(); return [kv[0],kv[1],CC[fc]||'#5e7a99',''];
-  }),exat[0][1]);
+  // PAI EXATO
+  const exat = Object.entries(D.pai_exato_mai).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('cont-pai-exato-bars', exat.map(function(kv) {
+    const fc = kv[0].split(',')[0].trim();
+    return [kv[0], kv[1], CC[fc]||'#5e7a99', ''];
+  }), exat[0][1]);
 
   // CANAL EVOL
-  addLeg('cont-canal-leg',cOrder.map(function(c){return [c,CC[c]];}));
-  addLeg('cont-canal-leg2',cOrder.map(function(c){return [c,CC[c]];}));
-  function mkCanalChart(id,n){
-    mkLine(id, CONT.labels.slice(-n), cOrder.map(function(c){
-      return {label:c,data:(CONT.canal_evol[c]||[]).slice(-n),borderColor:CC[c],backgroundColor:'transparent',tension:0.3,pointRadius:n<=12?2:0,borderWidth:2};
+  addLeg('cont-canal-leg',  cOrder.map(function(c){ return [c, CC[c]]; }));
+  addLeg('cont-canal-leg2', cOrder.map(function(c){ return [c, CC[c]]; }));
+  function mkCanalChart(id, n) {
+    mkLine(id, D.labels.slice(-n), cOrder.map(function(c) {
+      return { label:c, data:(D.canal_evol[c]||[]).slice(-n), borderColor:CC[c],
+        backgroundColor:'transparent', tension:0.3, pointRadius:n<=12?2:0, borderWidth:2 };
     }));
   }
-  mkCanalChart('cont-canalEvolChart',12);
-  mkCanalChart('cont-canal12Chart',12);
+  mkCanalChart('cont-canalEvolChart', 12);
+  mkCanalChart('cont-canal12Chart', 12);
 
   // OFERTA
-  const OC2={'Aya Books':'#4f8ef7','AYA Bancah':'#0fd48a','Aya Ensinah':'#f6a734','Aya Idiomas':'#9b6ef3','Aya Equilibrah':'#19c9b0','AYA Play':'#f472b6'};
-  const ofS=Object.entries(CONT.oferta_mai).sort(function(a,b){return b[1]-a[1];});
-  buildBars('cont-oferta-bars', ofS.map(function(kv){
-    const a=CONT.oferta_abr[kv[0]]||0,dv=kv[1]-a;
-    const p=a>0?((dv/a)*100).toFixed(1):null;
-    const tag=p?' <span style="color:'+(dv>=0?'#0fd48a':'#f05252')+';font-size:10px">'+(dv>=0?'▲':'▼')+Math.abs(p)+'%</span>':'';
-    return [kv[0],kv[1],OC2[kv[0]]||'#5e7a99',tag];
-  }),ofS[0][1]);
-  addLeg('cont-oferta-leg',Object.keys(OC2).map(function(k){return [k,OC2[k]];}));
-  mkLine('cont-ofertaLine', CONT.labels.slice(-12), Object.entries(CONT.oferta_evol).map(function(kv){
-    return {label:kv[0],data:kv[1].slice(-12),borderColor:OC2[kv[0]]||'#5e7a99',backgroundColor:'transparent',tension:0.3,pointRadius:2,borderWidth:2};
+  const OC2 = {'Aya Books':'#4f8ef7','AYA Bancah':'#0fd48a','Aya Ensinah':'#f6a734','Aya Idiomas':'#9b6ef3','Aya Equilibrah':'#19c9b0','AYA Play':'#f472b6'};
+  const ofS = Object.entries(D.oferta_mai).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('cont-oferta-bars', ofS.map(function(kv) {
+    return [kv[0], kv[1], OC2[kv[0]]||'#5e7a99', deltaTag(kv[1], D.oferta_abr[kv[0]])];
+  }), ofS[0][1]);
+  addLeg('cont-oferta-leg', Object.keys(OC2).map(function(k){ return [k, OC2[k]]; }));
+  mkLine('cont-ofertaLine', D.labels.slice(-12), Object.entries(D.oferta_evol).map(function(kv) {
+    return { label:kv[0], data:kv[1].slice(-12), borderColor:OC2[kv[0]]||'#5e7a99',
+      backgroundColor:'transparent', tension:0.3, pointRadius:2, borderWidth:2 };
   }));
 
   // PARCEIRO
-  const PAC2={TIM:'#4f8ef7','TIM LIVE':'#7cb9f5',BRISANET:'#0fd48a',CARIAP:'#f6a734',BRASILTECPAR:'#9b6ef3',AFAGU:'#19c9b0',UNIFIQUE:'#f472b6'};
-  const pC=['#4f8ef7','#7cb9f5','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#fca5a5','#fde68a','#c4b5fd','#a5f3fc','#f9a8d4','#86efac','#fdba74','#a5b4fc','#67e8f9'];
-  const paS=Object.entries(CONT.parc_mai).sort(function(a,b){return b[1]-a[1];});
-  buildBars('cont-parc-bars', paS.map(function(kv,i){
-    const a=CONT.parc_abr[kv[0]]||0,dv=kv[1]-a;
-    const p=a>0?((dv/a)*100).toFixed(1):null;
-    const tag=p?' <span style="color:'+(dv>0?'#0fd48a':dv<0?'#f05252':'#5e7a99')+';font-size:10px">'+(dv>0?'▲':dv<0?'▼':'→')+Math.abs(p)+'%</span>':'<span style="color:#0fd48a;font-size:10px"> novo</span>';
-    return [kv[0],kv[1],pC[i]||'#5e7a99',tag];
-  }),paS[0][1]);
+  const pC = ['#4f8ef7','#7cb9f5','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#fca5a5','#fde68a','#c4b5fd','#a5f3fc','#f9a8d4','#86efac','#fdba74','#a5b4fc','#67e8f9'];
+  const paS = Object.entries(D.parc_mai).sort(function(a,b){ return b[1]-a[1]; });
+  buildBars('cont-parc-bars', paS.map(function(kv,i) {
+    return [kv[0], kv[1], pC[i]||'#5e7a99', deltaTag(kv[1], D.parc_abr[kv[0]])];
+  }), paS[0][1]);
 
   // YOY TABLE
-  let yH='<thead><tr><th>Parceiro</th><th>mai/25</th><th>mai/26</th><th>Δ abs</th><th>Δ %</th></tr></thead><tbody>';
-  paS.forEach(function(kv){
-    const p=kv[0],v26=kv[1],v25=CONT.parc_mai25[p]||0;
-    const dv=v26-v25,pct=v25>0?((dv/v25)*100).toFixed(1):null;
-    yH+='<tr><td><strong>'+p+'</strong></td><td>'+fmtN(v25)+'</td><td>'+fmtN(v26)+'</td>'+
-        '<td style="color:'+(dv>=0?'#0fd48a':'#f05252')+'">'+(dv>=0?'+':'')+fmtN(dv)+'</td>'+
-        '<td style="color:'+(pct&&parseFloat(pct)>=0?'#0fd48a':'#f05252')+'">'+(pct?(parseFloat(pct)>=0?'+':'')+pct+'%':'novo')+'</td></tr>';
+  let yH = '<thead><tr><th>Parceiro</th><th>mai/25</th><th>mai/26</th><th>Δ abs</th><th>Δ%</th></tr></thead><tbody>';
+  paS.forEach(function(kv) {
+    const p=kv[0], v26=kv[1], v25=D.parc_mai25[p]||0;
+    const dv=v26-v25, pct=v25>0?((dv/v25)*100).toFixed(1):null;
+    const col = pct && parseFloat(pct)>=0 ? '#0fd48a' : '#f05252';
+    yH += '<tr><td><strong>'+p+'</strong></td><td>'+fmtN(v25)+'</td><td>'+fmtN(v26)+'</td>'
+        + '<td style="color:'+col+'">'+(dv>=0?'+':'')+fmtN(dv)+'</td>'
+        + '<td style="color:'+col+'">'+(pct?(parseFloat(pct)>=0?'+':'')+pct+'%':'novo')+'</td></tr>';
   });
-  document.getElementById('cont-yoy-table').innerHTML=yH+'</tbody>';
+  document.getElementById('cont-yoy-table').innerHTML = yH + '</tbody>';
 
   // NEW PARC TABLE
-  let nH='<thead><tr><th>Parceiro</th><th>1ª aparição</th><th>Base mai/26</th><th>Status</th></tr></thead><tbody>';
-  Object.entries(CONT.parc_first).forEach(function(kv){
-    const p=kv[0],dt=kv[1],v=CONT.parc_mai[p]||0;
-    const badge=dt>='2026-01'?'<span style="color:#f6a734;font-size:10px">estreou 2026</span>':dt>='2025-01'?'<span style="color:#0fd48a;font-size:10px">estreou 2025</span>':dt>='2024-01'?'<span style="color:#4f8ef7;font-size:10px">estreou 2024</span>':'<span style="color:#5e7a99;font-size:10px">fundador</span>';
-    nH+='<tr><td><strong>'+p+'</strong></td><td>'+dt+'</td><td>'+fmtN(v)+'</td><td>'+badge+'</td></tr>';
+  let nH = '<thead><tr><th>Parceiro</th><th>1ª aparição</th><th>Base mai/26</th><th>Status</th></tr></thead><tbody>';
+  Object.entries(D.parc_first).forEach(function(kv) {
+    const p=kv[0], dt=kv[1], v=D.parc_mai[p]||0;
+    const badge = dt>='2026-01'?'<span style="color:#f6a734;font-size:10px">estreou 2026</span>'
+                : dt>='2025-01'?'<span style="color:#0fd48a;font-size:10px">estreou 2025</span>'
+                : dt>='2024-01'?'<span style="color:#4f8ef7;font-size:10px">estreou 2024</span>'
+                : '<span style="color:#5e7a99;font-size:10px">fundador</span>';
+    nH += '<tr><td><strong>'+p+'</strong></td><td>'+dt+'</td><td>'+fmtN(v)+'</td><td>'+badge+'</td></tr>';
   });
-  document.getElementById('cont-new-parc-table').innerHTML=nH+'</tbody>';
+  document.getElementById('cont-new-parc-table').innerHTML = nH + '</tbody>';
 
-  // TOTAL LINE
-  mkLine('cont-totalLine', CONT.labels, [{label:'Base',data:CONT.total,borderColor:'#f6a734',backgroundColor:'rgba(246,167,52,0.07)',fill:true,tension:0.3,pointRadius:0,borderWidth:2}]);
+  // TOTAL
+  mkLine('cont-totalLine', D.labels, [{
+    label:'Base', data:D.total, borderColor:'#f6a734',
+    backgroundColor:'rgba(246,167,52,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
+  }]);
 
   // MOM BAR
-  const tot18=CONT.total.slice(-19);
-  const d18=tot18.slice(1).map(function(v,i){return v-tot18[i];});
-  mkBar('cont-momBar', CONT.labels.slice(-18), d18, d18.map(function(d){return d>=0?'rgba(246,167,52,0.75)':'rgba(240,82,82,0.75)';}) );
+  const tot18 = D.total.slice(-19);
+  const d18 = tot18.slice(1).map(function(v,i){ return v - tot18[i]; });
+  mkBar('cont-momBar', D.labels.slice(-18), d18,
+    d18.map(function(dv){ return dv>=0?'rgba(246,167,52,0.75)':'rgba(240,82,82,0.75)'; }));
 }
 
-// ══════════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
 // BOOT
-// ══════════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════
+function initCharts(vert) {
+  if (vert === 'seg')  initSeg();
+  else if (vert === 'segu') initSegu();
+  else if (vert === 'cont') initCont();
+}
+
 buildSidebar('seg');
 initCharts('seg');
-chartsInit['seg']=true;
+chartsInit['seg'] = true;
+
 </script>
 </body>
 </html>
