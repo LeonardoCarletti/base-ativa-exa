@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base Ativa — Análise de Produtos · maio 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0e1a;
+  --surface: #111827;
+  --surface2: #1a2236;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f4ff;
+  --muted: #6b7a99;
+  --accent: #3b82f6;
+  --accent2: #10b981;
+  --accent3: #f59e0b;
+  --accent4: #ef4444;
+  --accent5: #8b5cf6;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+
+/* LAYOUT */
+.shell { display: flex; min-height: 100vh; }
+.sidebar { width: 220px; min-width: 220px; background: var(--surface); border-right: 1px solid var(--border); padding: 28px 0; position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; }
+.main { flex: 1; overflow-x: hidden; }
+
+/* SIDEBAR */
+.logo { padding: 0 20px 24px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+.logo-label { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
+.logo-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.logo-date { font-size: 11px; color: var(--muted); margin-top: 4px; font-family: var(--mono); }
+
+.nav-section { padding: 0 12px; margin-bottom: 8px; }
+.nav-section-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 8px; margin-bottom: 4px; }
+.nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 8px; border-radius: 6px; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.15s; text-decoration: none; border: none; background: none; width: 100%; text-align: left; }
+.nav-item:hover { background: var(--surface2); color: var(--text); }
+.nav-item.active { background: rgba(59,130,246,0.15); color: var(--accent); }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+.sidebar-footer { margin-top: auto; padding: 16px 20px 0; border-top: 1px solid var(--border); }
+.sidebar-badge { font-size: 10px; font-family: var(--mono); color: var(--muted); }
+
+/* SECTIONS */
+.section { padding: 40px 36px; border-bottom: 1px solid var(--border); }
+.section-header { margin-bottom: 28px; }
+.section-tag { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-family: var(--mono); margin-bottom: 8px; }
+.section-title { font-size: 22px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.section-sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+/* HERO */
+.hero { padding: 40px 36px 32px; background: linear-gradient(135deg, rgba(59,130,246,0.05) 0%, transparent 60%); border-bottom: 1px solid var(--border); }
+.hero-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; position: relative; overflow: hidden; }
+.kpi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.kpi.blue::before { background: var(--accent); }
+.kpi.green::before { background: var(--accent2); }
+.kpi.amber::before { background: var(--accent3); }
+.kpi.red::before { background: var(--accent4); }
+.kpi-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.kpi-value { font-size: 26px; font-weight: 600; color: var(--text); font-family: var(--mono); line-height: 1; }
+.kpi-delta { font-size: 11px; margin-top: 6px; font-family: var(--mono); }
+.kpi-delta.pos { color: var(--accent2); }
+.kpi-delta.neg { color: var(--accent4); }
+.kpi-delta.neu { color: var(--muted); }
+
+/* CHART CARDS */
+.chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+.chart-card.full { grid-column: 1 / -1; }
+.chart-title { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.chart-sub { font-size: 11px; color: var(--muted); margin-bottom: 16px; }
+.chart-wrap { position: relative; width: 100%; }
+
+/* BARS */
+.bar-list { display: flex; flex-direction: column; gap: 10px; }
+.bar-item { display: flex; align-items: center; gap: 10px; }
+.bar-name { font-size: 11px; color: var(--text); width: 200px; flex-shrink: 0; font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-name.sm { width: 160px; }
+.bar-track { flex: 1; background: rgba(255,255,255,0.05); border-radius: 3px; height: 8px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+.bar-num { font-size: 11px; color: var(--muted); width: 72px; text-align: right; flex-shrink: 0; font-family: var(--mono); }
+
+/* TABLE */
+.data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.data-table th { text-align: left; padding: 8px 12px; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+.data-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-family: var(--mono); color: var(--text); }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--surface2); }
+
+/* BADGES */
+.badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 4px; font-weight: 500; font-family: var(--mono); }
+.badge-blue { background: rgba(59,130,246,0.15); color: #93c5fd; }
+.badge-green { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+.badge-amber { background: rgba(245,158,11,0.15); color: #fcd34d; }
+.badge-red { background: rgba(239,68,68,0.15); color: #fca5a5; }
+.badge-purple { background: rgba(139,92,246,0.15); color: #c4b5fd; }
+
+/* ALERT BOXES */
+.alert { border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; font-size: 12px; line-height: 1.7; }
+.alert-red { background: rgba(239,68,68,0.08); border-left: 3px solid var(--accent4); color: #fca5a5; }
+.alert-green { background: rgba(16,185,129,0.08); border-left: 3px solid var(--accent2); color: #6ee7b7; }
+.alert-amber { background: rgba(245,158,11,0.08); border-left: 3px solid var(--accent3); color: #fcd34d; }
+.alert strong { font-weight: 600; }
+
+/* PHASE BLOCKS */
+.phase-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.phase-block { padding: 16px; border-right: 1px solid var(--border); }
+.phase-block:last-child { border-right: none; }
+.phase-block.highlight { background: rgba(59,130,246,0.08); }
+.phase-block.warn { background: rgba(245,158,11,0.06); }
+.phase-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+.phase-value { font-size: 18px; font-weight: 600; color: var(--text); font-family: var(--mono); }
+.phase-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* TOGGLE */
+.toggle-group { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+.toggle-btn { font-size: 11px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border2); background: transparent; color: var(--muted); cursor: pointer; font-family: var(--sans); transition: all 0.15s; }
+.toggle-btn.on { background: rgba(59,130,246,0.2); border-color: var(--accent); color: var(--accent); }
+
+/* LEGEND */
+.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+/* DIVIDER */
+.divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+
+/* TABS */
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.tab { padding: 10px 18px; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.15s; }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* PRINT HINT */
+.print-note { font-size: 10px; color: var(--muted); text-align: center; padding: 16px; }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="logo">
+    <div class="logo-label">Produto · Analytics</div>
+    <div class="logo-title">Base Ativa</div>
+    <div class="logo-date">mai/2026 · Segurança</div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Visões</div>
+    <a class="nav-item active" href="#overview" onclick="setActive(this)"><span class="nav-dot"></span>Visão Geral</a>
+    <a class="nav-item" href="#produto-pai" onclick="setActive(this)"><span class="nav-dot"></span>Produto Pai</a>
+    <a class="nav-item" href="#oferta" onclick="setActive(this)"><span class="nav-dot"></span>Por Oferta</a>
+    <a class="nav-item" href="#parceiro" onclick="setActive(this)"><span class="nav-dot"></span>Por Parceiro</a>
+    <a class="nav-item" href="#evolucao" onclick="setActive(this)"><span class="nav-dot"></span>Evolução Histórica</a>
+    <a class="nav-item" href="#sinais" onclick="setActive(this)"><span class="nav-dot"></span>Sinais & Alertas</a>
+  </div>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-badge">Referência: 2022-01 → 2026-05<br>4.149 registros · ACTIVE only</div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="section-header">
+    <div class="section-tag">// overview · maio 2026</div>
+    <div class="section-title">Base Ativa de Assinaturas</div>
+    <div class="section-sub">Vertical Segurança · todos os parceiros · status ACTIVE</div>
+  </div>
+  <div class="hero-kpis">
+    <div class="kpi blue">
+      <div class="kpi-label">Base total mai/26</div>
+      <div class="kpi-value">27,76M</div>
+      <div class="kpi-delta neg">▼ 140.660 vs abr/26 (−0,5%)</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">Crescimento YoY</div>
+      <div class="kpi-value">+26,8%</div>
+      <div class="kpi-delta pos">mai/25: 21,89M → mai/26: 27,76M</div>
+    </div>
+    <div class="kpi amber">
+      <div class="kpi-label">Pico histórico</div>
+      <div class="kpi-value">29,21M</div>
+      <div class="kpi-delta neu">dez/2025 · −5% desde o pico</div>
+    </div>
+    <div class="kpi red">
+      <div class="kpi-label">Concentração TIM Group</div>
+      <div class="kpi-value">98,8%</div>
+      <div class="kpi-delta neg">TIM + TIM Emp + TIM Live</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUTO PAI -->
+<div class="section" id="produto-pai">
+  <div class="section-header">
+    <div class="section-tag">// produto pai</div>
+    <div class="section-title">Canais por Produto Pai</div>
+    <div class="section-sub">Quando um plano cobre múltiplos canais, a base é contabilizada em cada um individualmente</div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab(this,'tab-unif')">Visão Unificada</div>
+    <div class="tab" onclick="switchTab(this,'tab-exato')">Exato (como vem na base)</div>
+    <div class="tab" onclick="switchTab(this,'tab-evol-canal')">Evolução 24 meses</div>
+  </div>
+
+  <div class="tab-pane active" id="tab-unif">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:16px;">Base mai/26 · canal somado individualmente</div>
+    <div class="bar-list">
+      <div class="bar-item">
+        <span class="bar-name">Help Desk</span>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent);"></div></div>
+        <span class="bar-num">27.738.364</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Exa Segurança</span>
+        <div class="bar-track"><div class="bar-fill" style="width:85.2%;background:var(--accent2);"></div></div>
+        <span class="bar-num">23.645.863</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Cloud</span>
+        <div class="bar-track"><div class="bar-fill" style="width:28.5%;background:var(--accent3);"></div></div>
+        <span class="bar-num">7.918.218</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Escudo</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0.3%;background:var(--accent5);"></div></div>
+        <span class="bar-num">746</span>
+      </div>
+    </div>
+    <div class="alert alert-amber" style="margin-top:20px;">
+      <strong>Atenção:</strong> Help Desk aparece em 99,8% da base porque está presente em todas as combinações de plano. A métrica isolada de Exa Segurança (23,6M) é mais representativa do produto de segurança em si.
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tab-exato">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:16px;">Base mai/26 · combinações exatas como constam na base</div>
+    <div class="bar-list">
+      <div class="bar-item">
+        <span class="bar-name">Exa Segurança, Help Desk</span>
+        <div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent);"></div></div>
+        <span class="bar-num">19.780.573</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Cloud, Help Desk</span>
+        <div class="bar-track"><div class="bar-fill" style="width:20.6%;background:var(--accent3);"></div></div>
+        <span class="bar-num">4.077.284</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Cloud, Exa Seg., Help Desk</span>
+        <div class="bar-track"><div class="bar-fill" style="width:19.4%;background:var(--accent2);"></div></div>
+        <span class="bar-num">3.840.934</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Help Desk</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0.2%;background:#6b7a99;"></div></div>
+        <span class="bar-num">39.573</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Exa Segurança</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0.12%;background:#6b7a99;"></div></div>
+        <span class="bar-num">23.610</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-name">Exa Segurança, Escudo</span>
+        <div class="bar-track"><div class="bar-fill" style="width:0.004%;background:var(--accent5);"></div></div>
+        <span class="bar-num">746</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tab-evol-canal">
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent);"></div>Help Desk</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent2);"></div>Exa Segurança</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent3);"></div>Cloud</div>
+    </div>
+    <div class="chart-wrap" style="height:280px;">
+      <canvas id="canalEvolChart" role="img" aria-label="Evolução dos canais Help Desk, Exa Segurança e Cloud nos últimos 24 meses">Todos os canais cresceram. Help Desk e Exa Segurança lideram com queda em jan/26.</canvas>
+    </div>
+  </div>
+</div>
+
+<!-- OFERTA -->
+<div class="section" id="oferta">
+  <div class="section-header">
+    <div class="section-tag">// por oferta</div>
+    <div class="section-title">Distribuição por Oferta</div>
+    <div class="section-sub">Base mai/26 · variação MoM incluída</div>
+  </div>
+
+  <div class="chart-grid">
+    <div class="chart-card full">
+      <div class="chart-title">Base por oferta · mai/26</div>
+      <div class="chart-sub">Com variação absoluta mês a mês (abr → mai)</div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Oferta</th>
+            <th>Base mai/26</th>
+            <th>% da base</th>
+            <th>Δ MoM</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>EXA SEGURANÇA</td>
+            <td>17.101.016</td>
+            <td>61,6%</td>
+            <td><span style="color:var(--accent4);">▼ 105.575</span></td>
+            <td><span class="badge badge-blue">principal</span></td>
+          </tr>
+          <tr>
+            <td>COMBO</td>
+            <td>6.520.491</td>
+            <td>23,5%</td>
+            <td><span style="color:var(--accent4);">▼ 37.534</span></td>
+            <td><span class="badge badge-blue">principal</span></td>
+          </tr>
+          <tr>
+            <td>EXA CLOUD</td>
+            <td>4.077.284</td>
+            <td>14,7%</td>
+            <td><span style="color:var(--accent4);">▼ 29.854</span></td>
+            <td><span class="badge badge-blue">principal</span></td>
+          </tr>
+          <tr>
+            <td>Suporte Técnico Remoto</td>
+            <td>32.353</td>
+            <td>0,12%</td>
+            <td><span style="color:var(--accent2);">▲ 32.353</span></td>
+            <td><span class="badge badge-green">novo · mai/26</span></td>
+          </tr>
+          <tr>
+            <td>EXA GESTAO</td>
+            <td>23.610</td>
+            <td>0,09%</td>
+            <td><span style="color:var(--accent4);">▼ 180</span></td>
+            <td><span class="badge badge-amber">estável</span></td>
+          </tr>
+          <tr>
+            <td>HELPDESK</td>
+            <td>7.220</td>
+            <td>0,03%</td>
+            <td><span style="color:var(--accent4);">▼ 65</span></td>
+            <td><span class="badge badge-amber">estável</span></td>
+          </tr>
+          <tr>
+            <td>EXA Escudo</td>
+            <td>710</td>
+            <td>&lt;0,01%</td>
+            <td><span style="color:var(--accent2);">▲ 182 (+34%)</span></td>
+            <td><span class="badge badge-purple">rampa</span></td>
+          </tr>
+          <tr>
+            <td>EXA Escudo EVA</td>
+            <td>36</td>
+            <td>&lt;0,01%</td>
+            <td><span style="color:var(--accent2);">▲ 13 (+57%)</span></td>
+            <td><span class="badge badge-purple">rampa</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="chart-card full">
+      <div class="chart-title">Distribuição visual por oferta</div>
+      <div class="chart-sub">Proporção da base mai/26</div>
+      <div class="chart-wrap" style="height:260px;">
+        <canvas id="ofertaChart" role="img" aria-label="Gráfico de pizza com distribuição por oferta em maio 2026">EXA SEGURANÇA domina com 61,6%, seguido COMBO 23,5%, EXA CLOUD 14,7%.</canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARCEIRO -->
+<div class="section" id="parceiro">
+  <div class="section-header">
+    <div class="section-tag">// por parceiro</div>
+    <div class="section-title">Base por Parceiro</div>
+    <div class="section-sub">Concentração, crescimento YoY e novos entrantes</div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab(this,'tab-parc-base')">Base mai/26</div>
+    <div class="tab" onclick="switchTab(this,'tab-parc-yoy')">YoY (mai/25 → mai/26)</div>
+    <div class="tab" onclick="switchTab(this,'tab-parc-share')">Share TIM Group</div>
+  </div>
+
+  <div class="tab-pane active" id="tab-parc-base">
+    <div class="bar-list">
+      <div class="bar-item"><span class="bar-name sm">TIM</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent);"></div></div><span class="bar-num">25.417.939</span></div>
+      <div class="bar-item"><span class="bar-name sm">TIM EMPRESAS</span><div class="bar-track"><div class="bar-fill" style="width:5.1%;background:var(--accent);"></div></div><span class="bar-num">1.288.487</span></div>
+      <div class="bar-item"><span class="bar-name sm">TIM LIVE</span><div class="bar-track"><div class="bar-fill" style="width:2.8%;background:var(--accent);"></div></div><span class="bar-num">717.639</span></div>
+      <div class="bar-item"><span class="bar-name sm">ALGAR</span><div class="bar-track"><div class="bar-fill" style="width:0.7%;background:var(--accent2);"></div></div><span class="bar-num">179.628</span></div>
+      <div class="bar-item"><span class="bar-name sm">BRADESCO</span><div class="bar-track"><div class="bar-fill" style="width:0.19%;background:var(--accent2);"></div></div><span class="bar-num">48.549</span></div>
+      <div class="bar-item"><span class="bar-name sm">NIO</span><div class="bar-track"><div class="bar-fill" style="width:0.14%;background:var(--accent2);"></div></div><span class="bar-num">35.844</span></div>
+      <div class="bar-item"><span class="bar-name sm">FASTSHOP <span class="badge badge-green" style="font-size:9px;">novo</span></span><div class="bar-track"><div class="bar-fill" style="width:0.13%;background:var(--accent2);"></div></div><span class="bar-num">32.631</span></div>
+      <div class="bar-item"><span class="bar-name sm">GIGA+</span><div class="bar-track"><div class="bar-fill" style="width:0.09%;background:#6b7a99;"></div></div><span class="bar-num">23.559</span></div>
+      <div class="bar-item"><span class="bar-name sm">demais (13)</span><div class="bar-track"><div class="bar-fill" style="width:0.07%;background:#6b7a99;"></div></div><span class="bar-num">~18.835</span></div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="tab-parc-yoy">
+    <table class="data-table">
+      <thead><tr><th>Parceiro</th><th>mai/25</th><th>mai/26</th><th>Δ absoluto</th><th>Δ %</th></tr></thead>
+      <tbody>
+        <tr><td>TIM</td><td>20.695.468</td><td>25.417.939</td><td><span style="color:var(--accent2);">+4.722.471</span></td><td><span class="badge badge-green">+22,8%</span></td></tr>
+        <tr><td>TIM EMPRESAS</td><td>790.528</td><td>1.288.487</td><td><span style="color:var(--accent2);">+497.959</span></td><td><span class="badge badge-green">+63%</span></td></tr>
+        <tr><td>TIM LIVE</td><td>296.143</td><td>717.639</td><td><span style="color:var(--accent2);">+421.496</span></td><td><span class="badge badge-green">+142%</span></td></tr>
+        <tr><td>ALGAR</td><td>101.586</td><td>179.628</td><td><span style="color:var(--accent2);">+78.042</span></td><td><span class="badge badge-green">+77%</span></td></tr>
+        <tr><td>BRADESCO</td><td>5.520</td><td>48.549</td><td><span style="color:var(--accent2);">+43.029</span></td><td><span class="badge badge-green">+780%</span></td></tr>
+        <tr><td>NIO</td><td>0</td><td>35.844</td><td><span style="color:var(--accent2);">+35.844</span></td><td><span class="badge badge-green">novo</span></td></tr>
+        <tr><td>FASTSHOP</td><td>0</td><td>32.631</td><td><span style="color:var(--accent2);">+32.631</span></td><td><span class="badge badge-green">novo</span></td></tr>
+        <tr><td>GIGA+</td><td>49</td><td>23.559</td><td><span style="color:var(--accent2);">+23.510</span></td><td><span class="badge badge-green">+47.979%</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tab-pane" id="tab-parc-share">
+    <div class="chart-wrap" style="height:260px;">
+      <canvas id="shareTimChart" role="img" aria-label="Share do grupo TIM ao longo do tempo">Share TIM mantido acima de 98% nos últimos 12 meses.</canvas>
+    </div>
+    <div class="alert alert-amber" style="margin-top:16px;">
+      <strong>Risco de concentração:</strong> TIM Group representa 98,8% da base em mai/26. Embora a base não-TIM cresça (+189% YoY), representa apenas 1,2% do total. Qualquer ajuste contratual com TIM tem impacto direto na base total.
+    </div>
+  </div>
+</div>
+
+<!-- EVOLUÇÃO HISTÓRICA -->
+<div class="section" id="evolucao">
+  <div class="section-header">
+    <div class="section-tag">// evolução histórica</div>
+    <div class="section-title">Crescimento da Base — jan/2022 a mai/2026</div>
+    <div class="section-sub">Série completa de 53 meses com identificação das fases de crescimento</div>
+  </div>
+
+  <div class="chart-card full" style="margin-bottom:16px;">
+    <div class="chart-title">Base ativa total · todos os meses</div>
+    <div class="chart-sub">Quatro fases de crescimento identificadas · queda em jan/26 investigada na seção Sinais</div>
+    <div class="chart-wrap" style="height:300px;">
+      <canvas id="evolTotalChart" role="img" aria-label="Evolução total da base ativa de jan/22 a mai/26">Base cresceu de 30k em jan/22 a 27,76M em mai/26 com aceleração a partir de abr/24.</canvas>
+    </div>
+  </div>
+
+  <div class="phase-grid">
+    <div class="phase-block">
+      <div class="phase-label">Fase 1 · jan/22 – mar/24</div>
+      <div class="phase-value">+68k/mês</div>
+      <div class="phase-sub">1,8M ao final · crescimento orgânico</div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-label">Fase 2 · abr/24 – dez/24</div>
+      <div class="phase-value">+294k/mês</div>
+      <div class="phase-sub">6,8M ao final · 4× aceleração</div>
+    </div>
+    <div class="phase-block highlight">
+      <div class="phase-label">Fase 3 · jan/25 – dez/25</div>
+      <div class="phase-value">+1,8M/mês</div>
+      <div class="phase-sub">29,2M ao final · pico histórico</div>
+    </div>
+    <div class="phase-block warn">
+      <div class="phase-label">Fase 4 · jan/26 – mai/26</div>
+      <div class="phase-value">+515k/mês</div>
+      <div class="phase-sub">27,8M atual · desaceleração visível</div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;">
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-title">Base não-TIM · crescimento mensal</div>
+        <div class="chart-sub">Últimos 12 meses · jun/25 a mai/26</div>
+        <div class="chart-wrap" style="height:200px;">
+          <canvas id="nonTimChart" role="img" aria-label="Crescimento base não-TIM nos últimos 12 meses">Base não-TIM cresceu de 117k para 339k (+189% YoY).</canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Escudo · produto em rampa</div>
+        <div class="chart-sub">out/25 a mai/26 · +41× em 8 meses</div>
+        <div class="chart-wrap" style="height:200px;">
+          <canvas id="escudoChart" role="img" aria-label="Evolução do Escudo de out/25 a mai/26">Escudo cresceu de 18 para 746 assinaturas em 8 meses.</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SINAIS & ALERTAS -->
+<div class="section" id="sinais">
+  <div class="section-header">
+    <div class="section-tag">// sinais & alertas</div>
+    <div class="section-title">Pontos de Atenção e Oportunidades</div>
+    <div class="section-sub">Para discussão com o time de produto</div>
+  </div>
+
+  <div class="alert alert-red">
+    <strong>🔴 Queda estrutural dez/25 → jan/26 (−3,5M em um mês)</strong><br>
+    A base caiu 3,6M puxada exclusivamente por TIM + oferta EXA SEGURANÇA (−3,4M só nessa oferta). COMBO e EXA CLOUD cresceram no mesmo período. Padrão indica cancelamento em lote ou ajuste de base, não churn orgânico. Recomenda-se investigar junto ao parceiro TIM.
+  </div>
+
+  <div class="alert alert-red">
+    <strong>🔴 Desaceleração na Fase 4 (jan–mai/26)</strong><br>
+    Velocidade caiu de +1,8M/mês (2025) para +515k/mês (2026). Base ainda cresce, mas bem abaixo do pico. Sem novos grandes lotes TIM visíveis, a recuperação virá da diversificação de parceiros — que hoje cresce mas é marginal (1,2%).
+  </div>
+
+  <div class="alert alert-amber">
+    <strong>🟡 Concentração TIM Group em 98,8%</strong><br>
+    Qualquer renegociação contratual, ajuste técnico ou saída de produto com TIM impacta diretamente a base total. A diversificação está acontecendo mas ainda não tem escala relevante para servir de colchão.
+  </div>
+
+  <div class="alert alert-green">
+    <strong>🟢 FASTSHOP entrou com 32k imediatos em mai/26</strong><br>
+    Maior onboarding de novo parceiro desde NIO (ago/25). Toda a base está em "Suporte Técnico Remoto" — oferta Help Desk standalone. Se houver uma segunda leva de ativações, pode escalar rapidamente.
+  </div>
+
+  <div class="alert alert-green">
+    <strong>🟢 Base não-TIM cresce +189% YoY</strong><br>
+    De 117k em jun/25 para 339k em mai/26. Bradesco (+780% YoY), TIM Live (+142%), ALGAR (+77%), NIO (entrou agosto). A velocidade de diversificação acelera — de ~10k/mês de ganho em 2025 para ~37k/mês em 2026.
+  </div>
+
+  <div class="alert alert-green">
+    <strong>🟢 Escudo em rampa acelerada (+41× em 8 meses)</strong><br>
+    Produto novo, operado exclusivamente pela EXA. Crescimento de 18 → 746 assinaturas. Próximo passo: qual parceiro vai levar o Escudo em escala?
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-tag" style="margin-bottom:16px;">// top configs de plano · mai/26</div>
+  <div class="chart-card full">
+    <div class="chart-title">Top 10 configurações de plano por base</div>
+    <div class="chart-sub">mai/26</div>
+    <div class="bar-list">
+      <div class="bar-item"><span class="bar-name">Exa Seguranca Light Bundle</span><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent);"></div></div><span class="bar-num">8,28M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Seguranca Bundle</span><div class="bar-track"><div class="bar-fill" style="width:32%;background:var(--accent);"></div></div><span class="bar-num">2,66M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Cloud 500 Bundle</span><div class="bar-track"><div class="bar-fill" style="width:30%;background:var(--accent3);"></div></div><span class="bar-num">2,53M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Seguranca Premium Bundle</span><div class="bar-track"><div class="bar-fill" style="width:21%;background:var(--accent);"></div></div><span class="bar-num">1,75M</span></div>
+      <div class="bar-item"><span class="bar-name">Tim Nuvem 2 Tb Bundle</span><div class="bar-track"><div class="bar-fill" style="width:21%;background:var(--accent3);"></div></div><span class="bar-num">1,75M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Cloud 2tb Bundle</span><div class="bar-track"><div class="bar-fill" style="width:15%;background:var(--accent3);"></div></div><span class="bar-num">1,26M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Gestao Stand Bundle</span><div class="bar-track"><div class="bar-fill" style="width:13%;background:var(--accent5);"></div></div><span class="bar-num">1,09M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Seguranca Prot Stand Bundle</span><div class="bar-track"><div class="bar-fill" style="width:12%;background:var(--accent);"></div></div><span class="bar-num">1,05M</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Seguranca Prot Prem Bundle</span><div class="bar-track"><div class="bar-fill" style="width:11%;background:var(--accent);"></div></div><span class="bar-num">971k</span></div>
+      <div class="bar-item"><span class="bar-name">Exa Gestao Premium Bundle</span><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--accent5);"></div></div><span class="bar-num">845k</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="print-note">Base Ativa · Vertical Segurança · Referência maio/2026 · Gerado em 13/05/2026</div>
+
+</div><!-- /main -->
+</div><!-- /shell -->
+
+<script>
+// DATA
+const meses24 = ["2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05"];
+const labels24 = meses24.map(m => { const p=m.split('-'); return p[1]+'/'+p[0].slice(2); });
+const meses12 = ["2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05"];
+const labels12 = meses12.map(m => { const p=m.split('-'); return p[1]+'/'+p[0].slice(2); });
+const allLabels = ["jan/22","fev/22","mar/22","abr/22","mai/22","jun/22","jul/22","ago/22","set/22","out/22","nov/22","dez/22","jan/23","fev/23","mar/23","abr/23","mai/23","jun/23","jul/23","ago/23","set/23","out/23","nov/23","dez/23","jan/24","fev/24","mar/24","abr/24","mai/24","jun/24","jul/24","ago/24","set/24","out/24","nov/24","dez/24","jan/25","fev/25","mar/25","abr/25","mai/25","jun/25","jul/25","ago/25","set/25","out/25","nov/25","dez/25","jan/26","fev/26","mar/26","abr/26","mai/26"];
+const allVals = [30928,66549,119634,157410,261599,309102,356096,408436,463660,522907,586489,648926,725969,770162,941809,1048224,1100913,1144215,1189268,1241089,1285646,1331229,1386846,1440459,1500041,1570517,1801172,4456181,4611464,4764539,5303418,5506613,5690028,5956902,6282906,6806826,9447603,10561511,12430828,14941578,21890058,23214470,25182726,28892789,28817677,28850491,29058036,29207290,25702535,26390878,26723032,27903380,27762720];
+const helpDesk24 = [4741372,5280211,5483406,5666821,5933695,6259699,6783619,9424396,10538386,12407896,14918701,21867258,23191586,25159833,28869835,28794683,28827518,29035012,29184278,25679476,26367739,26699410,27879039,27738364];
+const exaSeg24   = [3127616,3596065,3737260,3874886,4089407,4361189,4807294,7065593,8037416,9732794,12121069,18843206,20031395,21802847,25209635,25113580,25118058,25253149,25334240,22052241,22635751,22787137,23788957,23645863];
+const cloud24    = [2978515,3117014,3248234,3358370,3480417,3621026,3762006,4452792,4692135,4982033,5323486,5717006,5987957,6335226,6832890,6888349,6962906,7089053,7196268,7242784,7439819,7704716,7956043,7918218];
+const nontim12   = [117166,126536,141898,167323,185340,204424,217306,229579,269299,283606,301619,338655];
+const escudoVals = [18,37,42,76,132,334,551,746];
+const escudoLabels = ["out/25","nov/25","dez/25","jan/26","fev/26","mar/26","abr/26","mai/26"];
+const shareTimAll = [96.4,96.5,97.2,97.1,97.9,97.9,97.8,97.7,97.7,97.6,97.5,97.3,97.4,97.4,97.8,97.9,97.9,97.9,97.8,97.8,97.8,97.8,97.8,97.8,97.8,97.8,98.0,99.2,99.2,99.1,99.2,99.2,99.1,99.1,99.0,99.0,99.2,99.3,99.3,99.4,99.5,99.5,99.5,99.5,99.4,99.4,99.3,99.3,99.1,99.0,98.9,98.9,98.8];
+
+const GRID = 'rgba(255,255,255,0.05)';
+const TICK = { color: '#6b7a99', font: { size: 10 } };
+const fmt = v => (v/1e6).toFixed(2)+'M';
+
+// Canal evolução
+new Chart(document.getElementById('canalEvolChart'), {
+  type: 'line',
+  data: { labels: labels24, datasets: [
+    { label:'Help Desk', data: helpDesk24, borderColor:'#3b82f6', backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 },
+    { label:'Exa Segurança', data: exaSeg24, borderColor:'#10b981', backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 },
+    { label:'Cloud', data: cloud24, borderColor:'#f59e0b', backgroundColor:'transparent', tension:0.3, pointRadius:0, borderWidth:2 }
+  ]},
+  options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ctx.dataset.label+': '+fmt(ctx.raw) }}},
+    scales: { x:{ ticks:{...TICK,autoSkip:true,maxTicksLimit:8}, grid:{color:GRID} }, y:{ ticks:{...TICK, callback:fmt}, grid:{color:GRID} } } }
+});
+
+// Oferta donut
+new Chart(document.getElementById('ofertaChart'), {
+  type: 'doughnut',
+  data: { labels:['EXA SEGURANÇA','COMBO','EXA CLOUD','outros'],
+    datasets:[{ data:[17101016,6520491,4077284,63219], backgroundColor:['#3b82f6','#10b981','#f59e0b','#6b7a99'], borderWidth:0, hoverOffset:4 }] },
+  options: { responsive:true, maintainAspectRatio:false, cutout:'65%',
+    plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ctx.label+': '+fmt(ctx.raw)+' ('+((ctx.raw/27762720)*100).toFixed(1)+'%)' }}}}
+});
+
+// Evolução total
+new Chart(document.getElementById('evolTotalChart'), {
+  type: 'line',
+  data: { labels: allLabels, datasets:[{
+    label:'Base total', data:allVals, borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,0.08)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
+  }]},
+  options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => fmt(ctx.raw) }}},
+    scales: { x:{ ticks:{...TICK,autoSkip:true,maxTicksLimit:12,maxRotation:45}, grid:{color:GRID} }, y:{ ticks:{...TICK,callback:fmt}, grid:{color:GRID} } } }
+});
+
+// Non-TIM
+new Chart(document.getElementById('nonTimChart'), {
+  type: 'bar',
+  data: { labels:labels12, datasets:[{ label:'Non-TIM', data:nontim12, backgroundColor:'#3b82f6', borderRadius:4 }] },
+  options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ctx.raw.toLocaleString('pt-BR') }}},
+    scales: { x:{ ticks:TICK, grid:{display:false} }, y:{ ticks:{...TICK, callback:v=>(v/1000).toFixed(0)+'k'}, grid:{color:GRID} } } }
+});
+
+// Escudo
+new Chart(document.getElementById('escudoChart'), {
+  type: 'line',
+  data: { labels:escudoLabels, datasets:[{
+    label:'Escudo', data:escudoVals, borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2
+  }]},
+  options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false} },
+    scales: { x:{ ticks:TICK, grid:{display:false} }, y:{ ticks:TICK, grid:{color:GRID} } } }
+});
+
+// Share TIM
+new Chart(document.getElementById('shareTimChart'), {
+  type: 'line',
+  data: { labels:allLabels, datasets:[{
+    label:'Share TIM Group', data:shareTimAll, borderColor:'#f59e0b', backgroundColor:'rgba(245,158,11,0.08)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
+  }]},
+  options: { responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => 'Share TIM: '+ctx.raw+'%' }}},
+    scales: { x:{ ticks:{...TICK,autoSkip:true,maxTicksLimit:10,maxRotation:45}, grid:{color:GRID} },
+      y:{ min:90, max:100, ticks:{...TICK, callback:v=>v+'%'}, grid:{color:GRID} } } }
+});
+
+// NAV
+function setActive(el) {
+  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+}
+function switchTab(btn, paneId) {
+  const card = btn.closest('.section') || btn.closest('.chart-card') || document.body;
+  btn.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const allPanes = btn.closest('.section') ? btn.closest('.section').querySelectorAll('.tab-pane') : document.querySelectorAll('#'+paneId.split('-').slice(0,-1).join('-'));
+  btn.closest('.section').querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById(paneId).classList.add('active');
+}
+
+// Highlight active section on scroll
+const sections = ['overview','produto-pai','oferta','parceiro','evolucao','sinais'];
+const navItems = document.querySelectorAll('.nav-item');
+window.addEventListener('scroll', () => {
+  let current = 'overview';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 120) current = id;
+  });
+  navItems.forEach(n => {
+    n.classList.toggle('active', n.getAttribute('href') === '#'+current);
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
