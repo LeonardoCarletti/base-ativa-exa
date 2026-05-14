@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base de Conhecimento — Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0e0e0d;
+  --paper: #f8f6f1;
+  --surface: #ffffff;
+  --muted: #7a7974;
+  --border: rgba(14,14,13,0.1);
+
+  --cat-ia: #1a3a7c;
+  --cat-ia-bg: #e6f1fb;
+  --cat-gcp: #0f6e56;
+  --cat-gcp-bg: #e1f5ee;
+  --cat-doc: #5a1a7c;
+  --cat-doc-bg: #eeedfe;
+  --cat-play: #7c3a1a;
+  --cat-play-bg: #faeeda;
+  --cat-dash: #2C5F2E;
+  --cat-dash-bg: #eaf3de;
+  --cat-tag: #7c1a3a;
+  --cat-tag-bg: #fbeaf0;
+
+  --sans: 'Inter', system-ui, sans-serif;
+  --display: 'Syne', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(248,246,241,0.94); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+}
+.nav-logo { font-family: var(--display); font-size: 17px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.03em; }
+.nav-logo span { opacity: 0.35; font-weight: 400; }
+.nav-search { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 7px 12px; width: 240px; }
+.nav-search input { border: none; background: transparent; font-family: var(--sans); font-size: 13px; color: var(--ink); outline: none; width: 100%; }
+.nav-search input::placeholder { color: var(--muted); }
+
+.hero { padding: 72px 2rem 56px; max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; }
+.hero-eyebrow { font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.hero h1 { font-family: var(--display); font-size: clamp(38px, 5.5vw, 64px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; color: var(--ink); margin-bottom: 20px; }
+.hero h1 em { font-style: normal; position: relative; }
+.hero h1 em::after { content: ''; position: absolute; left: 0; bottom: 3px; width: 100%; height: 3px; background: var(--ink); border-radius: 2px; }
+.hero-sub { font-size: 16px; color: var(--muted); font-weight: 300; max-width: 480px; line-height: 1.7; }
+.hero-stats { display: flex; flex-direction: column; gap: 20px; align-items: flex-end; padding-bottom: 4px; }
+.hero-stat-n { font-family: var(--display); font-size: 36px; font-weight: 800; letter-spacing: -0.04em; color: var(--ink); line-height: 1; text-align: right; }
+.hero-stat-l { font-size: 12px; color: var(--muted); margin-top: 2px; text-align: right; }
+
+.tabs { max-width: 960px; margin: 0 auto; padding: 0 2rem; display: flex; gap: 2px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.tab { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--muted); background: none; border: none; cursor: pointer; padding: 10px 14px; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; white-space: nowrap; margin-bottom: -1px; }
+.tab:hover { color: var(--ink); }
+.tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+
+main { max-width: 960px; margin: 0 auto; padding: 40px 2rem 100px; }
+
+.section { margin-bottom: 56px; animation: fadeUp 0.4s ease both; }
+.section:nth-child(1){animation-delay:.05s}.section:nth-child(2){animation-delay:.1s}.section:nth-child(3){animation-delay:.15s}.section:nth-child(4){animation-delay:.2s}.section:nth-child(5){animation-delay:.25s}.section:nth-child(6){animation-delay:.3s}
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.section-title { font-family: var(--display); font-size: 20px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+.section-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.section-count { font-size: 12px; color: var(--muted); font-weight: 400; }
+.btn-add { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 5px 12px; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 5px; }
+.btn-add:hover { color: var(--ink); border-color: rgba(14,14,13,0.25); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.07); }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.cat-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 3px 7px; }
+.card-date { font-size: 11px; color: var(--muted); }
+.card h3 { font-family: var(--display); font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+.card p { font-size: 13px; color: var(--muted); line-height: 1.55; flex: 1; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+.card-author { display: flex; align-items: center; gap: 7px; }
+.avatar { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; }
+.card-author-name { font-size: 12px; color: var(--muted); }
+.card-tags { display: flex; gap: 4px; }
+.tag { font-size: 10px; color: var(--muted); background: var(--paper); border-radius: 4px; padding: 2px 7px; border: 1px solid var(--border); }
+
+.empty-state { border: 1.5px dashed var(--border); border-radius: 12px; padding: 40px 24px; text-align: center; color: var(--muted); }
+.empty-state p { font-size: 13px; margin-bottom: 14px; }
+.empty-add { font-family: var(--sans); font-size: 13px; font-weight: 500; color: var(--muted); background: none; border: 1px solid var(--border); border-radius: 6px; padding: 7px 16px; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+.empty-add:hover { color: var(--ink); border-color: rgba(14,14,13,0.3); }
+
+.card.hidden, .section.hidden { display: none !important; }
+
+.modal-overlay { position: fixed; inset: 0; background: rgba(14,14,13,0.5); z-index: 500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal { background: var(--surface); border-radius: 16px; padding: 32px; width: 520px; max-width: 95vw; transform: translateY(12px); transition: transform 0.2s; }
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.modal-title { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -0.03em; }
+.modal-close { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 20px; line-height: 1; padding: 4px; }
+.modal-close:hover { color: var(--ink); }
+.form-group { margin-bottom: 16px; }
+.form-label { font-size: 12px; font-weight: 500; color: var(--muted); display: block; margin-bottom: 6px; }
+.form-input, .form-select, .form-textarea { width: 100%; font-family: var(--sans); font-size: 14px; border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; background: var(--paper); color: var(--ink); outline: none; transition: border-color 0.15s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: rgba(14,14,13,0.4); }
+.form-textarea { resize: vertical; min-height: 80px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.btn-primary { font-family: var(--sans); font-size: 14px; font-weight: 500; background: var(--ink); color: white; border: none; border-radius: 8px; padding: 10px 20px; cursor: pointer; transition: opacity 0.15s; width: 100%; }
+.btn-primary:hover { opacity: 0.85; }
+
+#docViewer { display: none; position: fixed; inset: 0; z-index: 300; background: var(--paper); overflow-y: auto; }
+#docViewer.open { display: block; animation: fadeUp 0.25s ease both; }
+.viewer-nav { position: sticky; top: 0; z-index: 10; background: rgba(248,246,241,0.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 60px; }
+.viewer-back { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--muted); background: none; border: none; cursor: pointer; transition: color 0.15s; }
+.viewer-back:hover { color: var(--ink); }
+.viewer-back:hover svg { transform: translateX(-3px); }
+.viewer-back svg { transition: transform 0.15s; }
+.viewer-cat-badge { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px; padding: 4px 10px; }
+.viewer-body { max-width: 760px; margin: 0 auto; padding: 64px 2rem 100px; }
+
+.guide-eyebrow { font-family: var(--display); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.guide-eyebrow::before { content:''; display:block; width:28px; height:1.5px; background:var(--cat-ia); }
+.guide-h1 { font-family: var(--display); font-size: clamp(34px,5vw,52px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; color: var(--ink); margin-bottom: 20px; }
+.guide-h1 em { font-style: italic; color: var(--cat-ia); }
+.guide-subtitle { font-size: 17px; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 560px; margin-bottom: 40px; }
+.guide-stats { display: flex; gap: 32px; flex-wrap: wrap; padding: 28px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+.guide-stat-n { font-family: var(--display); font-size: 30px; font-weight: 800; letter-spacing: -0.04em; color: var(--cat-ia); line-height: 1; }
+.guide-stat-l { font-size: 12px; color: var(--muted); margin-top: 3px; }
+.guide-callout { background: var(--cat-ia-bg); border-left: 3px solid #378add; border-radius: 0 8px 8px 0; padding: 18px 22px; margin: 36px 0; font-size: 15px; color: #0c447c; line-height: 1.65; }
+.guide-callout strong { font-weight: 600; }
+.guide-divider { display: flex; align-items: center; gap: 14px; margin: 56px 0 32px; }
+.guide-divider-num { font-family: var(--display); font-size: 12px; color: var(--muted); min-width: 24px; }
+.guide-divider-line { flex:1; height:1px; background:var(--border); }
+.guide-h2 { font-family: var(--display); font-size: 26px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.25; color: var(--ink); margin-bottom: 16px; }
+.guide-h2 em { font-style: italic; color: var(--cat-ia); }
+.guide-p { font-size: 15px; color: #2c2c2a; margin-bottom: 14px; line-height: 1.75; }
+.tip-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin: 24px 0; background: var(--surface); }
+.tip-header { padding: 18px 22px 14px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 14px; }
+.tip-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--cat-ia-bg); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.tip-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cat-ia); margin-bottom: 4px; }
+.tip-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.tip-impact { font-size: 11px; font-weight: 600; margin-top: 5px; display: inline-block; border-radius: 4px; padding: 2px 8px; }
+.impact-alto { background: #faeeda; color: #7c3a1a; }
+.impact-medio { background: #eaf3de; color: #2C5F2E; }
+.impact-base { background: #f1efe8; color: #888780; }
+.tip-body { padding: 18px 22px; }
+.tip-body .guide-p { margin-bottom: 10px; }
+.tip-action { background: var(--cat-ia-bg); border-radius: 8px; padding: 14px 18px; margin-top: 14px; }
+.tip-action strong { display: block; font-size: 13px; color: var(--cat-ia); margin-bottom: 4px; }
+.tip-action span { font-size: 13px; color: #185fa5; line-height: 1.6; }
+.guide-summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+.summary-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+.summary-item-n { font-family: var(--display); font-size: 28px; font-weight: 800; letter-spacing: -0.04em; color: var(--cat-ia); line-height: 1; margin-bottom: 6px; }
+.summary-item-l { font-size: 13px; color: var(--muted); line-height: 1.5; }
+.guide-cta { background: #0c447c; border-radius: 12px; padding: 36px 32px; margin-top: 48px; text-align: center; }
+.guide-cta h2 { font-family: var(--display); font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -0.03em; }
+.guide-cta p { font-size: 14px; color: #b5d4f4; line-height: 1.65; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Base<span>/</span>Conhecimento</a>
+  <div class="nav-search">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#7a7974" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="#7a7974" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <input type="text" id="searchInput" placeholder="Buscar documentos…">
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Time · Documentação interna</div>
+    <h1>Tudo que o time<br>precisa <em>saber</em>.</h1>
+    <p class="hero-sub">Guias, playbooks, dashboards e boas práticas em um só lugar. Atualizado pelo time, para o time.</p>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hero-stat-n" id="totalDocs">1</div><div class="hero-stat-l">documento</div></div>
+    <div><div class="hero-stat-n">6</div><div class="hero-stat-l">categorias</div></div>
+  </div>
+</section>
+
+<div class="tabs">
+  <button class="tab active" data-filter="all">Todos</button>
+  <button class="tab" data-filter="ia">I.A</button>
+  <button class="tab" data-filter="gcp">GCP - BQ (Datalake)</button>
+  <button class="tab" data-filter="doc">Documentações</button>
+  <button class="tab" data-filter="play">Playbook</button>
+  <button class="tab" data-filter="dash">Dashboards</button>
+  <button class="tab" data-filter="tag">Tagueamento</button>
+</div>
+
+<main>
+
+  <!-- I.A -->
+  <div class="section" data-category="ia">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon" style="background:var(--cat-ia-bg);">🤖</div>
+        I.A
+        <span class="section-count" id="count-ia">1 doc</span>
+      </div>
+      <button class="btn-add" onclick="openModal('ia')">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Adicionar
+      </button>
+    </div>
+    <div class="cards" id="cards-ia">
+      <div class="card" data-category="ia" data-doc="credits" onclick="openDoc(this)">
+        <div class="card-top">
+          <span class="cat-badge" style="background:var(--cat-ia-bg);color:var(--cat-ia);">I.A</span>
+          <span class="card-date">Mai 2025</span>
+        </div>
+        <h3>Como reduzir 50% do consumo de créditos do Claude</h3>
+        <p>Conversas curtas, modelo certo, prompts eficientes, arquivos e projetos. Impacto real no orçamento.</p>
+        <div class="card-footer">
+          <div class="card-author">
+            <div class="avatar" style="background:var(--cat-ia-bg);color:var(--cat-ia);">EX</div>
+            <span class="card-author-name">EXA</span>
+          </div>
+          <div class="card-tags"><span class="tag">Claude</span><span class="tag">IA</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GCP - BQ -->
+  <div class="section" data-category="gcp">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon" style="background:var(--cat-gcp-bg);">☁️</div>
+        GCP - BQ (Datalake)
+        <span class="section-count" id="count-gcp">0 docs</span>
+      </div>
+      <button class="btn-add" onclick="openModal('gcp')">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Adicionar
+      </button>
+    </div>
+    <div class="cards" id="cards-gcp">
+      <div class="empty-state">
+        <p>Nenhum documento ainda. Seja o primeiro a contribuir!</p>
+        <button class="empty-add" onclick="openModal('gcp')">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Adicionar documento
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOCUMENTAÇÕES -->
+  <div class="section" data-category="doc">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon" style="background:var(--cat-doc-bg);">📚</div>
+        Documentações
+        <span class="section-count" id="count-doc">0 docs</span>
+      </div>
+      <button class="btn-add" onclick="openModal('doc')">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Adicionar
+      </button>
+    </div>
+    <div class="cards" id="cards-doc">
+      <div class="empty-state">
+        <p>Nenhum documento ainda. Seja o primeiro a contribuir!</p>
+        <button class="empty-add" onclick="openModal('doc')">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Adicionar documento
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAYBOOK -->
+  <div class="section" data-category="play">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon" style="background:var(--cat-play-bg);">🎯</div>
+        Playbook
+        <span class="section-count" id="count-play">0 docs</span>
+      </div>
+      <button class="btn-add" onclick="openModal('play')">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Adicionar
+      </button>
+    </div>
+    <div class="cards" id="cards-play">
+      <div class="empty-state">
+        <p>Nenhum documento ainda. Seja o primeiro a contribuir!</p>
+        <button class="empty-add" onclick="openModal('play')">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Adicionar documento
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARDS -->
+  <div class="section" data-category="dash">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon" style="background:var(--cat-dash-bg);">📊</div>
+        Dashboards
+        <span class="section-count" id="count-dash">0 docs</span>
+      </div>
+      <button class="btn-add" onclick="openModal('dash')">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Adicionar
+      </button>
+    </div>
+    <div class="cards" id="cards-dash">
+      <div class="empty-state">
+        <p>Nenhum documento ainda. Seja o primeiro a contribuir!</p>
+        <button class="empty-add" onclick="openModal('dash')">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Adicionar documento
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAGUEAMENTO -->
+  <div class="section" data-category="tag">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon" style="background:var(--cat-tag-bg);">🏷️</div>
+        Tagueamento
+        <span class="section-count" id="count-tag">0 docs</span>
+      </div>
+      <button class="btn-add" onclick="openModal('tag')">
+        <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Adicionar
+      </button>
+    </div>
+    <div class="cards" id="cards-tag">
+      <div class="empty-state">
+        <p>Nenhum documento ainda. Seja o primeiro a contribuir!</p>
+        <button class="empty-add" onclick="openModal('tag')">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Adicionar documento
+        </button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- DOC VIEWER -->
+<div id="docViewer">
+  <nav class="viewer-nav">
+    <button class="viewer-back" onclick="closeDoc()">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Voltar para a base
+    </button>
+    <span class="viewer-cat-badge" style="background:var(--cat-ia-bg);color:var(--cat-ia);">I.A</span>
+  </nav>
+  <div class="viewer-body" id="docViewerBody"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Adicionar documento</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Título</label>
+      <input class="form-input" id="docTitle" type="text" placeholder="Ex: Guia de configuração do BigQuery">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Descrição curta</label>
+      <textarea class="form-textarea" id="docDesc" placeholder="O que esse documento cobre?"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Categoria</label>
+        <select class="form-select" id="docCat">
+          <option value="ia">I.A</option>
+          <option value="gcp">GCP - BQ (Datalake)</option>
+          <option value="doc">Documentações</option>
+          <option value="play">Playbook</option>
+          <option value="dash">Dashboards</option>
+          <option value="tag">Tagueamento</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Autor</label>
+        <input class="form-input" id="docAuthor" type="text" placeholder="Seu nome">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Link externo (opcional)</label>
+      <input class="form-input" id="docLink" type="url" placeholder="https://notion.so/...">
+    </div>
+    <button class="btn-primary" onclick="addDoc()">Adicionar documento</button>
+  </div>
+</div>
+
+<script>
+const catConfig = {
+  ia:   { label: 'I.A',              bg: 'var(--cat-ia-bg)',   color: 'var(--cat-ia)'   },
+  gcp:  { label: 'GCP - BQ',         bg: 'var(--cat-gcp-bg)',  color: 'var(--cat-gcp)'  },
+  doc:  { label: 'Documentações',     bg: 'var(--cat-doc-bg)',  color: 'var(--cat-doc)'  },
+  play: { label: 'Playbook',          bg: 'var(--cat-play-bg)', color: 'var(--cat-play)' },
+  dash: { label: 'Dashboards',        bg: 'var(--cat-dash-bg)', color: 'var(--cat-dash)' },
+  tag:  { label: 'Tagueamento',       bg: 'var(--cat-tag-bg)',  color: 'var(--cat-tag)'  },
+};
+
+const docContents = {
+  credits: `
+    <div class="guide-eyebrow">Guia Prático · I.A</div>
+    <h1 class="guide-h1">Como reduzir <em>50%</em> do consumo de créditos do Claude</h1>
+    <p class="guide-subtitle">Pequenas mudanças de comportamento que têm impacto real no orçamento e na produtividade do time.</p>
+    <div class="guide-stats">
+      <div><div class="guide-stat-n">50%</div><div class="guide-stat-l">redução possível</div></div>
+      <div><div class="guide-stat-n">6</div><div class="guide-stat-l">estratégias práticas</div></div>
+      <div><div class="guide-stat-n">10min</div><div class="guide-stat-l">para aplicar hoje</div></div>
+      <div><div class="guide-stat-n">0</div><div class="guide-stat-l">ferramentas extras</div></div>
+    </div>
+    <div class="guide-callout"><strong>O problema não é a quantidade de uso — é o padrão de uso.</strong> A maior parte dos créditos consumidos vem de hábitos simples que podem ser ajustados sem nenhum custo ou ferramenta nova.</div>
+
+    <div class="guide-divider"><span class="guide-divider-num">01</span><span class="guide-divider-line"></span></div>
+    <h2 class="guide-h2">Gerencie o tamanho das suas <em>conversas</em></h2>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">🔄</div><div><div class="tip-tag">Contexto</div><div class="tip-title">Comece novas conversas com frequência</div><span class="tip-impact impact-alto">● Alto impacto</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">O Claude processa toda a thread a cada resposta. Em uma conversa com 40 mensagens, ele relê tudo para responder a próxima. O custo cresce proporcionalmente ao tamanho da conversa.</p>
+        <p class="guide-p">Quando o assunto muda, abra uma nova conversa. Quando a tarefa termina, abra uma nova. Não há benefício em acumular tudo no mesmo lugar — só custo.</p>
+        <div class="tip-action"><strong>Regra prática</strong><span>Thread com mais de 15–20 trocas? Provavelmente está na hora de começar uma nova. O histórico anterior raramente muda a qualidade da resposta.</span></div>
+      </div>
+    </div>
+
+    <div class="guide-divider"><span class="guide-divider-num">02</span><span class="guide-divider-line"></span></div>
+    <h2 class="guide-h2">Escolha o modelo certo para <em>cada tarefa</em></h2>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">⚙️</div><div><div class="tip-tag">Modelo</div><div class="tip-title">Use o Claude Sonnet para tarefas do dia a dia</div><span class="tip-impact impact-alto">● Alto impacto</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">O Claude Opus é o modelo mais poderoso e também o que consome mais créditos por mensagem. O Claude Sonnet entrega resultados excelentes para a grande maioria das tarefas cotidianas — análises, textos, código, resumos — com custo significativamente menor.</p>
+        <p class="guide-p">Reserve o Opus para decisões complexas de arquitetura, análises de alto risco ou quando o Sonnet claramente não está entregando o que você precisa.</p>
+        <div class="tip-action"><strong>Regra prática</strong><span>Comece sempre no Sonnet. Só migre para o Opus se o resultado for insuficiente. Na maioria dos casos, você não vai precisar migrar.</span></div>
+      </div>
+    </div>
+
+    <div class="guide-divider"><span class="guide-divider-num">03</span><span class="guide-divider-line"></span></div>
+    <h2 class="guide-h2">Envie menos mensagens, <em>mais completas</em></h2>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">📝</div><div><div class="tip-tag">Prompting</div><div class="tip-title">Agrupe perguntas em uma única mensagem bem estruturada</div><span class="tip-impact impact-medio">● Médio impacto</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">Cada mensagem enviada gera um ciclo completo de processamento. Três mensagens curtas consomem muito mais do que uma mensagem bem estruturada com as três perguntas juntas.</p>
+        <div class="tip-action"><strong>Estrutura que funciona</strong><span>(1) Contexto: quem você é e o que precisa. (2) Tarefa clara e específica. (3) Formato de saída desejado. (4) Restrições relevantes.</span></div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">✏️</div><div><div class="tip-tag">Prompting</div><div class="tip-title">Edite a mensagem original em vez de enviar uma nova</div><span class="tip-impact impact-alto">● Alto impacto</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">Se a resposta não ficou boa, clique em editar na mensagem original e gere de novo. A resposta antiga é substituída, não acumulada no contexto.</p>
+        <p class="guide-p">Em 10 rodadas de refinamento, esse hábito sozinho pode reduzir o consumo de tokens em 80 a 90%.</p>
+        <div class="tip-action"><strong>Como fazer</strong><span>Passe o mouse sobre sua mensagem → clique no ícone de edição → ajuste o texto → reenvie. O histórico após aquele ponto é descartado automaticamente.</span></div>
+      </div>
+    </div>
+
+    <div class="guide-divider"><span class="guide-divider-num">04</span><span class="guide-divider-line"></span></div>
+    <h2 class="guide-h2">Cuide do que você <em>envia como arquivo</em></h2>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">📄</div><div><div class="tip-tag">Arquivos</div><div class="tip-title">Converta PDFs em texto puro antes de enviar</div><span class="tip-impact impact-medio">● Médio impacto</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">Ao subir um PDF, o modelo processa estrutura, formatação, metadados e imagens — tudo junto. O consumo é muito maior do que o de um arquivo de texto com o mesmo conteúdo.</p>
+        <div class="tip-action"><strong>Ação imediata</strong><span>Para contratos, processos ou relatórios longos: converta para TXT primeiro com iLovePDF ou Google Docs. O consumo cai significativamente.</span></div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">🗂️</div><div><div class="tip-tag">Arquivos</div><div class="tip-title">Não leve documentos grandes direto para o Claude</div><span class="tip-impact impact-medio">● Médio impacto</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">O consumo é proporcional ao tamanho do arquivo, não à quantidade de informação útil. Use o NotebookLM ou Google AI Studio para pré-processar e extrair só o que é relevante.</p>
+        <div class="tip-action"><strong>Fluxo recomendado</strong><span>Documento grande → NotebookLM / Google AI Studio → extrato relevante → Claude. Menos tokens, mesma qualidade estratégica.</span></div>
+      </div>
+    </div>
+
+    <div class="guide-divider"><span class="guide-divider-num">05</span><span class="guide-divider-line"></span></div>
+    <h2 class="guide-h2">Use a memória e os projetos <em>a seu favor</em></h2>
+    <div class="tip-card">
+      <div class="tip-header"><div class="tip-icon">🧠</div><div><div class="tip-tag">Memória</div><div class="tip-title">Configure o contexto fixo uma única vez no Projeto</div><span class="tip-impact impact-base">● Impacto base</span></div></div>
+      <div class="tip-body">
+        <p class="guide-p">Toda vez que você começa uma conversa explicando quem é, o que faz e como quer que o Claude responda, você está gastando tokens com algo que o sistema já poderia saber.</p>
+        <p class="guide-p">Os Projetos do Claude carregam apenas o trecho relevante do contexto na hora certa. Configure uma vez, use em todas as conversas sem custo extra por thread.</p>
+        <div class="tip-action"><strong>O que colocar no Projeto</strong><span>Perfil da EXA, seu papel, preferências de formato e tom, convenções de código, glossário interno, instruções recorrentes.</span></div>
+      </div>
+    </div>
+
+    <div class="guide-divider"><span class="guide-divider-num">—</span><span class="guide-divider-line"></span></div>
+    <h2 class="guide-h2">Resumo: <em>onde está o impacto</em></h2>
+    <p class="guide-p">Seguindo estas práticas em conjunto, a redução de 50% não é promessa — é resultado consistente reportado por times que adotaram esses hábitos sistematicamente.</p>
+    <div class="guide-summary-grid">
+      <div class="summary-item"><div class="summary-item-n">80–90%</div><div class="summary-item-l">de redução em tokens só editando mensagens em vez de reenviar</div></div>
+      <div class="summary-item"><div class="summary-item-n">~40%</div><div class="summary-item-l">de economia ao usar Sonnet no lugar de Opus para tarefas padrão</div></div>
+      <div class="summary-item"><div class="summary-item-n">0</div><div class="summary-item-l">créditos extras por contexto fixo em Projetos configurados corretamente</div></div>
+      <div class="summary-item"><div class="summary-item-n">3×</div><div class="summary-item-l">mais tokens em thread com 40 trocas vs nova thread com 5</div></div>
+    </div>
+    <div class="guide-cta">
+      <h2>Adote esses hábitos hoje</h2>
+      <p>Pequenas mudanças de rotina têm impacto real no orçamento e na capacidade do time de fazer mais com os recursos disponíveis.</p>
+    </div>
+  `
+};
+
+let currentFilter = 'all';
+
+function openModal(cat) {
+  document.getElementById('docCat').value = cat || 'ia';
+  document.getElementById('modalTitle').textContent = 'Adicionar em ' + catConfig[cat || 'ia'].label;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+function closeModalOnBg(e) { if (e.target === document.getElementById('modalOverlay')) closeModal(); }
+
+function addDoc() {
+  const title = document.getElementById('docTitle').value.trim();
+  const desc = document.getElementById('docDesc').value.trim();
+  const cat = document.getElementById('docCat').value;
+  const author = document.getElementById('docAuthor').value.trim() || 'Você';
+  const link = document.getElementById('docLink').value.trim();
+  if (!title) { document.getElementById('docTitle').focus(); return; }
+  const cfg = catConfig[cat];
+  const initials = author.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+  const now = new Date().toLocaleDateString('pt-BR',{month:'short',year:'numeric'});
+
+  const grid = document.getElementById('cards-' + cat);
+  const empty = grid.querySelector('.empty-state');
+  if (empty) empty.remove();
+
+  const card = document.createElement('div');
+  card.className = 'card'; card.dataset.category = cat;
+  if (link) card.dataset.link = link;
+  card.onclick = function(){ openDoc(this); };
+  card.innerHTML = `<div class="card-top">
+      <span class="cat-badge" style="background:${cfg.bg};color:${cfg.color};">${cfg.label}</span>
+      <span class="card-date">${now}</span>
+    </div>
+    <h3>${title}</h3>
+    <p>${desc || 'Sem descrição ainda.'}</p>
+    <div class="card-footer">
+      <div class="card-author">
+        <div class="avatar" style="background:${cfg.bg};color:${cfg.color};">${initials}</div>
+        <span class="card-author-name">${author}</span>
+      </div>
+      <div class="card-tags">${link ? '<span class="tag">↗ Link externo</span>' : ''}</div>
+    </div>`;
+  grid.appendChild(card);
+  updateCounts();
+  closeModal();
+  ['docTitle','docDesc','docAuthor','docLink'].forEach(id => document.getElementById(id).value = '');
+  applyFilter(currentFilter);
+}
+
+function openDoc(el) {
+  const docId = el.dataset.doc;
+  const link = el.dataset.link;
+  if (docId && docContents[docId]) {
+    document.getElementById('docViewerBody').innerHTML = docContents[docId];
+    document.getElementById('docViewer').classList.add('open');
+    document.getElementById('docViewer').scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+  } else if (link) {
+    window.open(link, '_blank');
+  }
+}
+
+function closeDoc() {
+  document.getElementById('docViewer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function applyFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
+  document.querySelectorAll('.section').forEach(sec => {
+    if (filter === 'all' || sec.dataset.category === filter) sec.classList.remove('hidden');
+    else sec.classList.add('hidden');
+  });
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => applyFilter(tab.dataset.filter));
+});
+
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  if (!q) { document.querySelectorAll('.card').forEach(el => el.classList.remove('hidden')); applyFilter(currentFilter); return; }
+  applyFilter('all');
+  document.querySelectorAll('.card[data-category]').forEach(el => {
+    el.classList.toggle('hidden', !el.textContent.toLowerCase().includes(q));
+  });
+  document.querySelectorAll('.section').forEach(sec => {
+    const has = [...sec.querySelectorAll('.card[data-category]:not(.hidden)')].length > 0;
+    sec.classList.toggle('hidden', !has);
+  });
+});
+
+function updateCounts() {
+  Object.keys(catConfig).forEach(cat => {
+    const n = document.querySelectorAll(`#cards-${cat} .card[data-category]`).length;
+    const el = document.getElementById('count-' + cat);
+    if (el) el.textContent = n + ' doc' + (n !== 1 ? 's' : '');
+  });
+  const total = document.querySelectorAll('.card[data-category]').length;
+  const el = document.getElementById('totalDocs');
+  if (el) { el.textContent = total; el.nextElementSibling.textContent = total === 1 ? 'documento' : 'documentos'; }
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDoc(); closeModal(); } });
+</script>
+</body>
+</html>
