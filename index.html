@@ -343,6 +343,872 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 <div class="tab-pane" id="seg-yoy-su"><div class="card" style="margin:0 0 13px"><div class="ct">YoY SUSPEND</div><div class="leg" id="seg-t-yoy-su-leg"></div><div class="cw" style="height:200px"><canvas id="seg-t-yoy-suspend"></canvas></div></div></div>
 </div>
 </div>
+
+<!-- ============ SEÇÃO INDICADORES NET - SEGURANÇA ============ -->
+<div class="section" id="seg-indicadores-net" style="border-top:1px solid var(--border)">
+  <div class="s-tag seg">// indicadores net · consolidado mai/26</div>
+  <div class="s-title">Indicadores NET — Segurança</div>
+  <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
+  
+  <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
+    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+  </div>
+  
+  
+    <div class="t-kpi-grid" style="margin-bottom:18px">
+      <div class="t-kpi cr">
+        <div class="t-kpi-lbl">CREATE Total</div>
+        <div class="t-kpi-val">49,82M</div>
+        <div class="kpi-d neu">Novas assinaturas</div>
+      </div>
+      <div class="t-kpi ca">
+        <div class="t-kpi-lbl">CANCEL Total</div>
+        <div class="t-kpi-val">41,04M</div>
+        <div class="kpi-d neu">Cancelamentos</div>
+      </div>
+      <div class="t-kpi re">
+        <div class="t-kpi-lbl">RENEW Total</div>
+        <div class="t-kpi-val">9,30M</div>
+        <div class="kpi-d neu">Renovações</div>
+      </div>
+      <div class="t-kpi su">
+        <div class="t-kpi-lbl">SUSPEND Total</div>
+        <div class="t-kpi-val">10,51M</div>
+        <div class="kpi-d neu">Suspensões</div>
+      </div>
+      <div class="t-kpi ne">
+        <div class="t-kpi-lbl">NET (CREATE − CANCEL)</div>
+        <div class="t-kpi-val">8,78M</div>
+        <div class="kpi-d pos">Saldo líquido</div>
+      </div>
+      <div class="t-kpi ch">
+        <div class="t-kpi-lbl">CHURN Rate</div>
+        <div class="t-kpi-val">82.38%</div>
+        <div class="kpi-d neg">CANCEL ÷ CREATE</div>
+      </div>
+    </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">NET por Oferta · mai/26</div>
+      <div class="cs">CREATE − CANCEL por oferta · Ordenado por NET decrescente</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Oferta</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>COMBO</td>
+          <td style="text-align:right">7.618.399</td>
+          <td style="text-align:right">3.036.676</td>
+          <td style="text-align:right">1.873.237</td>
+          <td style="text-align:right">2.044.893</td>
+          <td style="text-align:right;font-weight:600" class="pos">4.581.723</td>
+          <td style="text-align:right" class="neu">39.86%</td>
+        </tr>
+        <tr>
+          <td>EXA CLOUD</td>
+          <td style="text-align:right">5.915.202</td>
+          <td style="text-align:right">3.362.579</td>
+          <td style="text-align:right">1.819.861</td>
+          <td style="text-align:right">1.937.778</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.552.623</td>
+          <td style="text-align:right" class="neu">56.85%</td>
+        </tr>
+        <tr>
+          <td>EXA SEGURANÇA</td>
+          <td style="text-align:right">36.258.319</td>
+          <td style="text-align:right">34.640.068</td>
+          <td style="text-align:right">5.591.677</td>
+          <td style="text-align:right">6.506.295</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.618.251</td>
+          <td style="text-align:right" class="neg">95.54%</td>
+        </tr>
+        <tr>
+          <td>EXA GESTAO</td>
+          <td style="text-align:right">23.964</td>
+          <td style="text-align:right">177</td>
+          <td style="text-align:right">8.304</td>
+          <td style="text-align:right">8.106</td>
+          <td style="text-align:right;font-weight:600" class="pos">23.787</td>
+          <td style="text-align:right" class="pos">0.74%</td>
+        </tr>
+        <tr>
+          <td>HELPDESK</td>
+          <td style="text-align:right">910</td>
+          <td style="text-align:right">66</td>
+          <td style="text-align:right">9.153</td>
+          <td style="text-align:right">9.579</td>
+          <td style="text-align:right;font-weight:600" class="pos">844</td>
+          <td style="text-align:right" class="pos">7.25%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo</td>
+          <td style="text-align:right">726</td>
+          <td style="text-align:right">132</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">594</td>
+          <td style="text-align:right" class="pos">18.18%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo EVA</td>
+          <td style="text-align:right">37</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">34</td>
+          <td style="text-align:right" class="pos">8.11%</td>
+        </tr></tbody></table>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;font-family:var(--mono)">
+        <strong>Cálculo:</strong> NET = CREATE − CANCEL · CHURN = CANCEL ÷ CREATE × 100
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="cs">Principais geradores de novas assinaturas</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">47.223.236</td>
+          <td style="text-align:right">39.897.364</td>
+          <td style="text-align:right">9.238.945</td>
+          <td style="text-align:right">10.268.104</td>
+          <td style="text-align:right;font-weight:600" class="pos">7.325.872</td>
+          <td style="text-align:right" class="neg">84.49%</td>
+        </tr>
+        <tr>
+          <td>TIM EMPRESAS</td>
+          <td style="text-align:right">1.310.963</td>
+          <td style="text-align:right">485.200</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">825.763</td>
+          <td style="text-align:right" class="neu">37.01%</td>
+        </tr>
+        <tr>
+          <td>TIM LIVE</td>
+          <td style="text-align:right">977.034</td>
+          <td style="text-align:right">567.373</td>
+          <td style="text-align:right">63.287</td>
+          <td style="text-align:right">238.547</td>
+          <td style="text-align:right;font-weight:600" class="pos">409.661</td>
+          <td style="text-align:right" class="neu">58.07%</td>
+        </tr>
+        <tr>
+          <td>ALGAR</td>
+          <td style="text-align:right">180.395</td>
+          <td style="text-align:right">77.963</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">102.432</td>
+          <td style="text-align:right" class="neu">43.22%</td>
+        </tr>
+        <tr>
+          <td>BRADESCO</td>
+          <td style="text-align:right">48.551</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">48.549</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>NIO</td>
+          <td style="text-align:right">36.128</td>
+          <td style="text-align:right">453</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">35.675</td>
+          <td style="text-align:right" class="pos">1.25%</td>
+        </tr>
+        <tr>
+          <td>GIGA+</td>
+          <td style="text-align:right">23.599</td>
+          <td style="text-align:right">51</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">23.548</td>
+          <td style="text-align:right" class="pos">0.22%</td>
+        </tr>
+        <tr>
+          <td>ALGAR ETICA</td>
+          <td style="text-align:right">10.138</td>
+          <td style="text-align:right">7.710</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.428</td>
+          <td style="text-align:right" class="neg">76.05%</td>
+        </tr>
+        <tr>
+          <td>DESKTOP</td>
+          <td style="text-align:right">3.157</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">3.154</td>
+          <td style="text-align:right" class="pos">0.10%</td>
+        </tr>
+        <tr>
+          <td>OI</td>
+          <td style="text-align:right">2.424</td>
+          <td style="text-align:right">3.435</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="neg">-1.011</td>
+          <td style="text-align:right" class="neg">141.71%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="cs">Maiores geradores de cancelamento</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">47.223.236</td>
+          <td style="text-align:right">39.897.364</td>
+          <td style="text-align:right">9.238.945</td>
+          <td style="text-align:right">10.268.104</td>
+          <td style="text-align:right;font-weight:600" class="pos">7.325.872</td>
+          <td style="text-align:right" class="neg">84.49%</td>
+        </tr>
+        <tr>
+          <td>TIM LIVE</td>
+          <td style="text-align:right">977.034</td>
+          <td style="text-align:right">567.373</td>
+          <td style="text-align:right">63.287</td>
+          <td style="text-align:right">238.547</td>
+          <td style="text-align:right;font-weight:600" class="pos">409.661</td>
+          <td style="text-align:right" class="neu">58.07%</td>
+        </tr>
+        <tr>
+          <td>TIM EMPRESAS</td>
+          <td style="text-align:right">1.310.963</td>
+          <td style="text-align:right">485.200</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">825.763</td>
+          <td style="text-align:right" class="neu">37.01%</td>
+        </tr>
+        <tr>
+          <td>ALGAR</td>
+          <td style="text-align:right">180.395</td>
+          <td style="text-align:right">77.963</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">102.432</td>
+          <td style="text-align:right" class="neu">43.22%</td>
+        </tr>
+        <tr>
+          <td>ALGAR ETICA</td>
+          <td style="text-align:right">10.138</td>
+          <td style="text-align:right">7.710</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.428</td>
+          <td style="text-align:right" class="neg">76.05%</td>
+        </tr>
+        <tr>
+          <td>OI</td>
+          <td style="text-align:right">2.424</td>
+          <td style="text-align:right">3.435</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="neg">-1.011</td>
+          <td style="text-align:right" class="neg">141.71%</td>
+        </tr>
+        <tr>
+          <td>NIO</td>
+          <td style="text-align:right">36.128</td>
+          <td style="text-align:right">453</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">35.675</td>
+          <td style="text-align:right" class="pos">1.25%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">1.073</td>
+          <td style="text-align:right">137</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">936</td>
+          <td style="text-align:right" class="pos">12.77%</td>
+        </tr>
+        <tr>
+          <td>GIGA+</td>
+          <td style="text-align:right">23.599</td>
+          <td style="text-align:right">51</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">23.548</td>
+          <td style="text-align:right" class="pos">0.22%</td>
+        </tr>
+        <tr>
+          <td>GLOBAL</td>
+          <td style="text-align:right">146</td>
+          <td style="text-align:right">9</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">137</td>
+          <td style="text-align:right" class="pos">6.16%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">47.223.236</td>
+          <td style="text-align:right">39.897.364</td>
+          <td style="text-align:right">9.238.945</td>
+          <td style="text-align:right">10.268.104</td>
+          <td style="text-align:right;font-weight:600" class="pos">7.325.872</td>
+          <td style="text-align:right" class="neg">84.49%</td>
+        </tr>
+        <tr>
+          <td>TIM EMPRESAS</td>
+          <td style="text-align:right">1.310.963</td>
+          <td style="text-align:right">485.200</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">825.763</td>
+          <td style="text-align:right" class="neu">37.01%</td>
+        </tr>
+        <tr>
+          <td>TIM LIVE</td>
+          <td style="text-align:right">977.034</td>
+          <td style="text-align:right">567.373</td>
+          <td style="text-align:right">63.287</td>
+          <td style="text-align:right">238.547</td>
+          <td style="text-align:right;font-weight:600" class="pos">409.661</td>
+          <td style="text-align:right" class="neu">58.07%</td>
+        </tr>
+        <tr>
+          <td>ALGAR</td>
+          <td style="text-align:right">180.395</td>
+          <td style="text-align:right">77.963</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">102.432</td>
+          <td style="text-align:right" class="neu">43.22%</td>
+        </tr>
+        <tr>
+          <td>BRADESCO</td>
+          <td style="text-align:right">48.551</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">48.549</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>NIO</td>
+          <td style="text-align:right">36.128</td>
+          <td style="text-align:right">453</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">35.675</td>
+          <td style="text-align:right" class="pos">1.25%</td>
+        </tr>
+        <tr>
+          <td>GIGA+</td>
+          <td style="text-align:right">23.599</td>
+          <td style="text-align:right">51</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">23.548</td>
+          <td style="text-align:right" class="pos">0.22%</td>
+        </tr>
+        <tr>
+          <td>ALGAR ETICA</td>
+          <td style="text-align:right">10.138</td>
+          <td style="text-align:right">7.710</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.428</td>
+          <td style="text-align:right" class="neg">76.05%</td>
+        </tr>
+        <tr>
+          <td>DESKTOP</td>
+          <td style="text-align:right">3.157</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">3.154</td>
+          <td style="text-align:right" class="pos">0.10%</td>
+        </tr>
+        <tr>
+          <td>OI</td>
+          <td style="text-align:right">2.424</td>
+          <td style="text-align:right">3.435</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="neg">-1.011</td>
+          <td style="text-align:right" class="neg">141.71%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">1.073</td>
+          <td style="text-align:right">137</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">936</td>
+          <td style="text-align:right" class="pos">12.77%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo</td>
+          <td style="text-align:right">316</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">315</td>
+          <td style="text-align:right" class="pos">0.32%</td>
+        </tr>
+        <tr>
+          <td>CONECTA</td>
+          <td style="text-align:right">148</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">148</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>GLOBAL</td>
+          <td style="text-align:right">146</td>
+          <td style="text-align:right">9</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">137</td>
+          <td style="text-align:right" class="pos">6.16%</td>
+        </tr>
+        <tr>
+          <td>NET ROSAS</td>
+          <td style="text-align:right">96</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">96</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>VIRTUAL TELECOM</td>
+          <td style="text-align:right">82</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">82</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>NETAKI</td>
+          <td style="text-align:right">57</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">57</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>EXA TESTE</td>
+          <td style="text-align:right">11</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">11</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>CARIAP</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">2</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>IEZ TELECOM</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">Indicadores por Plano · mai/26</div>
+      <div class="cs">Todos os planos · Ordenado por NET decrescente · Top 30</div>
+      <div style="overflow-x:auto;max-height:500px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:30%">Plano</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>plano_24</td>
+          <td style="text-align:right">3.377.620</td>
+          <td style="text-align:right">512.731</td>
+          <td style="text-align:right">584.887</td>
+          <td style="text-align:right">642.484</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.864.889</td>
+          <td style="text-align:right" class="pos">15.18%</td>
+        </tr>
+        <tr>
+          <td>plano_89</td>
+          <td style="text-align:right">3.804.718</td>
+          <td style="text-align:right">1.826.323</td>
+          <td style="text-align:right">1.720.222</td>
+          <td style="text-align:right">1.833.991</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.978.395</td>
+          <td style="text-align:right" class="neu">48.00%</td>
+        </tr>
+        <tr>
+          <td>plano_71</td>
+          <td style="text-align:right">13.995.407</td>
+          <td style="text-align:right">12.283.073</td>
+          <td style="text-align:right">2.234.488</td>
+          <td style="text-align:right">2.394.272</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.712.334</td>
+          <td style="text-align:right" class="neg">87.77%</td>
+        </tr>
+        <tr>
+          <td>plano_61</td>
+          <td style="text-align:right">1.659.389</td>
+          <td style="text-align:right">744.374</td>
+          <td style="text-align:right">718.878</td>
+          <td style="text-align:right">809.757</td>
+          <td style="text-align:right;font-weight:600" class="pos">915.015</td>
+          <td style="text-align:right" class="neu">44.86%</td>
+        </tr>
+        <tr>
+          <td>plano_58</td>
+          <td style="text-align:right">1.060.183</td>
+          <td style="text-align:right">369.433</td>
+          <td style="text-align:right">393.255</td>
+          <td style="text-align:right">411.983</td>
+          <td style="text-align:right;font-weight:600" class="pos">690.750</td>
+          <td style="text-align:right" class="neu">34.85%</td>
+        </tr>
+        <tr>
+          <td>plano_23</td>
+          <td style="text-align:right">552.010</td>
+          <td style="text-align:right">119.989</td>
+          <td style="text-align:right">22.331</td>
+          <td style="text-align:right">22.660</td>
+          <td style="text-align:right;font-weight:600" class="pos">432.021</td>
+          <td style="text-align:right" class="pos">21.74%</td>
+        </tr>
+        <tr>
+          <td>plano_88</td>
+          <td style="text-align:right">1.349.244</td>
+          <td style="text-align:right">1.061.370</td>
+          <td style="text-align:right">1.816</td>
+          <td style="text-align:right">1.962</td>
+          <td style="text-align:right;font-weight:600" class="pos">287.874</td>
+          <td style="text-align:right" class="neg">78.66%</td>
+        </tr>
+        <tr>
+          <td>plano_70</td>
+          <td style="text-align:right">688.692</td>
+          <td style="text-align:right">458.078</td>
+          <td style="text-align:right">53.165</td>
+          <td style="text-align:right">195.166</td>
+          <td style="text-align:right;font-weight:600" class="pos">230.614</td>
+          <td style="text-align:right" class="neu">66.51%</td>
+        </tr>
+        <tr>
+          <td>plano_77</td>
+          <td style="text-align:right">267.902</td>
+          <td style="text-align:right">62.998</td>
+          <td style="text-align:right">1.851</td>
+          <td style="text-align:right">1.984</td>
+          <td style="text-align:right;font-weight:600" class="pos">204.904</td>
+          <td style="text-align:right" class="pos">23.52%</td>
+        </tr>
+        <tr>
+          <td>plano_85</td>
+          <td style="text-align:right">101.965</td>
+          <td style="text-align:right">756</td>
+          <td style="text-align:right">12</td>
+          <td style="text-align:right">15</td>
+          <td style="text-align:right;font-weight:600" class="pos">101.209</td>
+          <td style="text-align:right" class="pos">0.74%</td>
+        </tr>
+        <tr>
+          <td>plano_36</td>
+          <td style="text-align:right">123.076</td>
+          <td style="text-align:right">49.016</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">74.060</td>
+          <td style="text-align:right" class="neu">39.83%</td>
+        </tr>
+        <tr>
+          <td>plano_39</td>
+          <td style="text-align:right">48.527</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">48.525</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>plano_90</td>
+          <td style="text-align:right">50.521</td>
+          <td style="text-align:right">14.574</td>
+          <td style="text-align:right">610</td>
+          <td style="text-align:right">669</td>
+          <td style="text-align:right;font-weight:600" class="pos">35.947</td>
+          <td style="text-align:right" class="pos">28.85%</td>
+        </tr>
+        <tr>
+          <td>plano_64</td>
+          <td style="text-align:right">23.954</td>
+          <td style="text-align:right">169</td>
+          <td style="text-align:right">8.304</td>
+          <td style="text-align:right">8.106</td>
+          <td style="text-align:right;font-weight:600" class="pos">23.785</td>
+          <td style="text-align:right" class="pos">0.71%</td>
+        </tr>
+        <tr>
+          <td>plano_54</td>
+          <td style="text-align:right">41.476</td>
+          <td style="text-align:right">22.733</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">18.743</td>
+          <td style="text-align:right" class="neu">54.81%</td>
+        </tr>
+        <tr>
+          <td>plano_25</td>
+          <td style="text-align:right">19.193</td>
+          <td style="text-align:right">10.806</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">8.387</td>
+          <td style="text-align:right" class="neu">56.30%</td>
+        </tr>
+        <tr>
+          <td>plano_76</td>
+          <td style="text-align:right">6.986</td>
+          <td style="text-align:right">881</td>
+          <td style="text-align:right">19</td>
+          <td style="text-align:right">21</td>
+          <td style="text-align:right;font-weight:600" class="pos">6.105</td>
+          <td style="text-align:right" class="pos">12.61%</td>
+        </tr>
+        <tr>
+          <td>plano_78</td>
+          <td style="text-align:right">114.462</td>
+          <td style="text-align:right">108.404</td>
+          <td style="text-align:right">224</td>
+          <td style="text-align:right">243</td>
+          <td style="text-align:right;font-weight:600" class="pos">6.058</td>
+          <td style="text-align:right" class="neg">94.71%</td>
+        </tr>
+        <tr>
+          <td>plano_73</td>
+          <td style="text-align:right">4.253</td>
+          <td style="text-align:right">15</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">4.238</td>
+          <td style="text-align:right" class="pos">0.35%</td>
+        </tr>
+        <tr>
+          <td>plano_68</td>
+          <td style="text-align:right">3.196</td>
+          <td style="text-align:right">7</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">3.189</td>
+          <td style="text-align:right" class="pos">0.22%</td>
+        </tr>
+        <tr>
+          <td>plano_92</td>
+          <td style="text-align:right">2.856</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.855</td>
+          <td style="text-align:right" class="pos">0.04%</td>
+        </tr>
+        <tr>
+          <td>plano_19</td>
+          <td style="text-align:right">1.582</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">1.806</td>
+          <td style="text-align:right">3.225</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.579</td>
+          <td style="text-align:right" class="pos">0.19%</td>
+        </tr>
+        <tr>
+          <td>plano_1</td>
+          <td style="text-align:right">910</td>
+          <td style="text-align:right">66</td>
+          <td style="text-align:right">9.153</td>
+          <td style="text-align:right">9.579</td>
+          <td style="text-align:right;font-weight:600" class="pos">844</td>
+          <td style="text-align:right" class="pos">7.25%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo | Plano Anual</td>
+          <td style="text-align:right">611</td>
+          <td style="text-align:right">65</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">546</td>
+          <td style="text-align:right" class="pos">10.64%</td>
+        </tr>
+        <tr>
+          <td>plano_37</td>
+          <td style="text-align:right">528</td>
+          <td style="text-align:right">9</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">519</td>
+          <td style="text-align:right" class="pos">1.70%</td>
+        </tr>
+        <tr>
+          <td>plano_59</td>
+          <td style="text-align:right">316</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">315</td>
+          <td style="text-align:right" class="pos">0.32%</td>
+        </tr>
+        <tr>
+          <td>plano_20</td>
+          <td style="text-align:right">298</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">296</td>
+          <td style="text-align:right" class="pos">0.67%</td>
+        </tr>
+        <tr>
+          <td>plano_87</td>
+          <td style="text-align:right">295</td>
+          <td style="text-align:right">18</td>
+          <td style="text-align:right">200</td>
+          <td style="text-align:right">196</td>
+          <td style="text-align:right;font-weight:600" class="pos">277</td>
+          <td style="text-align:right" class="pos">6.10%</td>
+        </tr>
+        <tr>
+          <td>plano_86</td>
+          <td style="text-align:right">101</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">100</td>
+          <td style="text-align:right" class="pos">0.99%</td>
+        </tr>
+        <tr>
+          <td>PREMIUM</td>
+          <td style="text-align:right">821</td>
+          <td style="text-align:right">731</td>
+          <td style="text-align:right">71</td>
+          <td style="text-align:right">485</td>
+          <td style="text-align:right;font-weight:600" class="pos">90</td>
+          <td style="text-align:right" class="neg">89.04%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 <div class="pn">Segurança · 21 parceiros · 8 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-segu">
@@ -483,6 +1349,359 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 <div class="tab-pane" id="segu-yoy-su"><div class="card" style="margin:0 0 13px"><div class="ct">YoY SUSPEND</div><div class="leg" id="segu-t-yoy-su-leg"></div><div class="cw" style="height:200px"><canvas id="segu-t-yoy-suspend"></canvas></div></div></div>
 </div>
 </div>
+
+<!-- ============ SEÇÃO INDICADORES NET - SEGUROS ============ -->
+<div class="section" id="segu-indicadores-net" style="border-top:1px solid var(--border)">
+  <div class="s-tag segu">// indicadores net · consolidado mai/26</div>
+  <div class="s-title">Indicadores NET — Seguros</div>
+  <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
+  
+  <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
+    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+  </div>
+  
+  
+    <div class="t-kpi-grid" style="margin-bottom:18px">
+      <div class="t-kpi cr">
+        <div class="t-kpi-lbl">CREATE Total</div>
+        <div class="t-kpi-val">44,5K</div>
+        <div class="kpi-d neu">Novas assinaturas</div>
+      </div>
+      <div class="t-kpi ca">
+        <div class="t-kpi-lbl">CANCEL Total</div>
+        <div class="t-kpi-val">3,5K</div>
+        <div class="kpi-d neu">Cancelamentos</div>
+      </div>
+      <div class="t-kpi re">
+        <div class="t-kpi-lbl">RENEW Total</div>
+        <div class="t-kpi-val">156</div>
+        <div class="kpi-d neu">Renovações</div>
+      </div>
+      <div class="t-kpi su">
+        <div class="t-kpi-lbl">SUSPEND Total</div>
+        <div class="t-kpi-val">384</div>
+        <div class="kpi-d neu">Suspensões</div>
+      </div>
+      <div class="t-kpi ne">
+        <div class="t-kpi-lbl">NET (CREATE − CANCEL)</div>
+        <div class="t-kpi-val">41,0K</div>
+        <div class="kpi-d pos">Saldo líquido</div>
+      </div>
+      <div class="t-kpi ch">
+        <div class="t-kpi-lbl">CHURN Rate</div>
+        <div class="t-kpi-val">7.89%</div>
+        <div class="kpi-d pos">CANCEL ÷ CREATE</div>
+      </div>
+    </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">NET por Oferta · mai/26</div>
+      <div class="cs">CREATE − CANCEL por oferta · Ordenado por NET decrescente</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Oferta</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EXA Seguros</td>
+          <td style="text-align:right">43.744</td>
+          <td style="text-align:right">3.376</td>
+          <td style="text-align:right">156</td>
+          <td style="text-align:right">384</td>
+          <td style="text-align:right;font-weight:600" class="pos">40.368</td>
+          <td style="text-align:right" class="pos">7.72%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo</td>
+          <td style="text-align:right">726</td>
+          <td style="text-align:right">132</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">594</td>
+          <td style="text-align:right" class="pos">18.18%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo EVA</td>
+          <td style="text-align:right">37</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">34</td>
+          <td style="text-align:right" class="pos">8.11%</td>
+        </tr></tbody></table>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;font-family:var(--mono)">
+        <strong>Cálculo:</strong> NET = CREATE − CANCEL · CHURN = CANCEL ÷ CREATE × 100
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="cs">Principais geradores de novas assinaturas</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">43.586</td>
+          <td style="text-align:right">3.360</td>
+          <td style="text-align:right">156</td>
+          <td style="text-align:right">384</td>
+          <td style="text-align:right;font-weight:600" class="pos">40.226</td>
+          <td style="text-align:right" class="pos">7.71%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">781</td>
+          <td style="text-align:right">150</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">631</td>
+          <td style="text-align:right" class="pos">19.21%</td>
+        </tr>
+        <tr>
+          <td>ALGAR</td>
+          <td style="text-align:right">140</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">139</td>
+          <td style="text-align:right" class="pos">0.71%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="cs">Maiores geradores de cancelamento</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">43.586</td>
+          <td style="text-align:right">3.360</td>
+          <td style="text-align:right">156</td>
+          <td style="text-align:right">384</td>
+          <td style="text-align:right;font-weight:600" class="pos">40.226</td>
+          <td style="text-align:right" class="pos">7.71%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">781</td>
+          <td style="text-align:right">150</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">631</td>
+          <td style="text-align:right" class="pos">19.21%</td>
+        </tr>
+        <tr>
+          <td>ALGAR</td>
+          <td style="text-align:right">140</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">139</td>
+          <td style="text-align:right" class="pos">0.71%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">43.586</td>
+          <td style="text-align:right">3.360</td>
+          <td style="text-align:right">156</td>
+          <td style="text-align:right">384</td>
+          <td style="text-align:right;font-weight:600" class="pos">40.226</td>
+          <td style="text-align:right" class="pos">7.71%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">781</td>
+          <td style="text-align:right">150</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">631</td>
+          <td style="text-align:right" class="pos">19.21%</td>
+        </tr>
+        <tr>
+          <td>ALGAR</td>
+          <td style="text-align:right">140</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">139</td>
+          <td style="text-align:right" class="pos">0.71%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">Indicadores por Plano · mai/26</div>
+      <div class="cs">Todos os planos · Ordenado por NET decrescente · Top 30</div>
+      <div style="overflow-x:auto;max-height:500px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:30%">Plano</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EXA Seguro Celular</td>
+          <td style="text-align:right">42.774</td>
+          <td style="text-align:right">3.315</td>
+          <td style="text-align:right">156</td>
+          <td style="text-align:right">384</td>
+          <td style="text-align:right;font-weight:600" class="pos">39.459</td>
+          <td style="text-align:right" class="pos">7.75%</td>
+        </tr>
+        <tr>
+          <td>Seguro Carteira Protegida</td>
+          <td style="text-align:right">905</td>
+          <td style="text-align:right">43</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">862</td>
+          <td style="text-align:right" class="pos">4.75%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo | Plano Anual</td>
+          <td style="text-align:right">611</td>
+          <td style="text-align:right">65</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">546</td>
+          <td style="text-align:right" class="pos">10.64%</td>
+        </tr>
+        <tr>
+          <td>EXA Escudo | Plano Mensal</td>
+          <td style="text-align:right">115</td>
+          <td style="text-align:right">67</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">48</td>
+          <td style="text-align:right" class="neu">58.26%</td>
+        </tr>
+        <tr>
+          <td>Seguro Celular LMI BBB TIM</td>
+          <td style="text-align:right">49</td>
+          <td style="text-align:right">5</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">44</td>
+          <td style="text-align:right" class="pos">10.20%</td>
+        </tr>
+        <tr>
+          <td>plano_107</td>
+          <td style="text-align:right">37</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">34</td>
+          <td style="text-align:right" class="pos">8.11%</td>
+        </tr>
+        <tr>
+          <td>Seguro Celular LMI BBB</td>
+          <td style="text-align:right">14</td>
+          <td style="text-align:right">12</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">2</td>
+          <td style="text-align:right" class="neg">85.71%</td>
+        </tr>
+        <tr>
+          <td>Seguro Cyber</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">1</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1</td>
+          <td style="text-align:right" class="neu">50.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 <div class="pn">Seguros · 3 parceiros · 3 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-cont">
@@ -640,6 +1859,692 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 <div class="tab-pane" id="cont-yoy-su"><div class="card" style="margin:0 0 13px"><div class="ct">YoY SUSPEND</div><div class="leg" id="cont-t-yoy-su-leg"></div><div class="cw" style="height:200px"><canvas id="cont-t-yoy-suspend"></canvas></div></div></div>
 </div>
 </div>
+
+<!-- ============ SEÇÃO INDICADORES NET - CONTEÚDO ============ -->
+<div class="section" id="cont-indicadores-net" style="border-top:1px solid var(--border)">
+  <div class="s-tag cont">// indicadores net · consolidado mai/26</div>
+  <div class="s-title">Indicadores NET — Conteúdo</div>
+  <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
+  
+  <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
+    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+  </div>
+  
+  
+    <div class="t-kpi-grid" style="margin-bottom:18px">
+      <div class="t-kpi cr">
+        <div class="t-kpi-lbl">CREATE Total</div>
+        <div class="t-kpi-val">244,98M</div>
+        <div class="kpi-d neu">Novas assinaturas</div>
+      </div>
+      <div class="t-kpi ca">
+        <div class="t-kpi-lbl">CANCEL Total</div>
+        <div class="t-kpi-val">168,39M</div>
+        <div class="kpi-d neu">Cancelamentos</div>
+      </div>
+      <div class="t-kpi re">
+        <div class="t-kpi-lbl">RENEW Total</div>
+        <div class="t-kpi-val">23,87M</div>
+        <div class="kpi-d neu">Renovações</div>
+      </div>
+      <div class="t-kpi su">
+        <div class="t-kpi-lbl">SUSPEND Total</div>
+        <div class="t-kpi-val">27,10M</div>
+        <div class="kpi-d neu">Suspensões</div>
+      </div>
+      <div class="t-kpi ne">
+        <div class="t-kpi-lbl">NET (CREATE − CANCEL)</div>
+        <div class="t-kpi-val">76,59M</div>
+        <div class="kpi-d pos">Saldo líquido</div>
+      </div>
+      <div class="t-kpi ch">
+        <div class="t-kpi-lbl">CHURN Rate</div>
+        <div class="t-kpi-val">68.74%</div>
+        <div class="kpi-d neu">CANCEL ÷ CREATE</div>
+      </div>
+    </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">NET por Oferta · mai/26</div>
+      <div class="cs">CREATE − CANCEL por oferta · Ordenado por NET decrescente</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Oferta</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aya Books</td>
+          <td style="text-align:right">138.986.218</td>
+          <td style="text-align:right">107.268.940</td>
+          <td style="text-align:right">7.874.522</td>
+          <td style="text-align:right">8.917.578</td>
+          <td style="text-align:right;font-weight:600" class="pos">31.717.278</td>
+          <td style="text-align:right" class="neg">77.18%</td>
+        </tr>
+        <tr>
+          <td>AYA Bancah</td>
+          <td style="text-align:right">44.160.548</td>
+          <td style="text-align:right">28.434.375</td>
+          <td style="text-align:right">7.133.935</td>
+          <td style="text-align:right">8.070.498</td>
+          <td style="text-align:right;font-weight:600" class="pos">15.726.173</td>
+          <td style="text-align:right" class="neu">64.39%</td>
+        </tr>
+        <tr>
+          <td>Aya Ensinah</td>
+          <td style="text-align:right">34.090.984</td>
+          <td style="text-align:right">20.157.462</td>
+          <td style="text-align:right">4.934.863</td>
+          <td style="text-align:right">5.574.473</td>
+          <td style="text-align:right;font-weight:600" class="pos">13.933.522</td>
+          <td style="text-align:right" class="neu">59.13%</td>
+        </tr>
+        <tr>
+          <td>Aya Idiomas</td>
+          <td style="text-align:right">15.310.336</td>
+          <td style="text-align:right">6.592.407</td>
+          <td style="text-align:right">2.956.421</td>
+          <td style="text-align:right">3.394.820</td>
+          <td style="text-align:right;font-weight:600" class="pos">8.717.929</td>
+          <td style="text-align:right" class="neu">43.06%</td>
+        </tr>
+        <tr>
+          <td>Aya Equilibrah</td>
+          <td style="text-align:right">11.744.618</td>
+          <td style="text-align:right">5.735.268</td>
+          <td style="text-align:right">721.481</td>
+          <td style="text-align:right">875.365</td>
+          <td style="text-align:right;font-weight:600" class="pos">6.009.350</td>
+          <td style="text-align:right" class="neu">48.83%</td>
+        </tr>
+        <tr>
+          <td>AYA Play</td>
+          <td style="text-align:right">690.425</td>
+          <td style="text-align:right">202.742</td>
+          <td style="text-align:right">250.562</td>
+          <td style="text-align:right">265.120</td>
+          <td style="text-align:right;font-weight:600" class="pos">487.683</td>
+          <td style="text-align:right" class="pos">29.36%</td>
+        </tr></tbody></table>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;font-family:var(--mono)">
+        <strong>Cálculo:</strong> NET = CREATE − CANCEL · CHURN = CANCEL ÷ CREATE × 100
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="cs">Principais geradores de novas assinaturas</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">236.965.379</td>
+          <td style="text-align:right">166.264.553</td>
+          <td style="text-align:right">23.659.667</td>
+          <td style="text-align:right">26.252.561</td>
+          <td style="text-align:right;font-weight:600" class="pos">70.700.826</td>
+          <td style="text-align:right" class="neg">70.16%</td>
+        </tr>
+        <tr>
+          <td>TIM LIVE</td>
+          <td style="text-align:right">4.308.201</td>
+          <td style="text-align:right">1.954.880</td>
+          <td style="text-align:right">212.117</td>
+          <td style="text-align:right">845.293</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.353.321</td>
+          <td style="text-align:right" class="neu">45.38%</td>
+        </tr>
+        <tr>
+          <td>BRISANET</td>
+          <td style="text-align:right">1.611.336</td>
+          <td style="text-align:right">1.204</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.610.132</td>
+          <td style="text-align:right" class="pos">0.07%</td>
+        </tr>
+        <tr>
+          <td>BRASILTECPAR</td>
+          <td style="text-align:right">1.349.533</td>
+          <td style="text-align:right">48.276</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.301.257</td>
+          <td style="text-align:right" class="pos">3.58%</td>
+        </tr>
+        <tr>
+          <td>UNIFIQUE</td>
+          <td style="text-align:right">325.766</td>
+          <td style="text-align:right">79.296</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">246.470</td>
+          <td style="text-align:right" class="pos">24.34%</td>
+        </tr>
+        <tr>
+          <td>AFAGU</td>
+          <td style="text-align:right">249.861</td>
+          <td style="text-align:right">16</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">249.845</td>
+          <td style="text-align:right" class="pos">0.01%</td>
+        </tr>
+        <tr>
+          <td>VERISURE</td>
+          <td style="text-align:right">143.989</td>
+          <td style="text-align:right">42.442</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">101.547</td>
+          <td style="text-align:right" class="pos">29.48%</td>
+        </tr>
+        <tr>
+          <td>GIGA+</td>
+          <td style="text-align:right">22.152</td>
+          <td style="text-align:right">35</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">22.117</td>
+          <td style="text-align:right" class="pos">0.16%</td>
+        </tr>
+        <tr>
+          <td>NETAKI</td>
+          <td style="text-align:right">4.399</td>
+          <td style="text-align:right">180</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">4.219</td>
+          <td style="text-align:right" class="pos">4.09%</td>
+        </tr>
+        <tr>
+          <td>LCS WIFI</td>
+          <td style="text-align:right">1.101</td>
+          <td style="text-align:right">13</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.088</td>
+          <td style="text-align:right" class="pos">1.18%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="cs">Maiores geradores de cancelamento</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">236.965.379</td>
+          <td style="text-align:right">166.264.553</td>
+          <td style="text-align:right">23.659.667</td>
+          <td style="text-align:right">26.252.561</td>
+          <td style="text-align:right;font-weight:600" class="pos">70.700.826</td>
+          <td style="text-align:right" class="neg">70.16%</td>
+        </tr>
+        <tr>
+          <td>TIM LIVE</td>
+          <td style="text-align:right">4.308.201</td>
+          <td style="text-align:right">1.954.880</td>
+          <td style="text-align:right">212.117</td>
+          <td style="text-align:right">845.293</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.353.321</td>
+          <td style="text-align:right" class="neu">45.38%</td>
+        </tr>
+        <tr>
+          <td>UNIFIQUE</td>
+          <td style="text-align:right">325.766</td>
+          <td style="text-align:right">79.296</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">246.470</td>
+          <td style="text-align:right" class="pos">24.34%</td>
+        </tr>
+        <tr>
+          <td>BRASILTECPAR</td>
+          <td style="text-align:right">1.349.533</td>
+          <td style="text-align:right">48.276</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.301.257</td>
+          <td style="text-align:right" class="pos">3.58%</td>
+        </tr>
+        <tr>
+          <td>VERISURE</td>
+          <td style="text-align:right">143.989</td>
+          <td style="text-align:right">42.442</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">101.547</td>
+          <td style="text-align:right" class="pos">29.48%</td>
+        </tr>
+        <tr>
+          <td>BRISANET</td>
+          <td style="text-align:right">1.611.336</td>
+          <td style="text-align:right">1.204</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.610.132</td>
+          <td style="text-align:right" class="pos">0.07%</td>
+        </tr>
+        <tr>
+          <td>CARIAP</td>
+          <td style="text-align:right">307</td>
+          <td style="text-align:right">239</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">68</td>
+          <td style="text-align:right" class="neg">77.85%</td>
+        </tr>
+        <tr>
+          <td>NETAKI</td>
+          <td style="text-align:right">4.399</td>
+          <td style="text-align:right">180</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">4.219</td>
+          <td style="text-align:right" class="pos">4.09%</td>
+        </tr>
+        <tr>
+          <td>LIGGA</td>
+          <td style="text-align:right">1.067</td>
+          <td style="text-align:right">56</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.011</td>
+          <td style="text-align:right" class="pos">5.25%</td>
+        </tr>
+        <tr>
+          <td>GIGA+</td>
+          <td style="text-align:right">22.152</td>
+          <td style="text-align:right">35</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">22.117</td>
+          <td style="text-align:right" class="pos">0.16%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">236.965.379</td>
+          <td style="text-align:right">166.264.553</td>
+          <td style="text-align:right">23.659.667</td>
+          <td style="text-align:right">26.252.561</td>
+          <td style="text-align:right;font-weight:600" class="pos">70.700.826</td>
+          <td style="text-align:right" class="neg">70.16%</td>
+        </tr>
+        <tr>
+          <td>TIM LIVE</td>
+          <td style="text-align:right">4.308.201</td>
+          <td style="text-align:right">1.954.880</td>
+          <td style="text-align:right">212.117</td>
+          <td style="text-align:right">845.293</td>
+          <td style="text-align:right;font-weight:600" class="pos">2.353.321</td>
+          <td style="text-align:right" class="neu">45.38%</td>
+        </tr>
+        <tr>
+          <td>BRISANET</td>
+          <td style="text-align:right">1.611.336</td>
+          <td style="text-align:right">1.204</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.610.132</td>
+          <td style="text-align:right" class="pos">0.07%</td>
+        </tr>
+        <tr>
+          <td>BRASILTECPAR</td>
+          <td style="text-align:right">1.349.533</td>
+          <td style="text-align:right">48.276</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.301.257</td>
+          <td style="text-align:right" class="pos">3.58%</td>
+        </tr>
+        <tr>
+          <td>UNIFIQUE</td>
+          <td style="text-align:right">325.766</td>
+          <td style="text-align:right">79.296</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">246.470</td>
+          <td style="text-align:right" class="pos">24.34%</td>
+        </tr>
+        <tr>
+          <td>AFAGU</td>
+          <td style="text-align:right">249.861</td>
+          <td style="text-align:right">16</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">249.845</td>
+          <td style="text-align:right" class="pos">0.01%</td>
+        </tr>
+        <tr>
+          <td>VERISURE</td>
+          <td style="text-align:right">143.989</td>
+          <td style="text-align:right">42.442</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">101.547</td>
+          <td style="text-align:right" class="pos">29.48%</td>
+        </tr>
+        <tr>
+          <td>GIGA+</td>
+          <td style="text-align:right">22.152</td>
+          <td style="text-align:right">35</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">22.117</td>
+          <td style="text-align:right" class="pos">0.16%</td>
+        </tr>
+        <tr>
+          <td>NETAKI</td>
+          <td style="text-align:right">4.399</td>
+          <td style="text-align:right">180</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">4.219</td>
+          <td style="text-align:right" class="pos">4.09%</td>
+        </tr>
+        <tr>
+          <td>LCS WIFI</td>
+          <td style="text-align:right">1.101</td>
+          <td style="text-align:right">13</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.088</td>
+          <td style="text-align:right" class="pos">1.18%</td>
+        </tr>
+        <tr>
+          <td>LIGGA</td>
+          <td style="text-align:right">1.067</td>
+          <td style="text-align:right">56</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.011</td>
+          <td style="text-align:right" class="pos">5.25%</td>
+        </tr>
+        <tr>
+          <td>CARIAP</td>
+          <td style="text-align:right">307</td>
+          <td style="text-align:right">239</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">68</td>
+          <td style="text-align:right" class="neg">77.85%</td>
+        </tr>
+        <tr>
+          <td>Adllink</td>
+          <td style="text-align:right">13</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">13</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>ROSA_MASTER</td>
+          <td style="text-align:right">12</td>
+          <td style="text-align:right">4</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">8</td>
+          <td style="text-align:right" class="neu">33.33%</td>
+        </tr>
+        <tr>
+          <td>VIRTUAL TELECOM</td>
+          <td style="text-align:right">9</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">9</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>IEZ TELECOM</td>
+          <td style="text-align:right">4</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">4</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">Indicadores por Plano · mai/26</div>
+      <div class="cs">Todos os planos · Ordenado por NET decrescente · Top 30</div>
+      <div style="overflow-x:auto;max-height:500px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:30%">Plano</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>plano_94</td>
+          <td style="text-align:right">44.160.548</td>
+          <td style="text-align:right">28.434.375</td>
+          <td style="text-align:right">7.133.935</td>
+          <td style="text-align:right">8.070.498</td>
+          <td style="text-align:right;font-weight:600" class="pos">15.726.173</td>
+          <td style="text-align:right" class="neu">64.39%</td>
+        </tr>
+        <tr>
+          <td>plano_100</td>
+          <td style="text-align:right">34.090.099</td>
+          <td style="text-align:right">20.156.753</td>
+          <td style="text-align:right">4.934.793</td>
+          <td style="text-align:right">5.573.990</td>
+          <td style="text-align:right;font-weight:600" class="pos">13.933.346</td>
+          <td style="text-align:right" class="neu">59.13%</td>
+        </tr>
+        <tr>
+          <td>plano_96</td>
+          <td style="text-align:right">91.803.641</td>
+          <td style="text-align:right">79.143.635</td>
+          <td style="text-align:right">2.728.869</td>
+          <td style="text-align:right">2.972.652</td>
+          <td style="text-align:right;font-weight:600" class="pos">12.660.006</td>
+          <td style="text-align:right" class="neg">86.21%</td>
+        </tr>
+        <tr>
+          <td>plano_97</td>
+          <td style="text-align:right">38.199.724</td>
+          <td style="text-align:right">26.110.661</td>
+          <td style="text-align:right">2.550.325</td>
+          <td style="text-align:right">2.997.983</td>
+          <td style="text-align:right;font-weight:600" class="pos">12.089.063</td>
+          <td style="text-align:right" class="neu">68.35%</td>
+        </tr>
+        <tr>
+          <td>plano_102</td>
+          <td style="text-align:right">15.310.313</td>
+          <td style="text-align:right">6.592.384</td>
+          <td style="text-align:right">2.956.421</td>
+          <td style="text-align:right">3.394.820</td>
+          <td style="text-align:right;font-weight:600" class="pos">8.717.929</td>
+          <td style="text-align:right" class="neu">43.06%</td>
+        </tr>
+        <tr>
+          <td>plano_99</td>
+          <td style="text-align:right">8.581.787</td>
+          <td style="text-align:right">1.761.112</td>
+          <td style="text-align:right">2.582.077</td>
+          <td style="text-align:right">2.930.993</td>
+          <td style="text-align:right;font-weight:600" class="pos">6.820.675</td>
+          <td style="text-align:right" class="pos">20.52%</td>
+        </tr>
+        <tr>
+          <td>plano_101</td>
+          <td style="text-align:right">11.744.618</td>
+          <td style="text-align:right">5.735.268</td>
+          <td style="text-align:right">721.481</td>
+          <td style="text-align:right">875.365</td>
+          <td style="text-align:right;font-weight:600" class="pos">6.009.350</td>
+          <td style="text-align:right" class="neu">48.83%</td>
+        </tr>
+        <tr>
+          <td>plano_104</td>
+          <td style="text-align:right">658.443</td>
+          <td style="text-align:right">202.259</td>
+          <td style="text-align:right">239.875</td>
+          <td style="text-align:right">254.774</td>
+          <td style="text-align:right;font-weight:600" class="pos">456.184</td>
+          <td style="text-align:right" class="neu">30.72%</td>
+        </tr>
+        <tr>
+          <td>plano_98</td>
+          <td style="text-align:right">399.567</td>
+          <td style="text-align:right">253.428</td>
+          <td style="text-align:right">11.575</td>
+          <td style="text-align:right">13.984</td>
+          <td style="text-align:right;font-weight:600" class="pos">146.139</td>
+          <td style="text-align:right" class="neu">63.43%</td>
+        </tr>
+        <tr>
+          <td>plano_105</td>
+          <td style="text-align:right">16.253</td>
+          <td style="text-align:right">243</td>
+          <td style="text-align:right">5.382</td>
+          <td style="text-align:right">5.216</td>
+          <td style="text-align:right;font-weight:600" class="pos">16.010</td>
+          <td style="text-align:right" class="pos">1.50%</td>
+        </tr>
+        <tr>
+          <td>plano_103</td>
+          <td style="text-align:right">15.729</td>
+          <td style="text-align:right">240</td>
+          <td style="text-align:right">5.305</td>
+          <td style="text-align:right">5.130</td>
+          <td style="text-align:right;font-weight:600" class="pos">15.489</td>
+          <td style="text-align:right" class="pos">1.53%</td>
+        </tr>
+        <tr>
+          <td>Standard</td>
+          <td style="text-align:right">1.593</td>
+          <td style="text-align:right">109</td>
+          <td style="text-align:right">1.676</td>
+          <td style="text-align:right">1.966</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.484</td>
+          <td style="text-align:right" class="pos">6.84%</td>
+        </tr>
+        <tr>
+          <td>Light</td>
+          <td style="text-align:right">789</td>
+          <td style="text-align:right">702</td>
+          <td style="text-align:right">70</td>
+          <td style="text-align:right">483</td>
+          <td style="text-align:right;font-weight:600" class="pos">87</td>
+          <td style="text-align:right" class="neg">88.97%</td>
+        </tr>
+        <tr>
+          <td>Premium</td>
+          <td style="text-align:right">23</td>
+          <td style="text-align:right">23</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="neg">0</td>
+          <td style="text-align:right" class="neg">100.00%</td>
+        </tr>
+        <tr>
+          <td>Platinum</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="neg">0</td>
+          <td style="text-align:right" class="neg">100.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 <div class="pn">Conteúdo · 16 parceiros · 6 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-mp">
@@ -715,6 +2620,287 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 <div class="tab-pane" id="mp-yoy-su"><div class="card" style="margin:0 0 13px"><div class="ct">YoY SUSPEND</div><div class="leg" id="mp-t-yoy-su-leg"></div><div class="cw" style="height:200px"><canvas id="mp-t-yoy-suspend"></canvas></div></div></div>
 </div>
 </div>
+
+<!-- ============ SEÇÃO INDICADORES NET - MULHERES POSITIVAS ============ -->
+<div class="section" id="mp-indicadores-net" style="border-top:1px solid var(--border)">
+  <div class="s-tag mp">// indicadores net · consolidado mai/26</div>
+  <div class="s-title">Indicadores NET — Mulheres Positivas</div>
+  <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
+  
+  <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
+    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+  </div>
+  
+  
+    <div class="t-kpi-grid" style="margin-bottom:18px">
+      <div class="t-kpi cr">
+        <div class="t-kpi-lbl">CREATE Total</div>
+        <div class="t-kpi-val">3,63M</div>
+        <div class="kpi-d neu">Novas assinaturas</div>
+      </div>
+      <div class="t-kpi ca">
+        <div class="t-kpi-lbl">CANCEL Total</div>
+        <div class="t-kpi-val">1,91M</div>
+        <div class="kpi-d neu">Cancelamentos</div>
+      </div>
+      <div class="t-kpi re">
+        <div class="t-kpi-lbl">RENEW Total</div>
+        <div class="t-kpi-val">629,7K</div>
+        <div class="kpi-d neu">Renovações</div>
+      </div>
+      <div class="t-kpi su">
+        <div class="t-kpi-lbl">SUSPEND Total</div>
+        <div class="t-kpi-val">685,3K</div>
+        <div class="kpi-d neu">Suspensões</div>
+      </div>
+      <div class="t-kpi ne">
+        <div class="t-kpi-lbl">NET (CREATE − CANCEL)</div>
+        <div class="t-kpi-val">1,72M</div>
+        <div class="kpi-d pos">Saldo líquido</div>
+      </div>
+      <div class="t-kpi ch">
+        <div class="t-kpi-lbl">CHURN Rate</div>
+        <div class="t-kpi-val">52.70%</div>
+        <div class="kpi-d neu">CANCEL ÷ CREATE</div>
+      </div>
+    </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">NET por Oferta · mai/26</div>
+      <div class="cs">CREATE − CANCEL por oferta · Ordenado por NET decrescente</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Oferta</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MULHERES POSITIVAS</td>
+          <td style="text-align:right">3.632.261</td>
+          <td style="text-align:right">1.914.155</td>
+          <td style="text-align:right">629.663</td>
+          <td style="text-align:right">685.309</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.718.106</td>
+          <td style="text-align:right" class="neu">52.70%</td>
+        </tr></tbody></table>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-top:10px;font-family:var(--mono)">
+        <strong>Cálculo:</strong> NET = CREATE − CANCEL · CHURN = CANCEL ÷ CREATE × 100
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="cs">Principais geradores de novas assinaturas</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">3.631.964</td>
+          <td style="text-align:right">1.914.155</td>
+          <td style="text-align:right">629.663</td>
+          <td style="text-align:right">685.309</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.717.809</td>
+          <td style="text-align:right" class="neu">52.70%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">282</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">282</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>VIRTUAL TELECOM</td>
+          <td style="text-align:right">15</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">15</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="cs">Maiores geradores de cancelamento</div>
+      <div style="overflow-x:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">3.631.964</td>
+          <td style="text-align:right">1.914.155</td>
+          <td style="text-align:right">629.663</td>
+          <td style="text-align:right">685.309</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.717.809</td>
+          <td style="text-align:right" class="neu">52.70%</td>
+        </tr>
+        <tr>
+          <td>VIRTUAL TELECOM</td>
+          <td style="text-align:right">15</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">15</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">282</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">282</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
+      <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:25%">Parceiro</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TIM</td>
+          <td style="text-align:right">3.631.964</td>
+          <td style="text-align:right">1.914.155</td>
+          <td style="text-align:right">629.663</td>
+          <td style="text-align:right">685.309</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.717.809</td>
+          <td style="text-align:right" class="neu">52.70%</td>
+        </tr>
+        <tr>
+          <td>EXA</td>
+          <td style="text-align:right">282</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">282</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr>
+        <tr>
+          <td>VIRTUAL TELECOM</td>
+          <td style="text-align:right">15</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right">0</td>
+          <td style="text-align:right;font-weight:600" class="pos">15</td>
+          <td style="text-align:right" class="pos">0.00%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="cg" style="margin-bottom:13px">
+    <div class="card full">
+      <div class="ct">Indicadores por Plano · mai/26</div>
+      <div class="cs">Todos os planos · Ordenado por NET decrescente · Top 30</div>
+      <div style="overflow-x:auto;max-height:500px;overflow-y:auto;margin-top:10px">
+        
+    <table class="dt" style="font-size:11px;width:100%">
+      <thead>
+        <tr>
+          <th style="width:30%">Plano</th>
+          <th style="text-align:right">CREATE</th>
+          <th style="text-align:right">CANCEL</th>
+          <th style="text-align:right">RENEW</th>
+          <th style="text-align:right">SUSPEND</th>
+          <th style="text-align:right">NET</th>
+          <th style="text-align:right">CHURN %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>plano_75</td>
+          <td style="text-align:right">3.632.093</td>
+          <td style="text-align:right">1.913.978</td>
+          <td style="text-align:right">629.661</td>
+          <td style="text-align:right">685.306</td>
+          <td style="text-align:right;font-weight:600" class="pos">1.718.115</td>
+          <td style="text-align:right" class="neu">52.70%</td>
+        </tr>
+        <tr>
+          <td>BASIC</td>
+          <td style="text-align:right">168</td>
+          <td style="text-align:right">177</td>
+          <td style="text-align:right">2</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right;font-weight:600" class="neg">-9</td>
+          <td style="text-align:right" class="neg">105.36%</td>
+        </tr></tbody></table>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 <div class="pn">Mulheres Positivas · 3 parceiros · 1 oferta · mai/2026</div>
 </div>
 <script>/*!
@@ -1407,20 +3593,22 @@ const SB_DEFS = {
     tag: 'Segurança', sub: 'jan/22\u2192mai/26 · 53 meses', color: 'var(--seg-c)',
     items: [['#seg-overview','Visão Geral'],['#seg-produto-pai','Produto Pai'],
             ['#seg-oferta','Por Oferta'],['#seg-parceiro','Por Parceiro'],
-            ['#seg-evolucao','Evolução Histórica'],['#seg-sinais','Sinais & Alertas']]
+            ['#seg-evolucao','Evolução Histórica'],['#seg-sinais','Sinais & Alertas'],
+            ['#seg-indicadores-net','📊 Indicadores NET']]
   },
   segu: {
     tag: 'Seguros', sub: 'abr/25\u2192mai/26 · 14 meses', color: 'var(--segu-c)',
     items: [['#segu-overview','Visão Geral'],['#segu-produto-pai','Produto Pai'],
             ['#segu-produto','Por Produto'],['#segu-oferta','Por Oferta'],
             ['#segu-parceiro','Por Parceiro'],['#segu-evolucao','Evolução Histórica'],
-            ['#segu-sinais','Sinais & Alertas']]
+            ['#segu-sinais','Sinais & Alertas'],['#segu-indicadores-net','📊 Indicadores NET']]
   },
   cont: {
     tag: 'Conteúdo', sub: 'mai/22\u2192mai/26 · 49 meses', color: 'var(--cont-c)',
     items: [['#cont-overview','Visão Geral'],['#cont-produto-pai','Produto Pai'],
             ['#cont-oferta','Por Oferta'],['#cont-parceiro','Por Parceiro'],
-            ['#cont-evolucao','Evolução Histórica'],['#cont-sinais','Sinais & Alertas']]
+            ['#cont-evolucao','Evolução Histórica'],['#cont-sinais','Sinais & Alertas'],
+            ['#cont-indicadores-net','📊 Indicadores NET']]
   },
   mp: {
     tag: 'Mulheres Positivas', sub: 'dez/22→mai/26', color: 'var(--mp-c)',
@@ -1428,7 +3616,8 @@ const SB_DEFS = {
       ['#mp-overview', 'Visão Geral'],
       ['#mp-parceiro', 'Por Parceiro'],
       ['#mp-evolucao', 'Evolução Histórica'],
-      ['#mp-sinais',   'Sinais & Alertas']
+      ['#mp-sinais',   'Sinais & Alertas'],
+      ['#mp-indicadores-net', '📊 Indicadores NET']
     ]
   }
 };
@@ -1455,6 +3644,16 @@ function buildSidebar(vert) {
 function setNavActive(el) {
   document.querySelectorAll('.nav-item').forEach(function(n){ n.classList.remove('active','seg','segu','cont','mp'); });
   el.classList.add('active', curVert);
+  
+  // Se for link de Indicadores NET, alternar para sub-panel Transacional automaticamente
+  var href = el.getAttribute('href');
+  if (href && href.indexOf('-indicadores-net') !== -1) {
+    var transTabId = curVert + '-sub-trans';
+    var transTab = document.querySelector('#' + curVert + '-submenu .sub-tab:nth-child(2)');
+    if (transTab && !document.getElementById(transTabId).classList.contains('active')) {
+      swSub(transTab, transTabId, curVert);
+    }
+  }
 }
 
 function switchVert(vert, btn) {
