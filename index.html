@@ -82,14 +82,34 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .vert-panel{display:none}.vert-panel.active{display:block}
 
 /* SUBMENU */
-.submenu{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--surf2);padding:0 28px;position:sticky;top:56px;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.sub-tab{padding:10px 18px;font-size:12px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;border-top:none;border-left:none;border-right:none;background:none}
-.sub-tab:hover{color:var(--text)}
-.sub-tab.active.seg{color:var(--seg-c);border-bottom-color:var(--seg-c)}
-.sub-tab.active.segu{color:var(--segu-c);border-bottom-color:var(--segu-c)}
-.sub-tab.active.cont{color:var(--cont-c);border-bottom-color:var(--cont-c)}
-.sub-tab.active.mp{color:var(--mp-c);border-bottom-color:var(--mp-c)}
-.sub-panel{display:none}.sub-panel.active{display:block}
+.submenu{
+  display:flex;align-items:center;gap:0;
+  border-bottom:1px solid var(--border);
+  background:rgba(15,24,34,0.97);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:0 20px;
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 1px 0 var(--border),0 4px 16px rgba(0,0,0,.4);
+  min-height:48px;
+}
+.submenu-inner{display:flex;align-items:center;gap:4px;padding:6px 0}
+.submenu-label{font-size:10px;font-family:var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-left:auto;padding-left:16px}
+.sub-tab{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 16px;
+  font-size:12px;font-weight:500;
+  color:var(--muted);cursor:pointer;
+  border-radius:8px;border:1px solid transparent;
+  background:none;
+  transition:all .18s cubic-bezier(.4,0,.2,1);
+  white-space:nowrap;letter-spacing:.01em;
+}
+.sub-tab:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.sub-tab.active.seg{background:rgba(79,142,247,.15);color:var(--seg-c);border-color:rgba(79,142,247,.3);box-shadow:0 0 12px rgba(79,142,247,.15)}
+.sub-tab.active.segu{background:rgba(15,212,138,.13);color:var(--segu-c);border-color:rgba(15,212,138,.3);box-shadow:0 0 12px rgba(15,212,138,.12)}
+.sub-tab.active.cont{background:rgba(246,167,52,.13);color:var(--cont-c);border-color:rgba(246,167,52,.3);box-shadow:0 0 12px rgba(246,167,52,.12)}
+.sub-tab.active.mp{background:rgba(244,114,182,.13);color:var(--mp-c);border-color:rgba(244,114,182,.3);box-shadow:0 0 12px rgba(244,114,182,.12)}
+.sub-panel{display:none}.sub-panel.active{display:block;animation:spFadeIn .2s ease}@keyframes spFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
 /* SIDEBAR */
 .sb-header{padding:0 16px 16px;border-bottom:1px solid var(--border);margin-bottom:12px}
@@ -109,14 +129,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .sb-badge{font-size:10px;font-family:var(--mono);color:var(--muted);line-height:1.6}
 
 /* HERO */
-.hero{padding:28px;border-bottom:1px solid var(--border);scroll-margin-top:100px}
+.hero{padding:28px;border-bottom:1px solid var(--border);scroll-margin-top:56px}
 .hero.seg{background:linear-gradient(135deg,rgba(17,47,248,.06) 0%,transparent 55%)}
 .hero.segu{background:linear-gradient(135deg,rgba(15,212,138,.06) 0%,transparent 55%)}
 .hero.cont{background:linear-gradient(135deg,rgba(246,167,52,.06) 0%,transparent 55%)}
 .hero.mp{background:linear-gradient(135deg,rgba(244,114,182,.06) 0%,transparent 55%)}
 
 /* SECTIONS */
-.section{padding:28px;border-bottom:1px solid var(--border);scroll-margin-top:100px}
+.section{padding:28px;border-bottom:1px solid var(--border);scroll-margin-top:108px}
 .s-tag{font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;font-family:var(--mono);margin-bottom:6px}
 .s-tag.seg{color:var(--seg-c)}.s-tag.segu{color:var(--segu-c)}.s-tag.cont{color:var(--cont-c)}.s-tag.mp{color:var(--mp-c)}
 .s-title{font-weight:700;letter-spacing:-0.03em;font-size:20px;font-weight:600;color:var(--text);line-height:1.2}
@@ -384,7 +404,7 @@ body, html {
 <nav class="sidebar" id="sidebar"><!-- JS --></nav>
 <div class="main">
 <div class="vert-panel active" id="panel-seg">
-<div class="submenu" id="seg-submenu"><button class="sub-tab active seg" onclick="swSub(this,'seg-sub-ativa','seg')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'seg-sub-trans','seg')">Transacional</button></div>
+<div class="submenu" id="seg-submenu"><div class="submenu-inner"><button class="sub-tab active seg" onclick="swSub(this,'seg-sub-ativa','seg')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'seg-sub-trans','seg')">⚡ Transacional</button></div><span class="submenu-label">Segurança · jan/22–mai/26</span></div>
 <div class="sub-panel active" id="seg-sub-ativa">
 
   <div class="hero seg" id="seg-overview">
@@ -2284,7 +2304,7 @@ body, html {
 <div class="pn">Segurança · 21 parceiros · 8 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-segu">
-<div class="submenu" id="segu-submenu"><button class="sub-tab active segu" onclick="swSub(this,'segu-sub-ativa','segu')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'segu-sub-trans','segu')">Transacional</button></div>
+<div class="submenu" id="segu-submenu"><div class="submenu-inner"><button class="sub-tab active segu" onclick="swSub(this,'segu-sub-ativa','segu')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'segu-sub-trans','segu')">⚡ Transacional</button></div><span class="submenu-label">Seguros · abr/25–mai/26</span></div>
 <div class="sub-panel active" id="segu-sub-ativa">
 
   <div class="hero segu" id="segu-overview">
@@ -3130,7 +3150,7 @@ body, html {
 <div class="pn">Seguros · 3 parceiros · 3 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-cont">
-<div class="submenu" id="cont-submenu"><button class="sub-tab active cont" onclick="swSub(this,'cont-sub-ativa','cont')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'cont-sub-trans','cont')">Transacional</button></div>
+<div class="submenu" id="cont-submenu"><div class="submenu-inner"><button class="sub-tab active cont" onclick="swSub(this,'cont-sub-ativa','cont')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'cont-sub-trans','cont')">⚡ Transacional</button></div><span class="submenu-label">Conteúdo</span></div>
 <div class="sub-panel active" id="cont-sub-ativa">
 
   <div class="hero cont" id="cont-overview">
@@ -4668,7 +4688,7 @@ body, html {
 <div class="pn">Conteúdo · 16 parceiros · 6 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-mp">
-<div class="submenu" id="mp-submenu"><button class="sub-tab active mp" onclick="swSub(this,'mp-sub-ativa','mp')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'mp-sub-trans','mp')">Transacional</button></div>
+<div class="submenu" id="mp-submenu"><div class="submenu-inner"><button class="sub-tab active mp" onclick="swSub(this,'mp-sub-ativa','mp')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'mp-sub-trans','mp')">⚡ Transacional</button></div><span class="submenu-label">Mulheres Positivas</span></div>
 <div class="sub-panel active" id="mp-sub-ativa">
 <div class="hero mp" id="mp-overview"><div style="margin-bottom:18px"><div class="s-tag mp">// mulheres positivas · maio 2026</div><div class="s-title">Base Ativa — Mulheres Positivas</div><div class="s-sub">3 parceiros · 1 oferta · 42 meses de histórico</div></div><div class="kpi-grid"><div class="kpi mp"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">2,4M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div><div class="kpi mp"><div class="kpi-lbl">Crescimento</div><div class="kpi-val">+1965%</div><div class="kpi-d pos">desde jan/25</div></div><div class="kpi am"><div class="kpi-lbl">Parceiro principal</div><div class="kpi-val">TIM</div><div class="kpi-d neu">99,9% da base</div></div><div class="kpi te"><div class="kpi-lbl">Único produto</div><div class="kpi-val">Bundle</div><div class="kpi-d neu">Mulheres Positivas</div></div></div></div></div>
 <div class="section" id="mp-parceiro"><div class="s-tag mp">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">Base mai/26 · variação MoM</div><div style="margin-top:18px" class="cg"><div class="card"><div class="ct">Volume por parceiro · mai/26</div><div class="cs">Delta MoM</div><div id="mp-parc-bars"></div></div><div class="card"><div class="ct">Evolução mensal por parceiro</div><div class="cs">dez/22 a mai/26</div><div class="leg" id="mp-parc-leg"></div><div class="cw" style="height:230px"><canvas id="mp-parcLine"></canvas></div></div></div></div>
