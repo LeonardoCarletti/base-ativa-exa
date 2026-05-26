@@ -5,32 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EXA Analytics — Base Ativa &amp; Transacional · mai/2026</title>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#080c17;--surf:#0f1822;--surf2:#162030;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
-  --text:#eef2ff;--muted:#5e7a99;
-  --blue:#4f8ef7;--green:#0fd48a;--amber:#f6a734;--red:#f05252;
-  --purple:#9b6ef3;--teal:#19c9b0;--pink:#f472b6;
-  --sans:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
-  --seg-c:#4f8ef7;--seg-bg:rgba(79,142,247,.13);
-  --segu-c:#0fd48a;--segu-bg:rgba(15,212,138,.13);
-  --cont-c:#f6a734;--cont-bg:rgba(246,167,52,.13);
-  --mp-c:#f472b6;--mp-bg:rgba(244,114,182,.13);
+  /* ── Apple Light ─────────────────────── */
+  --bg:#F5F5F7;
+  --surf:#FFFFFF;
+  --surf2:#F5F5F7;
+  --border:rgba(0,0,0,0.08);
+  --border2:rgba(0,0,0,0.12);
+  --text:#1D1D1F;
+  --muted:#6E6E73;
+
+  /* ── Semantic ────────────────────────── */
+  --blue:#0071E3;
+  --green:#34C759;
+  --amber:#FF9F0A;
+  --red:#FF3B30;
+  --purple:#BF5AF2;
+  --teal:#32ADE6;
+  --pink:#FF375F;
+
+  /* ── EXA Brand ───────────────────────── */
+  --exa-blue:#112ff8;
+  --exa-purple:#6531bd;
+  --exa-gradient:linear-gradient(135deg,#112ff8 0%,#6531bd 100%);
+
+  /* ── Typography ──────────────────────── */
+  --sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',system-ui,sans-serif;
+  --mono:'SF Mono','Monaco','Consolas',monospace;
+
+  /* ── Vertical accent colors ──────────── */
+  --seg-c:#112ff8;--seg-bg:rgba(17,47,248,0.08);
+  --segu-c:#34C759;--segu-bg:rgba(52,199,89,0.08);
+  --cont-c:#FF9F0A;--cont-bg:rgba(255,159,10,0.08);
+  --mp-c:#FF375F;--mp-bg:rgba(255,55,95,0.08);
+
+  /* ── Apple shadows ───────────────────── */
+  --shadow-xs:0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm:0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg:0 8px 30px rgba(0,0,0,0.10);
+
+  /* ── Spacing & radius ────────────────── */
+  --radius-sm:8px;
+  --radius-md:12px;
+  --radius-lg:16px;
+  --radius-xl:20px;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;min-height:100vh;padding-top:56px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;min-height:100vh;padding-top:56px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
 /* TOP NAV */
 .topnav{position:fixed;top:0;left:0;right:0;height:56px;background:var(--surf);border-bottom:1px solid var(--border);z-index:1000;display:flex;align-items:center;padding:0 20px;gap:0;overflow-x:auto}
 .brand{font-size:13px;font-weight:600;color:var(--text);font-family:var(--mono);margin-right:24px;white-space:nowrap;flex-shrink:0}
 .brand span{color:var(--muted);font-weight:400}
 .vert-tabs{display:flex;gap:3px;flex:1;min-width:0}
-.vert-tab{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:8px;border:1px solid transparent;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s;color:var(--muted);background:none;white-space:nowrap;flex-shrink:0}
+.vert-tab{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:14px;border:1px solid transparent;font-size:12px;font-weight:500;cursor:pointer;transition:all .18s;color:var(--muted);background:none;white-space:nowrap;flex-shrink:0}
 .vert-tab .vtdot{width:7px;height:7px;border-radius:50%;background:currentColor;flex-shrink:0}
 .vert-tab:hover{background:var(--surf2);color:var(--text)}
-.vert-tab.seg.active{background:var(--seg-bg);color:var(--seg-c);border-color:rgba(79,142,247,.3)}
+.vert-tab.seg.active{background:var(--seg-bg);color:var(--seg-c);border-color:rgba(17,47,248,.3)}
 .vert-tab.segu.active{background:var(--segu-bg);color:var(--segu-c);border-color:rgba(15,212,138,.3)}
 .vert-tab.cont.active{background:var(--cont-bg);color:var(--cont-c);border-color:rgba(246,167,52,.3)}
 .vert-tab.mp.active{background:var(--mp-bg);color:var(--mp-c);border-color:rgba(244,114,182,.3)}
@@ -63,7 +100,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .nav-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 8px;margin-bottom:4px;display:block}
 .nav-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:7px;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s;text-decoration:none;border:none;background:none;width:100%;text-align:left}
 .nav-item:hover{background:var(--surf2);color:var(--text)}
-.nav-item.active.seg{background:rgba(79,142,247,.12);color:var(--seg-c)}
+.nav-item.active.seg{background:rgba(17,47,248,.12);color:var(--seg-c)}
 .nav-item.active.segu{background:rgba(15,212,138,.12);color:var(--segu-c)}
 .nav-item.active.cont{background:rgba(246,167,52,.12);color:var(--cont-c)}
 .nav-item.active.mp{background:rgba(244,114,182,.12);color:var(--mp-c)}
@@ -73,7 +110,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 
 /* HERO */
 .hero{padding:28px;border-bottom:1px solid var(--border);scroll-margin-top:100px}
-.hero.seg{background:linear-gradient(135deg,rgba(79,142,247,.06) 0%,transparent 55%)}
+.hero.seg{background:linear-gradient(135deg,rgba(17,47,248,.06) 0%,transparent 55%)}
 .hero.segu{background:linear-gradient(135deg,rgba(15,212,138,.06) 0%,transparent 55%)}
 .hero.cont{background:linear-gradient(135deg,rgba(246,167,52,.06) 0%,transparent 55%)}
 .hero.mp{background:linear-gradient(135deg,rgba(244,114,182,.06) 0%,transparent 55%)}
@@ -82,13 +119,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .section{padding:28px;border-bottom:1px solid var(--border);scroll-margin-top:100px}
 .s-tag{font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;font-family:var(--mono);margin-bottom:6px}
 .s-tag.seg{color:var(--seg-c)}.s-tag.segu{color:var(--segu-c)}.s-tag.cont{color:var(--cont-c)}.s-tag.mp{color:var(--mp-c)}
-.s-title{font-size:20px;font-weight:600;color:var(--text);line-height:1.2}
+.s-title{font-weight:700;letter-spacing:-0.03em;font-size:20px;font-weight:600;color:var(--text);line-height:1.2}
 .s-sub{font-size:13px;color:var(--muted);margin-top:4px}
 
 /* KPI GRIDS */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 @media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
-.kpi{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:16px;position:relative;overflow:hidden}
+.kpi{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:20px;position:relative;overflow:hidden}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
 .kpi.seg::before{background:var(--seg-c)}.kpi.segu::before{background:var(--segu-c)}
 .kpi.cont::before{background:var(--cont-c)}.kpi.mp::before{background:var(--mp-c)}
@@ -125,7 +162,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 /* CARD GRID — responsivo */
 .cg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media(max-width:900px){.cg{grid-template-columns:1fr}}
-.card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:16px;min-width:0;overflow:hidden}
+.card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:20px;min-width:0;overflow:hidden}
 .card.full{grid-column:1/-1}
 .ct{font-size:12px;font-weight:500;color:var(--text);margin-bottom:3px}
 .cs{font-size:11px;color:var(--muted);margin-bottom:12px}
@@ -147,11 +184,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .dt tr:hover td{background:var(--surf2)}
 
 /* ALERTS */
-.al{border-radius:8px;padding:12px 14px;margin-bottom:10px;font-size:12px;line-height:1.7}
+.al{border-radius:14px;padding:12px 14px;margin-bottom:10px;font-size:12px;line-height:1.7}
 .al-gr{background:rgba(15,212,138,.07);border-left:3px solid var(--green);color:#a7f3d0}
 .al-am{background:rgba(246,167,52,.07);border-left:3px solid var(--amber);color:#fde68a}
 .al-rd{background:rgba(240,82,82,.07);border-left:3px solid var(--red);color:#fecaca}
-.al-bl{background:rgba(79,142,247,.07);border-left:3px solid var(--blue);color:#bfdbfe}
+.al-bl{background:rgba(17,47,248,.07);border-left:3px solid var(--blue);color:#bfdbfe}
 .al strong{font-weight:600;color:var(--text)}
 
 /* MISC */
@@ -162,7 +199,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 @media(max-width:900px){.pg{grid-template-columns:repeat(2,1fr)}}
 .pb{padding:13px;border-right:1px solid var(--border)}
 .pb:last-child{border-right:none}
-.pb.hi{background:rgba(79,142,247,.08)}.pb.gr{background:rgba(15,212,138,.07)}
+.pb.hi{background:rgba(17,47,248,.08)}.pb.gr{background:rgba(15,212,138,.07)}
 .p-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
 .p-val{font-size:15px;font-weight:600;color:var(--text);font-family:var(--mono);word-break:break-word}
 .p-sub{font-size:11px;color:var(--muted);margin-top:3px}
@@ -176,7 +213,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .pn{font-size:10px;color:var(--muted);text-align:center;padding:14px}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
-.info-box{background:rgba(79,142,247,.07);border:1px solid rgba(79,142,247,.25);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.info-box{background:rgba(17,47,248,.07);border:1px solid rgba(17,47,248,.25);border-radius:10px;padding:14px 16px;margin-bottom:14px}
 .info-box-title{font-size:12px;font-weight:600;color:#4f8ef7;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
 .info-box-title.segu{color:var(--segu-c)}.info-box-title.cont{color:var(--cont-c)}.info-box-title.mp{color:var(--mp-c)}
 .info-box-body{font-size:12px;color:#9eb4c8;line-height:1.7}
@@ -188,6 +225,157 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .dt-mini td:first-child{text-align:left;color:var(--text)}
 .dt-mini tr:hover td{background:rgba(255,255,255,.03)}
 .dt-mini .pos{color:var(--green)}.dt-mini .neg{color:var(--red)}.dt-mini .neu{color:var(--muted)}
+
+/* ========== APPLE DESIGN TOKENS ========== */
+:root {
+  /* Cores EXA */
+  --exa-blue: #112ff8;
+  --exa-purple: #6531bd;
+  --exa-gradient: linear-gradient(135deg, #112ff8 0%, #6531bd 100%);
+  
+  /* Apple Typography */
+  --font-display: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+  
+  /* Apple Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Apple Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  
+  /* Apple Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+/* Apply SF Pro Display globally */
+body, html {
+  font-family: var(--font-display) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Apple-style cards */
+.card {
+  box-shadow: var(--shadow-md) !important;
+  border-radius: var(--radius-xl) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg) !important;
+  transform: translateY(-2px);
+}
+
+/* KPI cards with Apple depth */
+.kpi {
+  box-shadow: var(--shadow-sm) !important;
+  border-radius: var(--radius-lg) !important;
+  transition: all 0.2s ease;
+}
+
+.kpi:hover {
+  box-shadow: var(--shadow-md) !important;
+  transform: scale(1.02);
+}
+
+/* Big numbers Apple-style */
+.kpi-val, .hero-kpi-val {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
+/* Smooth transitions everywhere */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Headers with better spacing */
+.s-title {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+/* Tables Apple-style */
+.dt {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Buttons/tabs Apple-style */
+.sub-tab {
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s ease !important;
+}
+
+.sub-tab:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ── Apple Design Refinements ────────────── */
+.card{
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .2s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.4,0,.2,1);
+}
+.card:hover{
+  box-shadow:var(--shadow-md);
+  transform:translateY(-2px);
+}
+.kpi{
+  background:var(--surf);
+  border:1px solid var(--border);
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-xs);
+  transition:box-shadow .18s ease,transform .18s ease;
+}
+.kpi:hover{box-shadow:var(--shadow-sm);transform:scale(1.02)}
+.kpi-val,.hero-kpi-val{
+  font-weight:700;
+  letter-spacing:-0.025em;
+  -webkit-font-smoothing:antialiased;
+}
+.s-title{
+  letter-spacing:-0.03em;
+  font-weight:700;
+  color:var(--text);
+}
+.topnav,.sidebar{
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  background:rgba(255,255,255,0.85)!important;
+}
+.section-panel{border-radius:var(--radius-lg)!important}
+.dt{border-radius:var(--radius-md);overflow:hidden}
+.dt th{background:var(--surf2)!important;font-weight:600!important}
+/* Botões/tabs */
+.sub-tab,.nav-tab{border-radius:var(--radius-sm)!important;transition:all .15s ease!important}
+.sub-tab.active,.nav-tab.active{background:var(--exa-blue)!important;color:#fff!important}
+/* Badge de status */
+.badge-ok{background:rgba(52,199,89,.12)!important;color:#1a7a35!important;border-radius:20px}
+.badge-warn{background:rgba(255,159,10,.12)!important;color:#b35a00!important;border-radius:20px}
+.badge-err{background:rgba(255,59,48,.12)!important;color:#b32200!important;border-radius:20px}
+/* Scrollbar discreta */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(0,0,0,.2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.35)}
+
 </style>
 </head>
 <body>
@@ -206,7 +394,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="s-sub">21 parceiros · 8 ofertas · 4 canais pai · 53 meses de histórico</div>
     </div>
     <div class="kpi-grid">
-      <div class="kpi seg"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">469,2M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div>
+      <div class="kpi seg"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">27,8M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div>
       <div class="kpi segu"><div class="kpi-lbl">Crescimento YoY</div><div class="kpi-val">+26,8%</div><div class="kpi-d pos">mai/25: 21,89M → mai/26: 27,76M</div></div>
       <div class="kpi am"><div class="kpi-lbl">Pico histórico</div><div class="kpi-val">29,21M</div><div class="kpi-d neu">dez/2025 · −5% desde o pico</div></div>
       <div class="kpi te"><div class="kpi-lbl">Concentração TIM</div><div class="kpi-val">98,8%</div><div class="kpi-d neg">TIM + TIM Emp + TIM Live</div></div>
@@ -2106,7 +2294,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="s-sub">3 parceiros · 3 ofertas · 4 produtos · 14 meses</div>
     </div>
     <div class="kpi-grid">
-      <div class="kpi segu"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val" id="segu-kpi-total">204K</div><div class="kpi-d pos" id="segu-kpi-mom">Atualizado em 25/mai/26</div></div>
+      <div class="kpi segu"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val" id="segu-kpi-total">44K</div><div class="kpi-d pos" id="segu-kpi-mom">Atualizado em 25/mai/26</div></div>
       <div class="kpi segu"><div class="kpi-lbl">Crescimento MoM</div><div class="kpi-val" id="segu-kpi-mom-pct">—</div><div class="kpi-d pos" id="segu-kpi-mom-abs">—</div></div>
       <div class="kpi am"><div class="kpi-lbl">Crescimento total</div><div class="kpi-val">5.036×</div><div class="kpi-d neu">abr/25: 10 → mai/26: 50.365</div></div>
       <div class="kpi te"><div class="kpi-lbl">Produto principal</div><div class="kpi-val">96,4%</div><div class="kpi-d neu">Seguro Celular</div></div>
@@ -2952,7 +3140,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
       <div class="s-sub">16 parceiros · 6 ofertas · 6 canais pai · 49 meses</div>
     </div>
     <div class="kpi-grid">
-      <div class="kpi cont"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val" id="cont-kpi-total">2,42B</div><div class="kpi-d pos" id="cont-kpi-mom">Atualizado em 25/mai/26</div></div>
+      <div class="kpi cont"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val" id="cont-kpi-total">147,7M</div><div class="kpi-d pos" id="cont-kpi-mom">Atualizado em 25/mai/26</div></div>
       <div class="kpi cont"><div class="kpi-lbl">Crescimento MoM</div><div class="kpi-val" id="cont-kpi-mom-pct">—</div><div class="kpi-d pos" id="cont-kpi-mom-abs">—</div></div>
       <div class="kpi am"><div class="kpi-lbl">Crescimento YoY</div><div class="kpi-val" id="cont-kpi-yoy">—</div><div class="kpi-d neu" id="cont-kpi-yoy-sub">—</div></div>
       <div class="kpi te"><div class="kpi-lbl">Maior canal</div><div class="kpi-val">AYA Books</div><div class="kpi-d neu">86,7M · 59% da base</div></div>
@@ -4482,7 +4670,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 <div class="vert-panel" id="panel-mp">
 <div class="submenu" id="mp-submenu"><button class="sub-tab active mp" onclick="swSub(this,'mp-sub-ativa','mp')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'mp-sub-trans','mp')">Transacional</button></div>
 <div class="sub-panel active" id="mp-sub-ativa">
-<div class="hero mp" id="mp-overview"><div style="margin-bottom:18px"><div class="s-tag mp">// mulheres positivas · maio 2026</div><div class="s-title">Base Ativa — Mulheres Positivas</div><div class="s-sub">3 parceiros · 1 oferta · 42 meses de histórico</div></div><div class="kpi-grid"><div class="kpi mp"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">49,6M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div><div class="kpi mp"><div class="kpi-lbl">Crescimento</div><div class="kpi-val">+1965%</div><div class="kpi-d pos">desde jan/25</div></div><div class="kpi am"><div class="kpi-lbl">Parceiro principal</div><div class="kpi-val">TIM</div><div class="kpi-d neu">99,9% da base</div></div><div class="kpi te"><div class="kpi-lbl">Único produto</div><div class="kpi-val">Bundle</div><div class="kpi-d neu">Mulheres Positivas</div></div></div></div></div>
+<div class="hero mp" id="mp-overview"><div style="margin-bottom:18px"><div class="s-tag mp">// mulheres positivas · maio 2026</div><div class="s-title">Base Ativa — Mulheres Positivas</div><div class="s-sub">3 parceiros · 1 oferta · 42 meses de histórico</div></div><div class="kpi-grid"><div class="kpi mp"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">2,4M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div><div class="kpi mp"><div class="kpi-lbl">Crescimento</div><div class="kpi-val">+1965%</div><div class="kpi-d pos">desde jan/25</div></div><div class="kpi am"><div class="kpi-lbl">Parceiro principal</div><div class="kpi-val">TIM</div><div class="kpi-d neu">99,9% da base</div></div><div class="kpi te"><div class="kpi-lbl">Único produto</div><div class="kpi-val">Bundle</div><div class="kpi-d neu">Mulheres Positivas</div></div></div></div></div>
 <div class="section" id="mp-parceiro"><div class="s-tag mp">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">Base mai/26 · variação MoM</div><div style="margin-top:18px" class="cg"><div class="card"><div class="ct">Volume por parceiro · mai/26</div><div class="cs">Delta MoM</div><div id="mp-parc-bars"></div></div><div class="card"><div class="ct">Evolução mensal por parceiro</div><div class="cs">dez/22 a mai/26</div><div class="leg" id="mp-parc-leg"></div><div class="cw" style="height:230px"><canvas id="mp-parcLine"></canvas></div></div></div></div>
 <div class="section" id="mp-evolucao"><div class="s-tag mp">// evolução histórica</div><div class="s-title">Crescimento da Base — dez/2022 a mai/2026</div><div class="s-sub">42 meses de histórico</div><div style="margin-top:18px"><div class="card full"><div class="ct">Base ativa total · evolução mensal</div><div class="cs">Aceleração em jan/25 com entrada TIM em escala</div><div class="cw" style="height:280px"><canvas id="mp-totalLine"></canvas></div></div></div></div>
 <div class="section" id="mp-sinais"><div class="s-tag mp">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção e Oportunidades</div><div style="margin-top:16px"><div class="al al-gr"><strong>🟢 2,4M de assinaturas ativas — crescimento de +40,3% YoY</strong><br>De 1,7M (mai/25) para 2,4M (mai/26). Pico histórico em ago/25 (2,29M) após entrada TIM em escala em jan/25.</div><div class="al al-am"><strong>🟡 Leve queda MoM (−4.500 / −0,2%)</strong><br>mai/26 abaixo de abr/26 (2,394M). Padrão de pequenas oscilações mensais desde out/25 — ainda dentro de margem normal.</div><div class="al al-am"><strong>🟡 Concentração extrema em TIM (99,9%)</strong><br>EXA (282) e Virtual Telecom (15) representam 0,1% da base. Diversificação de canais é oportunidade crítica.</div><div class="al al-rd"><strong>🔴 Queda abrupta em jan/26 (−327k vs dez/25)</strong><br>Mesma sazonalidade observada em Segurança. Padrão de cancelamento em lote TIM no início do ano.</div></div></div>
@@ -5247,8 +5435,8 @@ function deltaTag(val, ref, decimals) {
 // ══════════════════════════════════════════════════════
 function initSeg() {
   const D = SEG;
-  const C = { hd:'#4f8ef7', es:'#0fd48a', cl:'#f6a734', sc:'#9b6ef3', nt:'#5e7a99' };
-  const MANY = ['#4f8ef7','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#7cb9f5','#fca5a5'];
+  const C = { hd:'#112ff8', es:'#0fd48a', cl:'#f6a734', sc:'#6531bd', nt:'#5e7a99' };
+  const MANY = ['#112ff8','#0fd48a','#f6a734','#6531bd','#19c9b0','#f472b6','#7cb9f5','#fca5a5'];
 
   // PAI UNIFICADO
   const unif = [
@@ -5306,19 +5494,19 @@ function initSeg() {
 
   // TOTAL
   mkLine('seg-totalLine', D.labels, [{
-    label:'Base total', data:D.total, borderColor:'#4f8ef7',
-    backgroundColor:'rgba(79,142,247,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
+    label:'Base total', data:D.total, borderColor:'#112ff8',
+    backgroundColor:'rgba(17,47,248,0.07)', fill:true, tension:0.3, pointRadius:0, borderWidth:2
   }]);
 
   // NON-TIM
   mkBar('seg-nonTimBar', D.labels.slice(-12), D.nontim.slice(-12),
-    D.nontim.slice(-12).map(function(){ return 'rgba(79,142,247,0.75)'; }));
+    D.nontim.slice(-12).map(function(){ return 'rgba(17,47,248,0.75)'; }));
 
   // ESCUDO
   const escStart = D.escudo.findIndex(function(v){ return v > 0; });
   mkLine('seg-escudoLine', D.labels.slice(escStart), [{
-    label:'Escudo', data:D.escudo.slice(escStart), borderColor:'#9b6ef3',
-    backgroundColor:'rgba(155,110,243,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2.5
+    label:'Escudo', data:D.escudo.slice(escStart), borderColor:'#6531bd',
+    backgroundColor:'rgba(101,49,189,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2.5
   }]);
 }
 
@@ -5336,14 +5524,14 @@ function initSegu() {
   document.getElementById('segu-kpi-mom-abs').textContent = 'abr: '+fmtN(ta)+' → mai: '+fmtN(tm);
   document.getElementById('segu-pai-val').textContent = 'Seguros · '+fmtN(tm)+' assinaturas';
 
-  const PC = ['#4f8ef7','#0fd48a','#f6a734','#f05252'];
+  const PC = ['#112ff8','#0fd48a','#f6a734','#f05252'];
   const prS = Object.entries(D.prod_mai).sort(function(a,b){ return b[1]-a[1]; });
   buildBars('segu-prod-bars', prS.map(function(kv,i) {
     return [kv[0], kv[1], PC[i]||'#5e7a99', deltaTag(kv[1], D.prod_abr[kv[0]])];
   }), prS[0][1]);
   mkDonut('segu-prodDonut', prS.map(function(a){ return a[0]; }), prS.map(function(a){ return a[1]; }), prS.map(function(_,i){ return PC[i]||'#5e7a99'; }));
 
-  const OC = {'EXA Seguros':'#4f8ef7','EXA Escudo':'#9b6ef3','EXA Escudo EVA':'#19c9b0'};
+  const OC = {'EXA Seguros':'#112ff8','EXA Escudo':'#6531bd','EXA Escudo EVA':'#19c9b0'};
   const ofS = Object.entries(D.oferta_mai).sort(function(a,b){ return b[1]-a[1]; });
   buildBars('segu-oferta-bars', ofS.map(function(kv) {
     return [kv[0], kv[1], OC[kv[0]]||'#5e7a99', deltaTag(kv[1], D.oferta_abr[kv[0]])];
@@ -5355,7 +5543,7 @@ function initSegu() {
       borderDash: kv[0]==='EXA Escudo'?[4,2]:kv[0]==='EXA Escudo EVA'?[2,2]:[] };
   }));
 
-  const PAC = { TIM:'#4f8ef7', EXA:'#0fd48a', ALGAR:'#f6a734' };
+  const PAC = { TIM:'#112ff8', EXA:'#0fd48a', ALGAR:'#f6a734' };
   const paS = Object.entries(D.parc_mai).sort(function(a,b){ return b[1]-a[1]; });
   buildBars('segu-parc-bars', paS.map(function(kv) {
     return [kv[0], kv[1], PAC[kv[0]]||'#5e7a99', deltaTag(kv[1], D.parc_abr[kv[0]])];
@@ -5380,8 +5568,8 @@ function initSegu() {
   if (escStart >= 0) {
     const escData = escOfs.slice(escStart).map(function(v,i){ return v + (escEva[escStart+i]||0); });
     mkLine('segu-escudoLine', D.labels.slice(escStart), [{
-      label:'Escudo+EVA', data:escData, borderColor:'#9b6ef3',
-      backgroundColor:'rgba(155,110,243,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2.5
+      label:'Escudo+EVA', data:escData, borderColor:'#6531bd',
+      backgroundColor:'rgba(101,49,189,0.1)', fill:true, tension:0.4, pointRadius:4, borderWidth:2.5
     }]);
   }
 }
@@ -5405,8 +5593,8 @@ function initCont() {
   document.getElementById('cont-kpi-yoy-sub').textContent = 'mai/25: '+fmt(ty)+' → mai/26: '+fmt(tm);
 
   const CC = {
-    'AYA Books':'#4f8ef7','AYA Bancah':'#0fd48a','AYA Ensinah':'#f6a734',
-    'AYA Idiomas':'#9b6ef3','AYA Equilibrah':'#19c9b0','AYA Play':'#f472b6'
+    'AYA Books':'#112ff8','AYA Bancah':'#0fd48a','AYA Ensinah':'#f6a734',
+    'AYA Idiomas':'#6531bd','AYA Equilibrah':'#19c9b0','AYA Play':'#f472b6'
   };
   const cOrder = ['AYA Books','AYA Bancah','AYA Ensinah','AYA Idiomas','AYA Equilibrah','AYA Play'];
 
@@ -5450,7 +5638,7 @@ function initCont() {
   mkCanalChart('cont-canal12Chart', 12);
 
   // OFERTA
-  const OC2 = {'Aya Books':'#4f8ef7','AYA Bancah':'#0fd48a','Aya Ensinah':'#f6a734','Aya Idiomas':'#9b6ef3','Aya Equilibrah':'#19c9b0','AYA Play':'#f472b6'};
+  const OC2 = {'Aya Books':'#112ff8','AYA Bancah':'#0fd48a','Aya Ensinah':'#f6a734','Aya Idiomas':'#6531bd','Aya Equilibrah':'#19c9b0','AYA Play':'#f472b6'};
   const ofS = Object.entries(D.oferta_mai).sort(function(a,b){ return b[1]-a[1]; });
   buildBars('cont-oferta-bars', ofS.map(function(kv) {
     return [kv[0], kv[1], OC2[kv[0]]||'#5e7a99', deltaTag(kv[1], D.oferta_abr[kv[0]])];
@@ -5462,7 +5650,7 @@ function initCont() {
   }));
 
   // PARCEIRO
-  const pC = ['#4f8ef7','#7cb9f5','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#fca5a5','#fde68a','#c4b5fd','#a5f3fc','#f9a8d4','#86efac','#fdba74','#a5b4fc','#67e8f9'];
+  const pC = ['#112ff8','#7cb9f5','#0fd48a','#f6a734','#6531bd','#19c9b0','#f472b6','#fca5a5','#fde68a','#c4b5fd','#a5f3fc','#f9a8d4','#86efac','#fdba74','#a5b4fc','#67e8f9'];
   const paS = Object.entries(D.parc_mai).sort(function(a,b){ return b[1]-a[1]; });
   buildBars('cont-parc-bars', paS.map(function(kv,i) {
     return [kv[0], kv[1], pC[i]||'#5e7a99', deltaTag(kv[1], D.parc_abr[kv[0]])];
@@ -5515,7 +5703,7 @@ function initCont() {
 // Paleta de status
 var STATUS_COLORS = {
   CREATE:  '#0fd48a',
-  RENEW:   '#4f8ef7',
+  RENEW:   '#112ff8',
   CANCEL:  '#f05252',
   SUSPEND: '#f6a734'
 };
@@ -5588,8 +5776,8 @@ function renderTransacional(prefix, D, accentColor) {
   var n = L.length;
   var L12 = L.slice(-12);
   var SC = STATUS_COLORS;
-  var OCOLORS = ['#4f8ef7','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#fca5a5'];
-  var PCOLORS = ['#4f8ef7','#0fd48a','#f6a734','#9b6ef3','#19c9b0','#f472b6','#7cb9f5','#fca5a5','#fde68a','#c4b5fd','#a5f3fc','#86efac'];
+  var OCOLORS = ['#112ff8','#0fd48a','#f6a734','#6531bd','#19c9b0','#f472b6','#fca5a5'];
+  var PCOLORS = ['#112ff8','#0fd48a','#f6a734','#6531bd','#19c9b0','#f472b6','#7cb9f5','#fca5a5','#fde68a','#c4b5fd','#a5f3fc','#86efac'];
   var p = prefix;
 
   function setEl(id, txt, cls) {
@@ -5652,7 +5840,7 @@ function renderTransacional(prefix, D, accentColor) {
   }
   mkSingleStatus(p+'-t-only-create',  D.create,  '#0fd48a', 'CREATE');
   mkSingleStatus(p+'-t-only-cancel',  D.cancel,  '#f05252', 'CANCEL');
-  mkSingleStatus(p+'-t-only-renew',   D.renew,   '#4f8ef7', 'RENEW');
+  mkSingleStatus(p+'-t-only-renew',   D.renew,   '#112ff8', 'RENEW');
   mkSingleStatus(p+'-t-only-suspend', D.suspend, '#f6a734', 'SUSPEND');
 
   // ── Churn line ───────────────────────────────────────────────────────
@@ -5679,7 +5867,7 @@ function renderTransacional(prefix, D, accentColor) {
     // Daily share stacked bar
     tMkBar(p+'-t-daily-share', daily.dates.map(function(d){ return d.slice(5); }), [
       { label:'CREATE',  data: daily.CREATE.map(function(v,i){ var t=daily.CREATE[i]+daily.CANCEL[i]+daily.RENEW[i]+daily.SUSPEND[i]; return t?Math.round(v/t*100):0; }), backgroundColor:'rgba(15,212,138,0.8)', borderRadius:0 },
-      { label:'RENEW',   data: daily.RENEW.map(function(v,i){  var t=daily.CREATE[i]+daily.CANCEL[i]+daily.RENEW[i]+daily.SUSPEND[i]; return t?Math.round(v/t*100):0; }), backgroundColor:'rgba(79,142,247,0.8)',  borderRadius:0 },
+      { label:'RENEW',   data: daily.RENEW.map(function(v,i){  var t=daily.CREATE[i]+daily.CANCEL[i]+daily.RENEW[i]+daily.SUSPEND[i]; return t?Math.round(v/t*100):0; }), backgroundColor:'rgba(17,47,248,0.8)',  borderRadius:0 },
       { label:'CANCEL',  data: daily.CANCEL.map(function(v,i){ var t=daily.CREATE[i]+daily.CANCEL[i]+daily.RENEW[i]+daily.SUSPEND[i]; return t?Math.round(v/t*100):0; }), backgroundColor:'rgba(240,82,82,0.8)',  borderRadius:0 },
       { label:'SUSPEND', data: daily.SUSPEND.map(function(v,i){var t=daily.CREATE[i]+daily.CANCEL[i]+daily.RENEW[i]+daily.SUSPEND[i]; return t?Math.round(v/t*100):0; }), backgroundColor:'rgba(246,167,52,0.8)', borderRadius:0 },
     ], true);
@@ -5753,12 +5941,12 @@ function renderTransacional(prefix, D, accentColor) {
   var yoyAll = yoy.ALL || {labels:[], current:[], previous:[]};
   if (yoyAll.labels.length > 0) {
     tMkLine(p+'-t-yoy-all', yoyAll.labels, [
-      { label:'Atual', data: yoyAll.current, borderColor: accentColor||'#4f8ef7',
+      { label:'Atual', data: yoyAll.current, borderColor: accentColor||'#112ff8',
         backgroundColor:'transparent', tension:0.3, pointRadius:3, borderWidth:2.5 },
       { label:'Ano anterior', data: yoyAll.previous, borderColor:'rgba(255,255,255,0.3)',
         backgroundColor:'transparent', tension:0.3, pointRadius:2, borderWidth:1.5, borderDash:[5,4] },
     ]);
-    addLeg(p+'-t-yoy-leg', [['Atual ('+D.last_mes.slice(0,4)+')', accentColor||'#4f8ef7'],['Ano anterior', 'rgba(255,255,255,0.3)']]);
+    addLeg(p+'-t-yoy-leg', [['Atual ('+D.last_mes.slice(0,4)+')', accentColor||'#112ff8'],['Ano anterior', 'rgba(255,255,255,0.3)']]);
   }
 
   // YoY tabela resumo
@@ -5781,7 +5969,7 @@ function renderTransacional(prefix, D, accentColor) {
   var yoyMap = {
     'CREATE': {id: p+'-t-yoy-create', legId: p+'-t-yoy-cr-leg', color: '#0fd48a'},
     'CANCEL': {id: p+'-t-yoy-cancel', legId: p+'-t-yoy-ca-leg', color: '#f05252'},
-    'RENEW':  {id: p+'-t-yoy-renew',  legId: p+'-t-yoy-re-leg', color: '#4f8ef7'},
+    'RENEW':  {id: p+'-t-yoy-renew',  legId: p+'-t-yoy-re-leg', color: '#112ff8'},
     'SUSPEND':{id: p+'-t-yoy-suspend',legId: p+'-t-yoy-su-leg', color: '#f6a734'},
   };
   Object.keys(yoyMap).forEach(function(st) {
@@ -5984,7 +6172,7 @@ mkBar = function(id, labels, data, colors) {
 
 function initMp() {
   var D = MP_BA;
-  var PAC = {TIM:'#4f8ef7', EXA:'#0fd48a', 'VIRTUAL TELECOM':'#f6a734'};
+  var PAC = {TIM:'#112ff8', EXA:'#0fd48a', 'VIRTUAL TELECOM':'#f6a734'};
   var paSorted = Object.entries(D.parc_mai).sort(function(a,b){return b[1]-a[1];});
   buildBars('mp-parc-bars', paSorted.map(function(kv) {
     var a = D.parc_abr[kv[0]]||0, dv = kv[1]-a;
