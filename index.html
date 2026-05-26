@@ -40,9 +40,9 @@
 
   /* ── Vertical accent colors ──────────── */
   --seg-c:#112ff8;--seg-bg:rgba(17,47,248,0.08);
-  --segu-c:#34C759;--segu-bg:rgba(52,199,89,0.08);
-  --cont-c:#FF9F0A;--cont-bg:rgba(255,159,10,0.08);
-  --mp-c:#FF375F;--mp-bg:rgba(255,55,95,0.08);
+  --segu-c:#1a9e3f;--segu-bg:rgba(26,158,63,0.08);
+  --cont-c:#b36200;--cont-bg:rgba(179,98,0,0.08);
+  --mp-c:#c0003e;--mp-bg:rgba(192,0,62,0.08);
 
   /* ── Apple shadows ───────────────────── */
   --shadow-xs:0 1px 2px rgba(0,0,0,0.04);
@@ -85,11 +85,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .submenu{
   display:flex;align-items:center;gap:0;
   border-bottom:1px solid var(--border);
-  background:rgba(15,24,34,0.97);
+  background:rgba(255,255,255,0.97);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   padding:0 20px;
   position:sticky;top:0;z-index:50;
-  box-shadow:0 1px 0 var(--border),0 4px 16px rgba(0,0,0,.4);
+  box-shadow:0 1px 0 var(--border),0 2px 8px rgba(0,0,0,.08);
   min-height:48px;
 }
 .submenu-inner{display:flex;align-items:center;gap:4px;padding:6px 0}
@@ -205,11 +205,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 
 /* ALERTS */
 .al{border-radius:14px;padding:12px 14px;margin-bottom:10px;font-size:12px;line-height:1.7}
-.al-gr{background:rgba(15,212,138,.07);border-left:3px solid var(--green);color:#a7f3d0}
-.al-am{background:rgba(246,167,52,.07);border-left:3px solid var(--amber);color:#fde68a}
-.al-rd{background:rgba(240,82,82,.07);border-left:3px solid var(--red);color:#fecaca}
-.al-bl{background:rgba(17,47,248,.07);border-left:3px solid var(--blue);color:#bfdbfe}
-.al strong{font-weight:600;color:var(--text)}
+.al-gr{background:rgba(22,101,52,.07);border-left:3px solid #16a34a;color:#166534}
+.al-am{background:rgba(146,64,14,.07);border-left:3px solid #d97706;color:#92400e}
+.al-rd{background:rgba(153,27,27,.07);border-left:3px solid #dc2626;color:#991b1b}
+.al-bl{background:rgba(30,64,175,.07);border-left:3px solid #2563eb;color:#1e40af}
+.al strong{font-weight:700;color:inherit}
 
 /* MISC */
 .leg{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
@@ -233,17 +233,17 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .pn{font-size:10px;color:var(--muted);text-align:center;padding:14px}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 
-.info-box{background:rgba(17,47,248,.07);border:1px solid rgba(17,47,248,.25);border-radius:10px;padding:14px 16px;margin-bottom:14px}
-.info-box-title{font-size:12px;font-weight:600;color:#4f8ef7;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
-.info-box-title.segu{color:var(--segu-c)}.info-box-title.cont{color:var(--cont-c)}.info-box-title.mp{color:var(--mp-c)}
-.info-box-body{font-size:12px;color:#9eb4c8;line-height:1.7}
-.info-box-body strong{color:#c5d4e8}
+.info-box{background:rgba(30,64,175,.06);border:1px solid rgba(30,64,175,.2);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.info-box-title{font-size:12px;font-weight:600;color:#1e40af;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.info-box-title.segu{color:#166534}.info-box-title.cont{color:#92400e}.info-box-title.mp{color:#9b1239}
+.info-box-body{font-size:12px;color:#374151;line-height:1.7}
+.info-box-body strong{color:#111827}
 .dt-mini{width:100%;border-collapse:collapse;font-size:11px;font-family:var(--mono)}
 .dt-mini th{padding:5px 8px;text-align:right;font-weight:600;color:var(--muted);border-bottom:1px solid var(--border);font-size:10px;letter-spacing:.05em;text-transform:uppercase}
 .dt-mini th:first-child{text-align:left}
-.dt-mini td{padding:4px 8px;text-align:right;border-bottom:1px solid rgba(255,255,255,.03);color:#b0c4d8}
+.dt-mini td{padding:4px 8px;text-align:right;border-bottom:1px solid rgba(0,0,0,.06);color:#374151}
 .dt-mini td:first-child{text-align:left;color:var(--text)}
-.dt-mini tr:hover td{background:rgba(255,255,255,.03)}
+.dt-mini tr:hover td{background:rgba(0,0,0,.03)}
 .dt-mini .pos{color:var(--green)}.dt-mini .neg{color:var(--red)}.dt-mini .neu{color:var(--muted)}
 
 /* ========== APPLE DESIGN TOKENS ========== */
@@ -508,8 +508,8 @@ body, html {
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
-    ▸ <span style="color:#4f8ef7">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
-    ▸ <span style="color:#f6a734">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
+    ▸ <span style="color:#1e40af">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
+    ▸ <span style="color:#b36200">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
     <strong>Exemplo (mai/26):</strong> se CREATE = 2M e CANCEL = 2,1M → NET = −100k. O RENEW (945k) e SUSPEND (1,3M) não entram pois não alteram o estoque de assinaturas ativas.
   </div>
 </div>
@@ -2398,8 +2398,8 @@ body, html {
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
-    ▸ <span style="color:#4f8ef7">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
-    ▸ <span style="color:#f6a734">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
+    ▸ <span style="color:#1e40af">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
+    ▸ <span style="color:#b36200">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
     <strong>Exemplo (mai/26):</strong> se CREATE = 2M e CANCEL = 2,1M → NET = −100k. O RENEW (945k) e SUSPEND (1,3M) não entram pois não alteram o estoque de assinaturas ativas.
   </div>
 </div>
@@ -3261,8 +3261,8 @@ body, html {
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
-    ▸ <span style="color:#4f8ef7">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
-    ▸ <span style="color:#f6a734">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
+    ▸ <span style="color:#1e40af">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
+    ▸ <span style="color:#b36200">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
     <strong>Exemplo (mai/26):</strong> se CREATE = 2M e CANCEL = 2,1M → NET = −100k. O RENEW (945k) e SUSPEND (1,3M) não entram pois não alteram o estoque de assinaturas ativas.
   </div>
 </div>
@@ -4717,8 +4717,8 @@ body, html {
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
-    ▸ <span style="color:#4f8ef7">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
-    ▸ <span style="color:#f6a734">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
+    ▸ <span style="color:#1e40af">RENEW</span> é renovação de assinatura já existente — não gera assinatura nova.<br>
+    ▸ <span style="color:#b36200">SUSPEND</span> é suspensão temporária — a assinatura ainda existe (não foi cancelada).<br>
     <strong>Exemplo (mai/26):</strong> se CREATE = 2M e CANCEL = 2,1M → NET = −100k. O RENEW (945k) e SUSPEND (1,3M) não entram pois não alteram o estoque de assinaturas ativas.
   </div>
 </div>
@@ -5443,7 +5443,7 @@ function addLeg(id, items) {
 }
 
 function deltaTag(val, ref, decimals) {
-  if (!ref) return '<span style="color:#0fd48a;font-size:10px"> novo</span>';
+  if (!ref) return '<span style="color:#166534;font-size:10px"> novo</span>';
   const d = val - ref, p = ((d/ref)*100).toFixed(decimals||1);
   const col = d > 0 ? '#0fd48a' : d < 0 ? '#f05252' : '#5e7a99';
   const arrow = d > 0 ? '▲' : d < 0 ? '▼' : '→';
@@ -5692,10 +5692,10 @@ function initCont() {
   let nH = '<thead><tr><th>Parceiro</th><th>1ª aparição</th><th>Base mai/26</th><th>Status</th></tr></thead><tbody>';
   Object.entries(D.parc_first).forEach(function(kv) {
     const p=kv[0], dt=kv[1], v=D.parc_mai[p]||0;
-    const badge = dt>='2026-01'?'<span style="color:#f6a734;font-size:10px">estreou 2026</span>'
-                : dt>='2025-01'?'<span style="color:#0fd48a;font-size:10px">estreou 2025</span>'
-                : dt>='2024-01'?'<span style="color:#4f8ef7;font-size:10px">estreou 2024</span>'
-                : '<span style="color:#5e7a99;font-size:10px">fundador</span>';
+    const badge = dt>='2026-01'?'<span style="color:#b36200;font-size:10px">estreou 2026</span>'
+                : dt>='2025-01'?'<span style="color:#166534;font-size:10px">estreou 2025</span>'
+                : dt>='2024-01'?'<span style="color:#1e40af;font-size:10px">estreou 2024</span>'
+                : '<span style="color:#374151;font-size:10px">fundador</span>';
     nH += '<tr><td><strong>'+p+'</strong></td><td>'+dt+'</td><td>'+fmtN(v)+'</td><td>'+badge+'</td></tr>';
   });
   document.getElementById('cont-new-parc-table').innerHTML = nH + '</tbody>';
@@ -5831,7 +5831,7 @@ function renderTransacional(prefix, D, accentColor) {
   var ntEl = document.getElementById(p+'-t-net-table');
   if (ntEl) {
     var cr12 = D.create.slice(-12), ca12 = D.cancel.slice(-12);
-    var nt = '<table class="dt-mini"><thead><tr><th>Mês</th><th style="color:#0fd48a">CREATE</th><th style="color:#f05252">CANCEL</th><th>NET</th><th>Δ%</th></tr></thead><tbody>';
+    var nt = '<table class="dt-mini"><thead><tr><th>Mês</th><th style="color:#166534">CREATE</th><th style="color:#991b1b">CANCEL</th><th>NET</th><th>Δ%</th></tr></thead><tbody>';
     for (var i=0;i<L12.length;i++) {
       var cr_v=cr12[i], ca_v=ca12[i], nv=cr_v-ca_v;
       var pct = ca_v>0 ? ((nv/ca_v)*100).toFixed(1) : '—';
@@ -5875,7 +5875,7 @@ function renderTransacional(prefix, D, accentColor) {
   if (daily && daily.dates && daily.dates.length > 0) {
     var dtEl = document.getElementById(p+'-t-daily-table');
     if (dtEl) {
-      var dt = '<table class="dt-mini"><thead><tr><th>Data</th><th style="color:#0fd48a">CREATE</th><th style="color:#f05252">CANCEL</th><th style="color:#4f8ef7">RENEW</th><th style="color:#f6a734">SUSPEND</th><th>Total</th></tr></thead><tbody>';
+      var dt = '<table class="dt-mini"><thead><tr><th>Data</th><th style="color:#166534">CREATE</th><th style="color:#991b1b">CANCEL</th><th style="color:#1e40af">RENEW</th><th style="color:#b36200">SUSPEND</th><th>Total</th></tr></thead><tbody>';
       for (var i=0;i<daily.dates.length;i++) {
         var cr=daily.CREATE[i]||0, ca=daily.CANCEL[i]||0, re=daily.RENEW[i]||0, su=daily.SUSPEND[i]||0;
         var tot=cr+ca+re+su;
