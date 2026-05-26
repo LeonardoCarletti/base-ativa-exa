@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EXA Analytics — Base Ativa &amp; Transacional · mai/2026</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>EXA Analytics · Dashboard Executivo · mai/2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -35,8 +34,8 @@
   --exa-gradient:linear-gradient(135deg,#112ff8 0%,#6531bd 100%);
 
   /* ── Typography ──────────────────────── */
-  --sans:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',system-ui,sans-serif;
-  --mono:'SF Mono','Monaco','Consolas',monospace;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono','Monaco','Consolas',monospace;
 
   /* ── Vertical accent colors ──────────── */
   --seg-c:#112ff8;--seg-bg:rgba(17,47,248,0.08);
@@ -245,171 +244,184 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14
 .dt-mini td:first-child{text-align:left;color:var(--text)}
 .dt-mini tr:hover td{background:rgba(0,0,0,.03)}
 .dt-mini .pos{color:var(--green)}.dt-mini .neg{color:var(--red)}.dt-mini .neu{color:var(--muted)}
-
-/* ========== APPLE DESIGN TOKENS ========== */
-:root {
-  /* Cores EXA */
-  --exa-blue: #112ff8;
-  --exa-purple: #6531bd;
-  --exa-gradient: linear-gradient(135deg, #112ff8 0%, #6531bd 100%);
-  
-  /* Apple Typography */
-  --font-display: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
-  
-  /* Apple Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  
-  /* Apple Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  
-  /* Apple Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-}
-
-/* Apply SF Pro Display globally */
-body, html {
-  font-family: var(--font-display) !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* Apple-style cards */
-.card {
-  box-shadow: var(--shadow-md) !important;
-  border-radius: var(--radius-xl) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-lg) !important;
-  transform: translateY(-2px);
-}
-
-/* KPI cards with Apple depth */
-.kpi {
-  box-shadow: var(--shadow-sm) !important;
-  border-radius: var(--radius-lg) !important;
-  transition: all 0.2s ease;
-}
-
-.kpi:hover {
-  box-shadow: var(--shadow-md) !important;
-  transform: scale(1.02);
-}
-
-/* Big numbers Apple-style */
-.kpi-val, .hero-kpi-val {
-  font-weight: 700 !important;
-  letter-spacing: -0.02em;
-}
-
-/* Smooth transitions everywhere */
-* {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Headers with better spacing */
-.s-title {
-  letter-spacing: -0.03em;
-  font-weight: 700;
-}
-
-/* Tables Apple-style */
-.dt {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-/* Buttons/tabs Apple-style */
-.sub-tab {
-  border-radius: var(--radius-md) !important;
-  transition: all 0.2s ease !important;
-}
-
-.sub-tab:hover {
-  transform: translateY(-1px);
-}
-
-
-/* ── Apple Design Refinements ────────────── */
+/* ── Design Refinements ─────────────────────────────────── */
+/* Transições pontuais — sem * { transition } global         */
 .card{
-  background:var(--surf);
-  border:1px solid var(--border);
-  border-radius:var(--radius-lg);
-  box-shadow:var(--shadow-sm);
-  transition:box-shadow .2s cubic-bezier(.4,0,.2,1),transform .2s cubic-bezier(.4,0,.2,1);
+  background:var(--surf);border:1px solid var(--border);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);
+  transition:box-shadow .18s ease;
 }
-.card:hover{
-  box-shadow:var(--shadow-md);
-  transform:translateY(-2px);
-}
+.card:hover{box-shadow:var(--shadow-md)}
 .kpi{
-  background:var(--surf);
-  border:1px solid var(--border);
-  border-radius:var(--radius-md);
-  box-shadow:var(--shadow-xs);
-  transition:box-shadow .18s ease,transform .18s ease;
+  background:var(--surf);border:1px solid var(--border);
+  border-radius:var(--radius-md);box-shadow:var(--shadow-xs);
+  transition:box-shadow .15s ease,background-color .15s ease;
 }
-.kpi:hover{box-shadow:var(--shadow-sm);transform:scale(1.02)}
-.kpi-val,.hero-kpi-val{
-  font-weight:700;
-  letter-spacing:-0.025em;
-  -webkit-font-smoothing:antialiased;
+.kpi:hover{box-shadow:var(--shadow-sm);background:var(--surf2)}
+.t-kpi{transition:box-shadow .15s ease}
+.t-kpi:hover{box-shadow:var(--shadow-sm)}
+.kpi-val,.hero-kpi-val,.t-kpi-val{
+  font-weight:700;letter-spacing:-0.025em;-webkit-font-smoothing:antialiased;
 }
-.s-title{
-  letter-spacing:-0.03em;
-  font-weight:700;
-  color:var(--text);
-}
+.s-title{letter-spacing:-0.03em;font-weight:700;color:var(--text)}
 .topnav,.sidebar{
   backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
-  background:rgba(255,255,255,0.85)!important;
+  background:rgba(255,255,255,.9);
 }
-.section-panel{border-radius:var(--radius-lg)!important}
 .dt{border-radius:var(--radius-md);overflow:hidden}
-.dt th{background:var(--surf2)!important;font-weight:600!important}
-/* Botões/tabs */
-.sub-tab,.nav-tab{border-radius:var(--radius-sm)!important;transition:all .15s ease!important}
-.sub-tab.active,.nav-tab.active{background:var(--exa-blue)!important;color:#fff!important}
-/* Badge de status */
-.badge-ok{background:rgba(52,199,89,.12)!important;color:#1a7a35!important;border-radius:20px}
-.badge-warn{background:rgba(255,159,10,.12)!important;color:#b35a00!important;border-radius:20px}
-.badge-err{background:rgba(255,59,48,.12)!important;color:#b32200!important;border-radius:20px}
+.dt th{background:var(--surf2);font-weight:600}
+/* Track das barras corrigido para fundo claro */
+.bt{background:rgba(0,0,0,.07)}
+/* Tabs e botoes */
+.sub-tab,.nav-tab{
+  border-radius:var(--radius-sm);
+  transition:background-color .15s ease,color .15s ease;
+}
+.sub-tab:hover{background:rgba(0,0,0,.04);color:var(--text)}
+/* Vertical Overview */
+.vert-tab.ov.active{background:rgba(94,122,153,.1);color:#5e7a99;border-color:rgba(94,122,153,.3)}
+.nav-item.active.ov{background:rgba(94,122,153,.12);color:#5e7a99}
+/* Badges de severidade */
+.badge-ok{background:rgba(52,199,89,.12);color:#1a7a35;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:600;display:inline-block}
+.badge-warn{background:rgba(255,159,10,.12);color:#b35a00;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:600;display:inline-block}
+.badge-err{background:rgba(255,59,48,.12);color:#b32200;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:600;display:inline-block}
 /* Scrollbar discreta */
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(0,0,0,.2);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.35)}
+/* Respeita prefers-reduced-motion */
+@media(prefers-reduced-motion:reduce){
+  .card,.kpi,.t-kpi,.sub-tab,.nav-item,.vert-tab,.tab{
+    transition:none!important;animation:none!important;
+  }
+}
 
 </style>
 </head>
 <body>
-<nav class="topnav"><div class="brand">EXA <span>Analytics</span></div><div class="vert-tabs"><button class="vert-tab seg active" onclick="switchVert('seg',this)"><span class="vtdot"></span>Segurança</button><button class="vert-tab segu" onclick="switchVert('segu',this)"><span class="vtdot"></span>Seguros</button><button class="vert-tab cont" onclick="switchVert('cont',this)"><span class="vtdot"></span>Conteúdo</button><button class="vert-tab mp" onclick="switchVert('mp',this)"><span class="vtdot"></span>Mulheres Positivas</button></div><div class="nav-right">Base Ativa &amp; Transacional · mai/2026</div></nav>
+<nav class="topnav"><div class="brand">EXA <span>Analytics</span></div><div class="vert-tabs"><button class="vert-tab ov active" onclick="switchVert('ov',this)"><span class="vtdot" style="background:#5e7a99"></span>Overview</button><button class="vert-tab seg" onclick="switchVert('seg',this)"><span class="vtdot"></span>Segurança</button><button class="vert-tab segu" onclick="switchVert('segu',this)"><span class="vtdot"></span>Seguros</button><button class="vert-tab cont" onclick="switchVert('cont',this)"><span class="vtdot"></span>Conteúdo</button><button class="vert-tab mp" onclick="switchVert('mp',this)"><span class="vtdot"></span>Mulheres Positivas</button></div><div class="nav-right">Base Ativa &amp; Transacional · mai/2026</div></nav>
 <div class="shell">
 <nav class="sidebar" id="sidebar"><!-- JS --></nav>
 <div class="main">
-<div class="vert-panel active" id="panel-seg">
-<div class="submenu" id="seg-submenu"><div class="submenu-inner"><button class="sub-tab active seg" onclick="swSub(this,'seg-sub-ativa','seg')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'seg-sub-trans','seg')">⚡ Transacional</button></div><span class="submenu-label">Segurança · jan/22–mai/26</span></div>
+<div class="vert-panel active" id="panel-ov">
+<div class="submenu" id="ov-submenu"><div class="submenu-inner"></div><span class="submenu-label">Overview · mai/2026</span></div>
+<div class="hero" id="ov-header" style="background:linear-gradient(135deg,rgba(17,47,248,.04) 0%,rgba(101,49,189,.04) 100%);border-bottom:1px solid var(--border);scroll-margin-top:56px">
+  <div style="margin-bottom:20px">
+    <div class="s-tag" style="color:#5e7a99;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px">Consolidado · mai/2026</div>
+    <div class="s-title">EXA Analytics — Visão Executiva</div>
+    <div class="s-sub">4 verticais · mai/2026 · Base Ativa &amp; Indicadores NET</div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi seg">
+      <div class="kpi-lbl">Segurança</div>
+      <div class="kpi-val">27,8M</div>
+      <div class="kpi-d neu">Base ativa · +26,8% YoY</div>
+      <div style="margin-top:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <span class="badge-err">CHURN 82,91%</span>
+        <span style="font-size:10px;color:var(--muted);font-family:var(--mono)">NET +8,8M</span>
+      </div>
+    </div>
+    <div class="kpi segu">
+      <div class="kpi-lbl">Seguros</div>
+      <div class="kpi-val">50,4K</div>
+      <div class="kpi-d pos">Base ativa · 5.036× em 14m</div>
+      <div style="margin-top:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <span class="badge-ok">CHURN 7,59%</span>
+        <span style="font-size:10px;color:var(--muted);font-family:var(--mono)">NET +43,2K</span>
+      </div>
+    </div>
+    <div class="kpi cont">
+      <div class="kpi-lbl">Conteúdo</div>
+      <div class="kpi-val">~2,42B</div>
+      <div class="kpi-d neu">82,3% da base total</div>
+      <div style="margin-top:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <span class="badge-warn">CHURN 68,72%</span>
+        <span style="font-size:10px;color:var(--muted);font-family:var(--mono)">NET +79,2M</span>
+      </div>
+    </div>
+    <div class="kpi mp">
+      <div class="kpi-lbl">Mulheres Positivas</div>
+      <div class="kpi-val">49,6M</div>
+      <div class="kpi-d neu">Assinaturas · mai/26</div>
+      <div style="margin-top:10px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <span class="badge-warn">CHURN 52,53%</span>
+        <span style="font-size:10px;color:var(--muted);font-family:var(--mono)">NET +1,8M</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section" id="ov-table" style="border-bottom:1px solid var(--border);scroll-margin-top:108px">
+  <div class="s-tag" style="color:#5e7a99;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px">Indicadores NET · mai/2026</div>
+  <div class="s-title">Comparativo entre Verticais</div>
+  <div class="s-sub">CREATE, CANCEL, NET e CHURN consolidados · Referência mai/2026</div>
+  <div style="overflow-x:auto;margin-top:18px">
+    <table class="dt" style="min-width:500px">
+      <thead><tr>
+        <th style="width:22%;text-align:left">Vertical</th>
+        <th style="text-align:right">CREATE</th>
+        <th style="text-align:right">CANCEL</th>
+        <th style="text-align:right">NET</th>
+        <th style="text-align:right">CHURN</th>
+        <th style="text-align:left;padding-left:12px">Status</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--seg-c);margin-right:6px;vertical-align:middle"></span>Segurança</td>
+          <td style="text-align:right;font-family:var(--mono)">51,5M</td>
+          <td style="text-align:right;font-family:var(--mono)">42,7M</td>
+          <td style="text-align:right;font-family:var(--mono)" class="pos">+8,8M</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:#dc2626">82,91%</td>
+          <td style="padding-left:12px"><span class="badge-err">Alerta</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--segu-c);margin-right:6px;vertical-align:middle"></span>Seguros</td>
+          <td style="text-align:right;font-family:var(--mono)">46,7K</td>
+          <td style="text-align:right;font-family:var(--mono)">3,5K</td>
+          <td style="text-align:right;font-family:var(--mono)" class="pos">+43,2K</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:#1a9e3f">7,59%</td>
+          <td style="padding-left:12px"><span class="badge-ok">Saudável</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cont-c);margin-right:6px;vertical-align:middle"></span>Conteúdo</td>
+          <td style="text-align:right;font-family:var(--mono)">253,3M</td>
+          <td style="text-align:right;font-family:var(--mono)">174,1M</td>
+          <td style="text-align:right;font-family:var(--mono)" class="pos">+79,2M</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:700;color:#dc2626">68,72%</td>
+          <td style="padding-left:12px"><span class="badge-warn">Atenção</span></td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mp-c);margin-right:6px;vertical-align:middle"></span>Mulheres Positivas</td>
+          <td style="text-align:right;font-family:var(--mono)">3,8M</td>
+          <td style="text-align:right;font-family:var(--mono)">2,0M</td>
+          <td style="text-align:right;font-family:var(--mono)" class="pos">+1,8M</td>
+          <td style="text-align:right;font-family:var(--mono);font-weight:600;color:#b36200">52,53%</td>
+          <td style="padding-left:12px"><span class="badge-warn">Atenção</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="section" id="ov-alerts" style="scroll-margin-top:108px">
+  <div class="s-tag" style="color:#5e7a99;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px">Destaques · mai/2026</div>
+  <div class="s-title">Sinais &amp; Alertas Consolidados</div>
+  <div style="margin-top:18px">
+    <div class="al al-rd"><strong>Segurança — CHURN 82,91%</strong><br>Taxa muito alta. EXA Segurança (oferta principal) com 95,77% de churn. Ação prioritária: programa de retenção com TIM.</div>
+    <div class="al al-gr"><strong>Seguros — CHURN 7,59% · Melhor vertical</strong><br>14 meses consecutivos de crescimento · 5.036× desde abr/25. Modelo de retenção a ser replicado nas demais verticais.</div>
+    <div class="al al-am"><strong>Conteúdo — Maior base (82,3% do total)</strong><br>NET positivo de +79,2M demonstra escala, mas CHURN 68,72% demanda estratégia de retenção.</div>
+    <div class="al al-am"><strong>Mulheres Positivas — Concentração TIM 99,9%</strong><br>Diversificação de parceiros necessária para reduzir risco operacional.</div>
+  </div>
+</div>
+<div class="pn">EXA Analytics · 4 verticais · mai/2026 · Base Ativa &amp; Transacional</div>
+</div>
+<div class="vert-panel" id="panel-seg">
+<div class="submenu" id="seg-submenu"><div class="submenu-inner"><button class="sub-tab active seg" onclick="swSub(this,'seg-sub-ativa','seg')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'seg-sub-trans','seg')">Transacional</button></div><span class="submenu-label">Segurança · jan/22–mai/26</span></div>
 <div class="sub-panel active" id="seg-sub-ativa">
 
   <div class="hero seg" id="seg-overview">
     <div style="margin-bottom:20px">
-      <div class="s-tag seg">// segurança · maio 2026</div>
+      <div class="s-tag seg">segurança · maio 2026</div>
       <div class="s-title">Base Ativa — Vertical Segurança</div>
       <div class="s-sub">21 parceiros · 8 ofertas · 4 canais pai · 53 meses de histórico</div>
     </div>
@@ -421,7 +433,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="seg-produto-pai">
-    <div class="s-tag seg">// produto pai</div><div class="s-title">Canais por Produto Pai</div>
+    <div class="s-tag seg">produto pai</div><div class="s-title">Canais por Produto Pai</div>
     <div class="s-sub">Base somada individualmente por canal</div>
     <div style="margin-top:18px">
       <div class="tabs">
@@ -442,21 +454,21 @@ body, html {
     </div>
   </div>
   <div class="section" id="seg-oferta">
-    <div class="s-tag seg">// por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">Base mai/26 · variação MoM</div>
+    <div class="s-tag seg">por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">Base mai/26 · variação MoM</div>
     <div style="margin-top:18px" class="cg">
       <div class="card"><div class="ct">Volume por oferta · mai/26</div><div class="cs">Δ% vs abr/26</div><div id="seg-oferta-bars"></div></div>
       <div class="card"><div class="ct">Share por oferta</div><div class="cs">mai/26</div><div class="cw" style="height:260px"><canvas id="seg-ofertaDonut"></canvas></div></div>
     </div>
   </div>
   <div class="section" id="seg-parceiro">
-    <div class="s-tag seg">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">YoY mai/25→mai/26</div>
+    <div class="s-tag seg">por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">YoY mai/25→mai/26</div>
     <div style="margin-top:18px" class="cg">
       <div class="card"><div class="ct">Volume por parceiro</div><div class="cs">Δ% MoM</div><div id="seg-parc-bars"></div></div>
       <div class="card"><div class="ct">YoY mai/25→mai/26</div><div class="cs"></div><table class="dt" id="seg-yoy-table"></table></div>
     </div>
   </div>
   <div class="section" id="seg-evolucao">
-    <div class="s-tag seg">// evolução histórica</div><div class="s-title">Crescimento — jan/2022 a mai/2026</div><div class="s-sub">53 meses · 4 fases</div>
+    <div class="s-tag seg">evolução histórica</div><div class="s-title">Crescimento — jan/2022 a mai/2026</div><div class="s-sub">53 meses · 4 fases</div>
     <div style="margin-top:18px">
       <div class="pg">
         <div class="pb"><div class="p-lbl">Fase 1 · jan/22–mar/24</div><div class="p-val">+68k/mês</div><div class="p-sub">1,8M ao final</div></div>
@@ -475,7 +487,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="seg-sinais">
-    <div class="s-tag seg">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção</div><div class="s-sub">Para discussão com o time</div>
+    <div class="s-tag seg">sinais &amp; alertas</div><div class="s-title">Pontos de Atenção</div><div class="s-sub">Para discussão com o time</div>
     <div style="margin-top:18px">
       <div class="al al-rd"><strong>🔴 Queda estrutural dez/25→jan/26 (−3,5M)</strong><br>Cancelamento em lote TIM + EXA SEGURANÇA. Confirmado pela visão transacional (NET −5,2M em jan/26).</div>
       <div class="al al-rd"><strong>🔴 Desaceleração Fase 4</strong><br>+1,8M/mês em 2025 caiu para +515k/mês em 2026.</div>
@@ -488,7 +500,7 @@ body, html {
 </div>
 <div class="sub-panel" id="seg-sub-trans">
 <div class="section" id="seg-trans" style="border:none">
-<div class="s-tag seg">// transacional · Segurança · mai/2026</div>
+<div class="s-tag seg">transacional · Segurança · mai/2026</div>
 <div class="s-title">Movimentação de Assinaturas</div>
 <div class="s-sub">CREATE · CANCEL · RENEW · SUSPEND · NET · Churn mensal</div>
 <div class="t-kpi-grid">
@@ -504,7 +516,7 @@ body, html {
   <div class="card"><div class="ct">Tabela NET · últimos 12m</div><div class="cs">CREATE, CANCEL e resultado líquido</div><div id="seg-t-net-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
 </div>
 <div class="info-box">
-  <div class="info-box-title">📐 Como o NET é calculado</div>
+  <div class="info-box-title">Como o NET é calculado</div>
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
@@ -517,7 +529,7 @@ body, html {
   <div class="card"><div class="ct">CREATE vs CANCEL por mês</div><div class="cs">Barras positivas = entradas · Negativas = saídas (12 meses)</div><div class="cw" style="height:220px"><canvas id="seg-t-create-cancel"></canvas></div></div>
   <div class="card"><div class="ct">Taxa de churn mensal (%)</div><div class="cs">CANCEL ÷ (CREATE + RENEW) × 100</div><div class="cw" style="height:220px"><canvas id="seg-t-churn-line"></canvas></div></div>
 </div>
-<div class="s-tag seg" style="margin-top:4px;padding:0 0 6px 0">// status isolados · leitura individual por tipo</div>
+<div class="s-tag seg" style="margin-top:4px;padding:0 0 6px 0">status isolados · leitura individual por tipo</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card"><div class="ct">CREATE — novas assinaturas</div><div class="cs">Entradas brutas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="seg-t-only-create"></canvas></div></div>
   <div class="card"><div class="ct">CANCEL — cancelamentos</div><div class="cs">Saídas definitivas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="seg-t-only-cancel"></canvas></div></div>
@@ -526,7 +538,7 @@ body, html {
   <div class="card"><div class="ct">RENEW — renovações</div><div class="cs">Ciclos de renovação · escala própria</div><div class="cw" style="height:200px"><canvas id="seg-t-only-renew"></canvas></div></div>
   <div class="card"><div class="ct">SUSPEND — suspensões temporárias</div><div class="cs">Suspensões no mês · escala própria</div><div class="cw" style="height:200px"><canvas id="seg-t-only-suspend"></canvas></div></div>
 </div>
-<div class="s-tag seg" style="margin-top:4px;padding:0 0 6px 0">// visão diária · mai/26 · volume e share</div>
+<div class="s-tag seg" style="margin-top:4px;padding:0 0 6px 0">visão diária · mai/26 · volume e share</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card" style="overflow-x:auto"><div class="ct">Volume diário por status · mai/26</div><div class="cs">Cada linha = 1 dia do mês</div><div id="seg-t-daily-table" style="max-height:300px;overflow-y:auto;padding:2px"></div></div>
   <div class="card"><div class="ct">Share (%) de status · mai/26</div><div class="cs">Proporção relativa por dia</div><div class="cw" style="height:300px"><canvas id="seg-t-daily-share"></canvas></div></div>
@@ -539,7 +551,7 @@ body, html {
   <div class="card"><div class="ct">NET por oferta — evolução 12m</div><div class="cs">Crescimento líquido por oferta</div><div class="leg" id="seg-t-oferta-leg"></div><div class="cw" style="height:220px"><canvas id="seg-t-oferta-evol"></canvas></div></div>
   <div class="card"><div class="ct">NET por parceiro · mai/26</div><div class="cs">CREATE − CANCEL por parceiro</div><div id="seg-t-parc-net"></div></div>
 </div>
-<div class="s-tag seg" style="margin-top:4px;padding:0 0 6px 0">// year over year · comparativo ano a ano</div>
+<div class="s-tag seg" style="margin-top:4px;padding:0 0 6px 0">year over year · comparativo ano a ano</div>
 <div class="cg" style="margin-bottom:8px">
   <div class="card"><div class="ct">YoY — Volume total (todos os status)</div><div class="cs">Sólida = ano atual · Tracejada = ano anterior</div><div class="leg" id="seg-t-yoy-leg"></div><div class="cw" style="height:220px"><canvas id="seg-t-yoy-all"></canvas></div></div>
   <div class="card"><div class="ct">YoY — Tabela resumo</div><div class="cs">Variação abs e % por mês</div><div id="seg-t-yoy-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
@@ -554,13 +566,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - SEGURANÇA ============ -->
 <div class="section" id="seg-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag seg">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag seg">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Segurança</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -598,7 +610,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -689,11 +701,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -806,7 +818,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -919,7 +931,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -1121,7 +1133,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -1420,13 +1432,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - SEGURANÇA ============ -->
 <div class="section" id="seg-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag seg">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag seg">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Segurança</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -1464,7 +1476,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -1564,11 +1576,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -1681,7 +1693,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -1794,7 +1806,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -2005,7 +2017,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag seg" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -2304,12 +2316,12 @@ body, html {
 <div class="pn">Segurança · 21 parceiros · 8 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-segu">
-<div class="submenu" id="segu-submenu"><div class="submenu-inner"><button class="sub-tab active segu" onclick="swSub(this,'segu-sub-ativa','segu')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'segu-sub-trans','segu')">⚡ Transacional</button></div><span class="submenu-label">Seguros · abr/25–mai/26</span></div>
+<div class="submenu" id="segu-submenu"><div class="submenu-inner"><button class="sub-tab active segu" onclick="swSub(this,'segu-sub-ativa','segu')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'segu-sub-trans','segu')">Transacional</button></div><span class="submenu-label">Seguros · abr/25–mai/26</span></div>
 <div class="sub-panel active" id="segu-sub-ativa">
 
   <div class="hero segu" id="segu-overview">
     <div style="margin-bottom:20px">
-      <div class="s-tag segu">// seguros · maio 2026</div>
+      <div class="s-tag segu">seguros · maio 2026</div>
       <div class="s-title">Base Ativa — Vertical Seguros</div>
       <div class="s-sub">3 parceiros · 3 ofertas · 4 produtos · 14 meses</div>
     </div>
@@ -2321,7 +2333,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="segu-produto-pai">
-    <div class="s-tag segu">// produto pai</div><div class="s-title">Canal por Produto Pai</div>
+    <div class="s-tag segu">produto pai</div><div class="s-title">Canal por Produto Pai</div>
     <div class="s-sub">100% PRODUTO_PAI = "Seguros" — canal único</div>
     <div style="margin-top:18px">
       <div style="background:var(--surf);border:1px solid rgba(15,212,138,.35);border-radius:12px;padding:24px;text-align:center">
@@ -2332,28 +2344,28 @@ body, html {
     </div>
   </div>
   <div class="section" id="segu-produto">
-    <div class="s-tag segu">// por produto</div><div class="s-title">Distribuição por Produto</div><div class="s-sub">mai/26 · variação MoM</div>
+    <div class="s-tag segu">por produto</div><div class="s-title">Distribuição por Produto</div><div class="s-sub">mai/26 · variação MoM</div>
     <div style="margin-top:18px" class="cg">
       <div class="card"><div class="ct">Volume por produto</div><div class="cs">Δ% MoM</div><div id="segu-prod-bars"></div></div>
       <div class="card"><div class="ct">Share por produto</div><div class="cs">mai/26</div><div class="cw" style="height:250px"><canvas id="segu-prodDonut"></canvas></div></div>
     </div>
   </div>
   <div class="section" id="segu-oferta">
-    <div class="s-tag segu">// por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">mai/26 · evolução histórica</div>
+    <div class="s-tag segu">por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">mai/26 · evolução histórica</div>
     <div style="margin-top:18px" class="cg">
       <div class="card"><div class="ct">Volume por oferta</div><div class="cs">Δ% MoM</div><div id="segu-oferta-bars"></div></div>
       <div class="card"><div class="ct">Evolução mensal</div><div class="cs">abr/25 a mai/26</div><div class="leg" id="segu-oferta-leg"></div><div class="cw" style="height:230px"><canvas id="segu-ofertaLine"></canvas></div></div>
     </div>
   </div>
   <div class="section" id="segu-parceiro">
-    <div class="s-tag segu">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">mai/26 · crescimento</div>
+    <div class="s-tag segu">por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">mai/26 · crescimento</div>
     <div style="margin-top:18px" class="cg">
       <div class="card"><div class="ct">Volume por parceiro</div><div class="cs">Δ% MoM</div><div id="segu-parc-bars"></div></div>
       <div class="card"><div class="ct">Evolução mensal</div><div class="cs">abr/25 a mai/26</div><div class="leg" id="segu-parc-leg"></div><div class="cw" style="height:230px"><canvas id="segu-parcLine"></canvas></div></div>
     </div>
   </div>
   <div class="section" id="segu-evolucao">
-    <div class="s-tag segu">// evolução histórica</div><div class="s-title">Crescimento — abr/2025 a mai/2026</div><div class="s-sub">14 meses · 5.036×</div>
+    <div class="s-tag segu">evolução histórica</div><div class="s-title">Crescimento — abr/2025 a mai/2026</div><div class="s-sub">14 meses · 5.036×</div>
     <div style="margin-top:18px">
       <div class="card full" style="margin-bottom:13px">
         <div class="ct">Base ativa total · 14 meses</div><div class="cs">Entrada TIM em out/25</div>
@@ -2366,7 +2378,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="segu-sinais">
-    <div class="s-tag segu">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção</div>
+    <div class="s-tag segu">sinais &amp; alertas</div><div class="s-title">Pontos de Atenção</div>
     <div style="margin-top:18px">
       <div class="al al-gr"><strong>🟢 14 meses consecutivos — 5.036×</strong><br>Aceleração em out/25 com TIM. Churn de apenas 9,8% — o mais saudável de todas as verticais.</div>
       <div class="al al-gr"><strong>🟢 Seguro Celular motor (+10,3% MoM)</strong><br>96,4% da base. "Proteção Total" lidera com 37.497 assinaturas.</div>
@@ -2378,7 +2390,7 @@ body, html {
 </div>
 <div class="sub-panel" id="segu-sub-trans">
 <div class="section" id="segu-trans" style="border:none">
-<div class="s-tag segu">// transacional · Seguros · mai/2026</div>
+<div class="s-tag segu">transacional · Seguros · mai/2026</div>
 <div class="s-title">Movimentação de Assinaturas</div>
 <div class="s-sub">CREATE · CANCEL · RENEW · SUSPEND · NET · Churn mensal</div>
 <div class="t-kpi-grid">
@@ -2394,7 +2406,7 @@ body, html {
   <div class="card"><div class="ct">Tabela NET · últimos 12m</div><div class="cs">CREATE, CANCEL e resultado líquido</div><div id="segu-t-net-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
 </div>
 <div class="info-box">
-  <div class="info-box-title">📐 Como o NET é calculado</div>
+  <div class="info-box-title">Como o NET é calculado</div>
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
@@ -2407,7 +2419,7 @@ body, html {
   <div class="card"><div class="ct">CREATE vs CANCEL por mês</div><div class="cs">Barras positivas = entradas · Negativas = saídas (12 meses)</div><div class="cw" style="height:220px"><canvas id="segu-t-create-cancel"></canvas></div></div>
   <div class="card"><div class="ct">Taxa de churn mensal (%)</div><div class="cs">CANCEL ÷ (CREATE + RENEW) × 100</div><div class="cw" style="height:220px"><canvas id="segu-t-churn-line"></canvas></div></div>
 </div>
-<div class="s-tag segu" style="margin-top:4px;padding:0 0 6px 0">// status isolados · leitura individual por tipo</div>
+<div class="s-tag segu" style="margin-top:4px;padding:0 0 6px 0">status isolados · leitura individual por tipo</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card"><div class="ct">CREATE — novas assinaturas</div><div class="cs">Entradas brutas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="segu-t-only-create"></canvas></div></div>
   <div class="card"><div class="ct">CANCEL — cancelamentos</div><div class="cs">Saídas definitivas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="segu-t-only-cancel"></canvas></div></div>
@@ -2416,7 +2428,7 @@ body, html {
   <div class="card"><div class="ct">RENEW — renovações</div><div class="cs">Ciclos de renovação · escala própria</div><div class="cw" style="height:200px"><canvas id="segu-t-only-renew"></canvas></div></div>
   <div class="card"><div class="ct">SUSPEND — suspensões temporárias</div><div class="cs">Suspensões no mês · escala própria</div><div class="cw" style="height:200px"><canvas id="segu-t-only-suspend"></canvas></div></div>
 </div>
-<div class="s-tag segu" style="margin-top:4px;padding:0 0 6px 0">// visão diária · mai/26 · volume e share</div>
+<div class="s-tag segu" style="margin-top:4px;padding:0 0 6px 0">visão diária · mai/26 · volume e share</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card" style="overflow-x:auto"><div class="ct">Volume diário por status · mai/26</div><div class="cs">Cada linha = 1 dia do mês</div><div id="segu-t-daily-table" style="max-height:300px;overflow-y:auto;padding:2px"></div></div>
   <div class="card"><div class="ct">Share (%) de status · mai/26</div><div class="cs">Proporção relativa por dia</div><div class="cw" style="height:300px"><canvas id="segu-t-daily-share"></canvas></div></div>
@@ -2429,7 +2441,7 @@ body, html {
   <div class="card"><div class="ct">NET por oferta — evolução 12m</div><div class="cs">Crescimento líquido por oferta</div><div class="leg" id="segu-t-oferta-leg"></div><div class="cw" style="height:220px"><canvas id="segu-t-oferta-evol"></canvas></div></div>
   <div class="card"><div class="ct">NET por parceiro · mai/26</div><div class="cs">CREATE − CANCEL por parceiro</div><div id="segu-t-parc-net"></div></div>
 </div>
-<div class="s-tag segu" style="margin-top:4px;padding:0 0 6px 0">// year over year · comparativo ano a ano</div>
+<div class="s-tag segu" style="margin-top:4px;padding:0 0 6px 0">year over year · comparativo ano a ano</div>
 <div class="cg" style="margin-bottom:8px">
   <div class="card"><div class="ct">YoY — Volume total (todos os status)</div><div class="cs">Sólida = ano atual · Tracejada = ano anterior</div><div class="leg" id="segu-t-yoy-leg"></div><div class="cw" style="height:220px"><canvas id="segu-t-yoy-all"></canvas></div></div>
   <div class="card"><div class="ct">YoY — Tabela resumo</div><div class="cs">Variação abs e % por mês</div><div id="segu-t-yoy-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
@@ -2444,13 +2456,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - SEGUROS ============ -->
 <div class="section" id="segu-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag segu">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag segu">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Seguros</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -2488,7 +2500,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -2543,11 +2555,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -2597,7 +2609,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -2647,7 +2659,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -2696,7 +2708,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -2797,13 +2809,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - SEGUROS ============ -->
 <div class="section" id="segu-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag segu">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag segu">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Seguros</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -2841,7 +2853,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -2896,11 +2908,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -2950,7 +2962,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -3000,7 +3012,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -3049,7 +3061,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag segu" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -3150,12 +3162,12 @@ body, html {
 <div class="pn">Seguros · 3 parceiros · 3 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-cont">
-<div class="submenu" id="cont-submenu"><div class="submenu-inner"><button class="sub-tab active cont" onclick="swSub(this,'cont-sub-ativa','cont')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'cont-sub-trans','cont')">⚡ Transacional</button></div><span class="submenu-label">Conteúdo</span></div>
+<div class="submenu" id="cont-submenu"><div class="submenu-inner"><button class="sub-tab active cont" onclick="swSub(this,'cont-sub-ativa','cont')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'cont-sub-trans','cont')">Transacional</button></div><span class="submenu-label">Conteúdo</span></div>
 <div class="sub-panel active" id="cont-sub-ativa">
 
   <div class="hero cont" id="cont-overview">
     <div style="margin-bottom:20px">
-      <div class="s-tag cont">// conteúdo · maio 2026</div>
+      <div class="s-tag cont">conteúdo · maio 2026</div>
       <div class="s-title">Base Ativa — Vertical Conteúdo</div>
       <div class="s-sub">16 parceiros · 6 ofertas · 6 canais pai · 49 meses</div>
     </div>
@@ -3167,7 +3179,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="cont-produto-pai">
-    <div class="s-tag cont">// produto pai</div><div class="s-title">Canais por Produto Pai</div><div class="s-sub">Múltiplas combinações — base somada individualmente</div>
+    <div class="s-tag cont">produto pai</div><div class="s-title">Canais por Produto Pai</div><div class="s-sub">Múltiplas combinações — base somada individualmente</div>
     <div style="margin-top:18px">
       <div class="tabs">
         <div class="tab active cont" onclick="swTab(this,'cont-tab-unif')">Visão Unificada</div>
@@ -3189,14 +3201,14 @@ body, html {
     </div>
   </div>
   <div class="section" id="cont-oferta">
-    <div class="s-tag cont">// por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">mai/26 · MoM</div>
+    <div class="s-tag cont">por oferta</div><div class="s-title">Distribuição por Oferta</div><div class="s-sub">mai/26 · MoM</div>
     <div style="margin-top:18px" class="cg">
       <div class="card"><div class="ct">Volume por oferta</div><div class="cs">Δ% MoM</div><div id="cont-oferta-bars"></div></div>
       <div class="card"><div class="ct">Evolução 12 meses</div><div class="cs"></div><div class="leg" id="cont-oferta-leg"></div><div class="cw" style="height:230px"><canvas id="cont-ofertaLine"></canvas></div></div>
     </div>
   </div>
   <div class="section" id="cont-parceiro">
-    <div class="s-tag cont">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">16 parceiros · YoY e novos entrantes</div>
+    <div class="s-tag cont">por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">16 parceiros · YoY e novos entrantes</div>
     <div style="margin-top:18px">
       <div class="tabs">
         <div class="tab active cont" onclick="swTab(this,'cont-tab-parc-base')">Base mai/26</div>
@@ -3209,7 +3221,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="cont-evolucao">
-    <div class="s-tag cont">// evolução histórica</div><div class="s-title">Crescimento — mai/2022 a mai/2026</div><div class="s-sub">49 meses · 4 fases</div>
+    <div class="s-tag cont">evolução histórica</div><div class="s-title">Crescimento — mai/2022 a mai/2026</div><div class="s-sub">49 meses · 4 fases</div>
     <div style="margin-top:18px">
       <div class="pg">
         <div class="pb"><div class="p-lbl">Fase 1 · mai/22–dez/23</div><div class="p-val">+586k/mês</div><div class="p-sub">4,7M→25,5M</div></div>
@@ -3228,7 +3240,7 @@ body, html {
     </div>
   </div>
   <div class="section" id="cont-sinais">
-    <div class="s-tag cont">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção</div>
+    <div class="s-tag cont">sinais &amp; alertas</div><div class="s-title">Pontos de Atenção</div>
     <div style="margin-top:18px">
       <div class="al al-gr"><strong>🟢 147M+ — crescimento 31× em 4 anos</strong><br>Fase 3 foi a mais intensa. AYA Ensinah ganhou peso com 22,3M.</div>
       <div class="al al-gr"><strong>🟢 AYA Books lidera com 86,7M (+2,4% MoM)</strong><br>Minibooks Standard B Bundle lidera com 11,8M.</div>
@@ -3241,7 +3253,7 @@ body, html {
 </div>
 <div class="sub-panel" id="cont-sub-trans">
 <div class="section" id="cont-trans" style="border:none">
-<div class="s-tag cont">// transacional · Conteúdo · mai/2026</div>
+<div class="s-tag cont">transacional · Conteúdo · mai/2026</div>
 <div class="s-title">Movimentação de Assinaturas</div>
 <div class="s-sub">CREATE · CANCEL · RENEW · SUSPEND · NET · Churn mensal</div>
 <div class="t-kpi-grid">
@@ -3257,7 +3269,7 @@ body, html {
   <div class="card"><div class="ct">Tabela NET · últimos 12m</div><div class="cs">CREATE, CANCEL e resultado líquido</div><div id="cont-t-net-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
 </div>
 <div class="info-box">
-  <div class="info-box-title">📐 Como o NET é calculado</div>
+  <div class="info-box-title">Como o NET é calculado</div>
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
@@ -3270,7 +3282,7 @@ body, html {
   <div class="card"><div class="ct">CREATE vs CANCEL por mês</div><div class="cs">Barras positivas = entradas · Negativas = saídas (12 meses)</div><div class="cw" style="height:220px"><canvas id="cont-t-create-cancel"></canvas></div></div>
   <div class="card"><div class="ct">Taxa de churn mensal (%)</div><div class="cs">CANCEL ÷ (CREATE + RENEW) × 100</div><div class="cw" style="height:220px"><canvas id="cont-t-churn-line"></canvas></div></div>
 </div>
-<div class="s-tag cont" style="margin-top:4px;padding:0 0 6px 0">// status isolados · leitura individual por tipo</div>
+<div class="s-tag cont" style="margin-top:4px;padding:0 0 6px 0">status isolados · leitura individual por tipo</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card"><div class="ct">CREATE — novas assinaturas</div><div class="cs">Entradas brutas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="cont-t-only-create"></canvas></div></div>
   <div class="card"><div class="ct">CANCEL — cancelamentos</div><div class="cs">Saídas definitivas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="cont-t-only-cancel"></canvas></div></div>
@@ -3279,7 +3291,7 @@ body, html {
   <div class="card"><div class="ct">RENEW — renovações</div><div class="cs">Ciclos de renovação · escala própria</div><div class="cw" style="height:200px"><canvas id="cont-t-only-renew"></canvas></div></div>
   <div class="card"><div class="ct">SUSPEND — suspensões temporárias</div><div class="cs">Suspensões no mês · escala própria</div><div class="cw" style="height:200px"><canvas id="cont-t-only-suspend"></canvas></div></div>
 </div>
-<div class="s-tag cont" style="margin-top:4px;padding:0 0 6px 0">// visão diária · mai/26 · volume e share</div>
+<div class="s-tag cont" style="margin-top:4px;padding:0 0 6px 0">visão diária · mai/26 · volume e share</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card" style="overflow-x:auto"><div class="ct">Volume diário por status · mai/26</div><div class="cs">Cada linha = 1 dia do mês</div><div id="cont-t-daily-table" style="max-height:300px;overflow-y:auto;padding:2px"></div></div>
   <div class="card"><div class="ct">Share (%) de status · mai/26</div><div class="cs">Proporção relativa por dia</div><div class="cw" style="height:300px"><canvas id="cont-t-daily-share"></canvas></div></div>
@@ -3292,7 +3304,7 @@ body, html {
   <div class="card"><div class="ct">NET por oferta — evolução 12m</div><div class="cs">Crescimento líquido por oferta</div><div class="leg" id="cont-t-oferta-leg"></div><div class="cw" style="height:220px"><canvas id="cont-t-oferta-evol"></canvas></div></div>
   <div class="card"><div class="ct">NET por parceiro · mai/26</div><div class="cs">CREATE − CANCEL por parceiro</div><div id="cont-t-parc-net"></div></div>
 </div>
-<div class="s-tag cont" style="margin-top:4px;padding:0 0 6px 0">// year over year · comparativo ano a ano</div>
+<div class="s-tag cont" style="margin-top:4px;padding:0 0 6px 0">year over year · comparativo ano a ano</div>
 <div class="cg" style="margin-bottom:8px">
   <div class="card"><div class="ct">YoY — Volume total (todos os status)</div><div class="cs">Sólida = ano atual · Tracejada = ano anterior</div><div class="leg" id="cont-t-yoy-leg"></div><div class="cw" style="height:220px"><canvas id="cont-t-yoy-all"></canvas></div></div>
   <div class="card"><div class="ct">YoY — Tabela resumo</div><div class="cs">Variação abs e % por mês</div><div id="cont-t-yoy-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
@@ -3307,13 +3319,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - CONTEÚDO ============ -->
 <div class="section" id="cont-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag cont">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag cont">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Conteúdo</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -3351,7 +3363,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -3433,11 +3445,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -3550,7 +3562,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -3663,7 +3675,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -3829,7 +3841,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -3993,13 +4005,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - CONTEÚDO ============ -->
 <div class="section" id="cont-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag cont">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag cont">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Conteúdo</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -4037,7 +4049,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -4119,11 +4131,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -4236,7 +4248,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -4349,7 +4361,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -4515,7 +4527,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag cont" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -4688,16 +4700,16 @@ body, html {
 <div class="pn">Conteúdo · 16 parceiros · 6 ofertas · mai/2026</div>
 </div>
 <div class="vert-panel" id="panel-mp">
-<div class="submenu" id="mp-submenu"><div class="submenu-inner"><button class="sub-tab active mp" onclick="swSub(this,'mp-sub-ativa','mp')">📊 Base Ativa</button><button class="sub-tab" onclick="swSub(this,'mp-sub-trans','mp')">⚡ Transacional</button></div><span class="submenu-label">Mulheres Positivas</span></div>
+<div class="submenu" id="mp-submenu"><div class="submenu-inner"><button class="sub-tab active mp" onclick="swSub(this,'mp-sub-ativa','mp')">Base Ativa</button><button class="sub-tab" onclick="swSub(this,'mp-sub-trans','mp')">Transacional</button></div><span class="submenu-label">Mulheres Positivas</span></div>
 <div class="sub-panel active" id="mp-sub-ativa">
-<div class="hero mp" id="mp-overview"><div style="margin-bottom:18px"><div class="s-tag mp">// mulheres positivas · maio 2026</div><div class="s-title">Base Ativa — Mulheres Positivas</div><div class="s-sub">3 parceiros · 1 oferta · 42 meses de histórico</div></div><div class="kpi-grid"><div class="kpi mp"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">2,4M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div><div class="kpi mp"><div class="kpi-lbl">Crescimento</div><div class="kpi-val">+1965%</div><div class="kpi-d pos">desde jan/25</div></div><div class="kpi am"><div class="kpi-lbl">Parceiro principal</div><div class="kpi-val">TIM</div><div class="kpi-d neu">99,9% da base</div></div><div class="kpi te"><div class="kpi-lbl">Único produto</div><div class="kpi-val">Bundle</div><div class="kpi-d neu">Mulheres Positivas</div></div></div></div></div>
-<div class="section" id="mp-parceiro"><div class="s-tag mp">// por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">Base mai/26 · variação MoM</div><div style="margin-top:18px" class="cg"><div class="card"><div class="ct">Volume por parceiro · mai/26</div><div class="cs">Delta MoM</div><div id="mp-parc-bars"></div></div><div class="card"><div class="ct">Evolução mensal por parceiro</div><div class="cs">dez/22 a mai/26</div><div class="leg" id="mp-parc-leg"></div><div class="cw" style="height:230px"><canvas id="mp-parcLine"></canvas></div></div></div></div>
-<div class="section" id="mp-evolucao"><div class="s-tag mp">// evolução histórica</div><div class="s-title">Crescimento da Base — dez/2022 a mai/2026</div><div class="s-sub">42 meses de histórico</div><div style="margin-top:18px"><div class="card full"><div class="ct">Base ativa total · evolução mensal</div><div class="cs">Aceleração em jan/25 com entrada TIM em escala</div><div class="cw" style="height:280px"><canvas id="mp-totalLine"></canvas></div></div></div></div>
-<div class="section" id="mp-sinais"><div class="s-tag mp">// sinais &amp; alertas</div><div class="s-title">Pontos de Atenção e Oportunidades</div><div style="margin-top:16px"><div class="al al-gr"><strong>🟢 2,4M de assinaturas ativas — crescimento de +40,3% YoY</strong><br>De 1,7M (mai/25) para 2,4M (mai/26). Pico histórico em ago/25 (2,29M) após entrada TIM em escala em jan/25.</div><div class="al al-am"><strong>🟡 Leve queda MoM (−4.500 / −0,2%)</strong><br>mai/26 abaixo de abr/26 (2,394M). Padrão de pequenas oscilações mensais desde out/25 — ainda dentro de margem normal.</div><div class="al al-am"><strong>🟡 Concentração extrema em TIM (99,9%)</strong><br>EXA (282) e Virtual Telecom (15) representam 0,1% da base. Diversificação de canais é oportunidade crítica.</div><div class="al al-rd"><strong>🔴 Queda abrupta em jan/26 (−327k vs dez/25)</strong><br>Mesma sazonalidade observada em Segurança. Padrão de cancelamento em lote TIM no início do ano.</div></div></div>
+<div class="hero mp" id="mp-overview"><div style="margin-bottom:18px"><div class="s-tag mp">mulheres positivas · maio 2026</div><div class="s-title">Base Ativa — Mulheres Positivas</div><div class="s-sub">3 parceiros · 1 oferta · 42 meses de histórico</div></div><div class="kpi-grid"><div class="kpi mp"><div class="kpi-lbl">Base total mai/26</div><div class="kpi-val">2,4M</div><div class="kpi-d pos">Atualizado em 25/mai/26</div></div><div class="kpi mp"><div class="kpi-lbl">Crescimento</div><div class="kpi-val">+1965%</div><div class="kpi-d pos">desde jan/25</div></div><div class="kpi am"><div class="kpi-lbl">Parceiro principal</div><div class="kpi-val">TIM</div><div class="kpi-d neu">99,9% da base</div></div><div class="kpi te"><div class="kpi-lbl">Único produto</div><div class="kpi-val">Bundle</div><div class="kpi-d neu">Mulheres Positivas</div></div></div></div></div>
+<div class="section" id="mp-parceiro"><div class="s-tag mp">por parceiro</div><div class="s-title">Distribuição por Parceiro</div><div class="s-sub">Base mai/26 · variação MoM</div><div style="margin-top:18px" class="cg"><div class="card"><div class="ct">Volume por parceiro · mai/26</div><div class="cs">Delta MoM</div><div id="mp-parc-bars"></div></div><div class="card"><div class="ct">Evolução mensal por parceiro</div><div class="cs">dez/22 a mai/26</div><div class="leg" id="mp-parc-leg"></div><div class="cw" style="height:230px"><canvas id="mp-parcLine"></canvas></div></div></div></div>
+<div class="section" id="mp-evolucao"><div class="s-tag mp">evolução histórica</div><div class="s-title">Crescimento da Base — dez/2022 a mai/2026</div><div class="s-sub">42 meses de histórico</div><div style="margin-top:18px"><div class="card full"><div class="ct">Base ativa total · evolução mensal</div><div class="cs">Aceleração em jan/25 com entrada TIM em escala</div><div class="cw" style="height:280px"><canvas id="mp-totalLine"></canvas></div></div></div></div>
+<div class="section" id="mp-sinais"><div class="s-tag mp">sinais &amp; alertas</div><div class="s-title">Pontos de Atenção e Oportunidades</div><div style="margin-top:16px"><div class="al al-gr"><strong>🟢 2,4M de assinaturas ativas — crescimento de +40,3% YoY</strong><br>De 1,7M (mai/25) para 2,4M (mai/26). Pico histórico em ago/25 (2,29M) após entrada TIM em escala em jan/25.</div><div class="al al-am"><strong>🟡 Leve queda MoM (−4.500 / −0,2%)</strong><br>mai/26 abaixo de abr/26 (2,394M). Padrão de pequenas oscilações mensais desde out/25 — ainda dentro de margem normal.</div><div class="al al-am"><strong>🟡 Concentração extrema em TIM (99,9%)</strong><br>EXA (282) e Virtual Telecom (15) representam 0,1% da base. Diversificação de canais é oportunidade crítica.</div><div class="al al-rd"><strong>🔴 Queda abrupta em jan/26 (−327k vs dez/25)</strong><br>Mesma sazonalidade observada em Segurança. Padrão de cancelamento em lote TIM no início do ano.</div></div></div>
 </div>
 <div class="sub-panel" id="mp-sub-trans">
 <div class="section" id="mp-trans" style="border:none">
-<div class="s-tag mp">// transacional · Mulheres Positivas · mai/2026</div>
+<div class="s-tag mp">transacional · Mulheres Positivas · mai/2026</div>
 <div class="s-title">Movimentação de Assinaturas</div>
 <div class="s-sub">CREATE · CANCEL · RENEW · SUSPEND · NET · Churn mensal</div>
 <div class="t-kpi-grid">
@@ -4713,7 +4725,7 @@ body, html {
   <div class="card"><div class="ct">Tabela NET · últimos 12m</div><div class="cs">CREATE, CANCEL e resultado líquido</div><div id="mp-t-net-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
 </div>
 <div class="info-box">
-  <div class="info-box-title">📐 Como o NET é calculado</div>
+  <div class="info-box-title">Como o NET é calculado</div>
   <div class="info-box-body">
     <strong>NET = CREATE − CANCEL</strong> — crescimento líquido de assinaturas no período.<br>
     <strong>Por que excluímos RENEW e SUSPEND?</strong><br>
@@ -4726,7 +4738,7 @@ body, html {
   <div class="card"><div class="ct">CREATE vs CANCEL por mês</div><div class="cs">Barras positivas = entradas · Negativas = saídas (12 meses)</div><div class="cw" style="height:220px"><canvas id="mp-t-create-cancel"></canvas></div></div>
   <div class="card"><div class="ct">Taxa de churn mensal (%)</div><div class="cs">CANCEL ÷ (CREATE + RENEW) × 100</div><div class="cw" style="height:220px"><canvas id="mp-t-churn-line"></canvas></div></div>
 </div>
-<div class="s-tag mp" style="margin-top:4px;padding:0 0 6px 0">// status isolados · leitura individual por tipo</div>
+<div class="s-tag mp" style="margin-top:4px;padding:0 0 6px 0">status isolados · leitura individual por tipo</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card"><div class="ct">CREATE — novas assinaturas</div><div class="cs">Entradas brutas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="mp-t-only-create"></canvas></div></div>
   <div class="card"><div class="ct">CANCEL — cancelamentos</div><div class="cs">Saídas definitivas por mês · escala própria</div><div class="cw" style="height:200px"><canvas id="mp-t-only-cancel"></canvas></div></div>
@@ -4735,7 +4747,7 @@ body, html {
   <div class="card"><div class="ct">RENEW — renovações</div><div class="cs">Ciclos de renovação · escala própria</div><div class="cw" style="height:200px"><canvas id="mp-t-only-renew"></canvas></div></div>
   <div class="card"><div class="ct">SUSPEND — suspensões temporárias</div><div class="cs">Suspensões no mês · escala própria</div><div class="cw" style="height:200px"><canvas id="mp-t-only-suspend"></canvas></div></div>
 </div>
-<div class="s-tag mp" style="margin-top:4px;padding:0 0 6px 0">// visão diária · mai/26 · volume e share</div>
+<div class="s-tag mp" style="margin-top:4px;padding:0 0 6px 0">visão diária · mai/26 · volume e share</div>
 <div class="cg" style="margin-bottom:13px">
   <div class="card" style="overflow-x:auto"><div class="ct">Volume diário por status · mai/26</div><div class="cs">Cada linha = 1 dia do mês</div><div id="mp-t-daily-table" style="max-height:300px;overflow-y:auto;padding:2px"></div></div>
   <div class="card"><div class="ct">Share (%) de status · mai/26</div><div class="cs">Proporção relativa por dia</div><div class="cw" style="height:300px"><canvas id="mp-t-daily-share"></canvas></div></div>
@@ -4748,7 +4760,7 @@ body, html {
   <div class="card"><div class="ct">NET por oferta — evolução 12m</div><div class="cs">Crescimento líquido por oferta</div><div class="leg" id="mp-t-oferta-leg"></div><div class="cw" style="height:220px"><canvas id="mp-t-oferta-evol"></canvas></div></div>
   <div class="card"><div class="ct">NET por parceiro · mai/26</div><div class="cs">CREATE − CANCEL por parceiro</div><div id="mp-t-parc-net"></div></div>
 </div>
-<div class="s-tag mp" style="margin-top:4px;padding:0 0 6px 0">// year over year · comparativo ano a ano</div>
+<div class="s-tag mp" style="margin-top:4px;padding:0 0 6px 0">year over year · comparativo ano a ano</div>
 <div class="cg" style="margin-bottom:8px">
   <div class="card"><div class="ct">YoY — Volume total (todos os status)</div><div class="cs">Sólida = ano atual · Tracejada = ano anterior</div><div class="leg" id="mp-t-yoy-leg"></div><div class="cw" style="height:220px"><canvas id="mp-t-yoy-all"></canvas></div></div>
   <div class="card"><div class="ct">YoY — Tabela resumo</div><div class="cs">Variação abs e % por mês</div><div id="mp-t-yoy-table" style="max-height:230px;overflow-y:auto;padding:2px"></div></div>
@@ -4763,13 +4775,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - MULHERES POSITIVAS ============ -->
 <div class="section" id="mp-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag mp">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag mp">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Mulheres Positivas</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -4807,7 +4819,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -4844,11 +4856,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -4898,7 +4910,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -4948,7 +4960,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -4997,7 +5009,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -5044,13 +5056,13 @@ body, html {
 
 <!-- ============ SEÇÃO INDICADORES NET - MULHERES POSITIVAS ============ -->
 <div class="section" id="mp-indicadores-net" style="border-top:1px solid var(--border)">
-  <div class="s-tag mp">// indicadores net · consolidado mai/26</div>
+  <div class="s-tag mp">indicadores net · consolidado mai/26</div>
   <div class="s-title">Indicadores NET — Mulheres Positivas</div>
   <div class="s-sub">CREATE − CANCEL · Análise consolidada por Oferta, Parceiro e Plano</div>
   
   <div class="al al-bl" style="margin-top:14px;margin-bottom:18px">
-    <strong>📊 Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
-    <br><strong>📊 Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
+    <strong>Cálculo de CHURN:</strong> CHURN (%) = CANCEL ÷ CREATE × 100 — Mede a taxa de cancelamento em relação às novas criações no período. 
+    <br><strong>Cálculo de NET:</strong> NET = CREATE − CANCEL — Saldo líquido de assinaturas (ganho/perda).
   </div>
   
   
@@ -5088,7 +5100,7 @@ body, html {
     </div>
   
   <!-- ============ SUB-SEÇÃO: POR OFERTA ============ -->
-  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por oferta</div>
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por oferta</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">NET por Oferta · mai/26</div>
@@ -5125,11 +5137,11 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PARCEIRO ============ -->
-  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por parceiro</div>
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por parceiro</div>
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🟢 TOP 10 Parceiros · CREATE</div>
+      <div class="ct">TOP 10 Parceiros · CREATE</div>
       <div class="cs">Principais geradores de novas assinaturas</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -5179,7 +5191,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">🔴 TOP 10 Parceiros · CANCEL</div>
+      <div class="ct">TOP 10 Parceiros · CANCEL</div>
       <div class="cs">Maiores geradores de cancelamento</div>
       <div style="overflow-x:auto;margin-top:10px">
         
@@ -5229,7 +5241,7 @@ body, html {
   
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
-      <div class="ct">📋 Todos os Parceiros · Consolidado</div>
+      <div class="ct">Todos os Parceiros · Consolidado</div>
       <div class="cs">Visão completa de todos os parceiros · Ordenado por CREATE</div>
       <div style="overflow-x:auto;max-height:400px;overflow-y:auto;margin-top:10px">
         
@@ -5278,7 +5290,7 @@ body, html {
   </div>
   
   <!-- ============ SUB-SEÇÃO: POR PLANO ============ -->
-  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">// indicadores net · por plano</div>
+  <div class="s-tag mp" style="margin-top:24px;padding:0 0 6px 0">indicadores net · por plano</div>
   <div class="cg" style="margin-bottom:13px">
     <div class="card full">
       <div class="ct">Indicadores por Plano · mai/26</div>
@@ -6010,26 +6022,34 @@ function renderTransacional(prefix, D, accentColor) {
 
 
 const SB_DEFS = {
+  ov: {
+    tag: 'Overview', sub: 'Consolidado · mai/2026', color: '#5e7a99',
+    items: [
+      ['#ov-header','Visão Executiva'],
+      ['#ov-table','Indicadores NET'],
+      ['#ov-alerts','Alertas & Sinais']
+    ]
+  },
   seg: {
     tag: 'Segurança', sub: 'jan/22\u2192mai/26 · 53 meses', color: 'var(--seg-c)',
     items: [['#seg-overview','Visão Geral'],['#seg-produto-pai','Produto Pai'],
             ['#seg-oferta','Por Oferta'],['#seg-parceiro','Por Parceiro'],
             ['#seg-evolucao','Evolução Histórica'],['#seg-sinais','Sinais & Alertas'],
-            ['#seg-indicadores-net','📊 Indicadores NET']]
+            ['#seg-indicadores-net','Indicadores NET']]
   },
   segu: {
     tag: 'Seguros', sub: 'abr/25\u2192mai/26 · 14 meses', color: 'var(--segu-c)',
     items: [['#segu-overview','Visão Geral'],['#segu-produto-pai','Produto Pai'],
             ['#segu-produto','Por Produto'],['#segu-oferta','Por Oferta'],
             ['#segu-parceiro','Por Parceiro'],['#segu-evolucao','Evolução Histórica'],
-            ['#segu-sinais','Sinais & Alertas'],['#segu-indicadores-net','📊 Indicadores NET']]
+            ['#segu-sinais','Sinais & Alertas'],['#segu-indicadores-net','Indicadores NET']]
   },
   cont: {
     tag: 'Conteúdo', sub: 'mai/22\u2192mai/26 · 49 meses', color: 'var(--cont-c)',
     items: [['#cont-overview','Visão Geral'],['#cont-produto-pai','Produto Pai'],
             ['#cont-oferta','Por Oferta'],['#cont-parceiro','Por Parceiro'],
             ['#cont-evolucao','Evolução Histórica'],['#cont-sinais','Sinais & Alertas'],
-            ['#cont-indicadores-net','📊 Indicadores NET']]
+            ['#cont-indicadores-net','Indicadores NET']]
   },
   mp: {
     tag: 'Mulheres Positivas', sub: 'dez/22→mai/26', color: 'var(--mp-c)',
@@ -6038,7 +6058,7 @@ const SB_DEFS = {
       ['#mp-parceiro', 'Por Parceiro'],
       ['#mp-evolucao', 'Evolução Histórica'],
       ['#mp-sinais',   'Sinais & Alertas'],
-      ['#mp-indicadores-net', '📊 Indicadores NET']
+      ['#mp-indicadores-net', 'Indicadores NET']
     ]
   }
 };
@@ -6087,7 +6107,9 @@ function switchVert(vert, btn) {
   var _v = vert;
   requestAnimationFrame(function() {
     requestAnimationFrame(function() {
-      if (_v === 'mp') {
+      if (_v === 'ov') {
+        // Overview: sem charts para inicializar
+      } else if (_v === 'mp') {
         if (!chartsInit['mp-base']) { initMp(); chartsInit['mp-base'] = true; }
         if (!tChartsInit['mp']) {
           renderTransacional('mp', T_MP, 'var(--mp-c)');
@@ -6216,10 +6238,50 @@ function initCharts(vert) {
   else if (vert==='cont') initCont();
 }
 
-buildSidebar('seg');
+buildSidebar('ov');
 initCharts('seg');
 chartsInit['seg'] = true;
 
+
+// ── Formata celulas numericas das tabelas estaticas ────────
+function fmtTableNums() {
+  document.querySelectorAll('.dt tbody tr').forEach(function(row) {
+    var cells = row.querySelectorAll('td');
+    for (var i = 1; i < cells.length; i++) {
+      var td = cells[i];
+      var raw = (td.textContent || '').trim();
+      if (!raw || raw.indexOf('%') !== -1 || raw === '0' || raw === '—' || raw === '-') continue;
+      if (raw.indexOf('M') !== -1 || raw.indexOf('B') !== -1 || raw.indexOf('k') !== -1) continue;
+      var neg = raw.charAt(0) === '-';
+      var clean = raw.replace(/^-/, '').replace(/\./g, '');
+      var n = parseInt(clean, 10);
+      if (!isNaN(n) && n >= 10000) {
+        td.textContent = (neg ? '-' : '') + fmt(n);
+      }
+    }
+  });
+}
+
+// ── Coloriza KPI cards de CHURN por threshold ──────────────
+function colorizeChurnKPIs() {
+  document.querySelectorAll('.t-kpi.ch').forEach(function(card) {
+    var valEl = card.querySelector('.t-kpi-val');
+    if (!valEl) return;
+    var raw = (valEl.textContent || '').trim().replace('%','').replace(',','.');
+    var val = parseFloat(raw);
+    if (isNaN(val)) return;
+    var color = val >= 70 ? '#dc2626' : val >= 30 ? '#d97706' : '#16a34a';
+    valEl.style.color = color;
+    card.style.borderTopColor = color;
+  });
+}
+
+// ── Executa apos carregamento e apos charts dinamicos ───────
+document.addEventListener('DOMContentLoaded', function() {
+  fmtTableNums();
+  colorizeChurnKPIs();
+  setTimeout(function() { fmtTableNums(); colorizeChurnKPIs(); }, 900);
+});
 </script>
 </body>
 </html>
